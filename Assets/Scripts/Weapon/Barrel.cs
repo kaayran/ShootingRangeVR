@@ -1,5 +1,6 @@
 ﻿using System;
-using Ammo;
+using Ammunition;
+using Ammunition.Cartridge;
 using UnityEngine;
 
 namespace Weapon
@@ -16,9 +17,9 @@ namespace Weapon
             
         }
 
-        public void Fire(Patron patron)
+        public void Fire(Cartridge cartridge)
         {
-            var bullet = patron.GetBullet();
+            var bullet = cartridge.GetBullet();
             var bulletTransform = bullet.GetTransform();
             bulletTransform.position = _fireTransform.position;
             bulletTransform.rotation = _fireTransform.rotation;
@@ -26,7 +27,7 @@ namespace Weapon
             bullet.Deploy(_speed);
             OnBulletFired?.Invoke();
 
-            patron.DestroyPatron();
+            cartridge.DestroyPatron();
         }
     }
 }

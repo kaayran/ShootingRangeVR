@@ -6,17 +6,17 @@ namespace Weapon.Pistol.Scripts
     {
         public override void Init()
         {
-            magazineContainer = GetComponent<MagazineContainer>();
-            magazineExtractor = GetComponent<MagazineExtractor>();
+            magazineCartridgeContainer = GetComponent<MagazineCartridgeContainer>();
+            magazineCartridgeExtractor = GetComponent<MagazineCartridgeExtractor>();
             magazinePopper = GetComponent<Popper>();
             magazineAttachment = GetComponent<Attachment>();
 
-            magazineContainer.Init();
+            magazineCartridgeContainer.Init();
             magazineAttachment.Init();
             magazinePopper.Init(magazineAttachment);
-            magazineExtractor.Init(magazineContainer, magazinePopper, magazineAttachment);
-            _magazineInserter.Init(magazineContainer, magazineAttachment);
-            _magazineView.Init(magazineContainer);
+            magazineCartridgeExtractor.Init(magazineCartridgeContainer, magazinePopper, magazineAttachment);
+            magazineCartridgeInserter.Init(magazineCartridgeContainer, magazineAttachment);
+            magazineView.Init(magazineCartridgeContainer);
         }
 
         private void Start()

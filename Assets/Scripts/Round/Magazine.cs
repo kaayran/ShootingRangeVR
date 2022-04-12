@@ -1,4 +1,5 @@
-using Ammo;
+using Ammunition;
+using Ammunition.Cartridge;
 using Interfaces;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
@@ -6,33 +7,33 @@ using Weapon;
 
 namespace Round
 {
-    [RequireComponent(typeof(MagazineContainer))]
-    [RequireComponent(typeof(MagazineExtractor))]
+    [RequireComponent(typeof(MagazineCartridgeContainer))]
+    [RequireComponent(typeof(MagazineCartridgeExtractor))]
     [RequireComponent(typeof(Popper))]
     [RequireComponent(typeof(Attachment))]
     [RequireComponent(typeof(Throwable))]
     public abstract class Magazine : MonoBehaviour, IActivatable
     {
-        [SerializeField] private protected MagazineInserter _magazineInserter;
-        [SerializeField] private protected MagazineView _magazineView;
-        [SerializeField] private protected MagazineType _magazineType;
+        [SerializeField] private protected MagazineCartridgeInserter magazineCartridgeInserter;
+        [SerializeField] private protected MagazineView magazineView;
+        [SerializeField] private protected MagazineType magazineType;
 
-        private protected MagazineContainer magazineContainer;
-        private protected MagazineExtractor magazineExtractor;
+        private protected MagazineCartridgeContainer magazineCartridgeContainer;
+        private protected MagazineCartridgeExtractor magazineCartridgeExtractor;
         private protected Attachment magazineAttachment;
         private protected Popper magazinePopper;
 
         public abstract void Init();
 
-        public bool TryPopPatron(out Patron patron)
+        public bool TryPopPatron(out Cartridge cartridge)
         {
-            if (magazineContainer.TryPop(out var poppedPatron))
+            if (magazineCartridgeContainer.TryPop(out var poppedCartridge))
             {
-                patron = poppedPatron;
+                cartridge = poppedCartridge;
                 return true;
             }
 
-            patron = null;
+            cartridge = null;
             return false;
         }
 
@@ -52,12 +53,12 @@ namespace Round
 
         public MagazineType GetMagazineType()
         {
-            return (MagazineType) _magazineType.Clone();
+            return (MagazineType) magazineType.Clone();
         }
 
         public bool CheckPatron()
         {
-            return magazineContainer.CheckStored();
+            return magazineCartridgeContainer.CheckStored();
         }
 
         internal Attachment GetMagazineAttachment()

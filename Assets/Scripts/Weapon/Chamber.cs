@@ -1,5 +1,6 @@
 ﻿using System;
-using Ammo;
+using Ammunition;
+using Ammunition.Cartridge;
 using UnityEngine;
 
 namespace Weapon
@@ -9,36 +10,36 @@ namespace Weapon
         public event Action OnPatronEnter;
         public event Action OnPatronOut;
 
-        private Patron _patron;
+        private Cartridge _cartridge;
 
         public void Init()
         {
-            _patron = null;
+            _cartridge = null;
         }
 
-        public bool TryPopPatron(out Patron patron)
+        public bool TryPopPatron(out Cartridge cartridge)
         {
-            patron = _patron;
-            if (_patron == null) return false;
+            cartridge = _cartridge;
+            if (_cartridge == null) return false;
 
-            _patron = null;
+            _cartridge = null;
             OnPatronOut?.Invoke();
 
             return true;
         }
 
-        public void TrySetPatron(Patron patron)
+        public void TrySetPatron(Cartridge cartridge)
         {
-            if (patron == null) return;
-            if (_patron != null) return;
+            if (cartridge == null) return;
+            if (_cartridge != null) return;
 
-            _patron = patron;
+            _cartridge = cartridge;
             OnPatronEnter?.Invoke();
         }
 
         public bool CheckPatron()
         {
-            return _patron != null;
+            return _cartridge != null;
         }
     }
 }

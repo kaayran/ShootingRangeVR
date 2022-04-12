@@ -2,7 +2,7 @@
 
 namespace Round
 {
-    [CreateAssetMenu(fileName = "MAGAZINE_TYPE", menuName = "Magazine", order = 0)]
+    [CreateAssetMenu(fileName = "MAGAZINE_NAME", menuName = "Magazine", order = 0)]
     public class MagazineType : ScriptableObject
     {
         public string MagazineName;

@@ -7,11 +7,12 @@ namespace Round
     {
         [SerializeField] private TextMeshProUGUI _leftText;
 
-        public override void Init(MagazineContainer container)
+        public override void Init(MagazineCartridgeContainer cartridgeContainer)
         {
-            magazineContainer = container;
-            _leftText.text = "LEFT: " + container;
-            magazineContainer.OnQuantityUpdate += OnQuantityUpdate;
+            MagazineCartridgeContainer = cartridgeContainer;
+            _leftText.text = "LEFT: " + cartridgeContainer;
+
+            MagazineCartridgeContainer.OnQuantityUpdate += OnQuantityUpdate;
         }
 
         public override void OnQuantityUpdate(int count)

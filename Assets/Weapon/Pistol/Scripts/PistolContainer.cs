@@ -9,7 +9,7 @@ namespace Weapon.Pistol.Scripts
         public override event Action OnPopped;
         public override event Action OnEntered;
 
-        [SerializeField] private MagazineType _magazineType;
+        [SerializeField] private MagazineType magazineType;
 
         private Magazine _magazine;
 
@@ -49,7 +49,7 @@ namespace Weapon.Pistol.Scripts
 
         public override MagazineType GetStoredType()
         {
-            return (MagazineType) _magazineType.Clone();
+            return (MagazineType) magazineType.Clone();
         }
     }
 }

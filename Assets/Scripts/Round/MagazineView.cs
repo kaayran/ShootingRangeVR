@@ -4,8 +4,8 @@ namespace Round
 {
     internal abstract class MagazineView : MonoBehaviour
     {
-        protected MagazineContainer magazineContainer;
-        public abstract void Init(MagazineContainer container);
+        protected MagazineCartridgeContainer MagazineCartridgeContainer;
+        public abstract void Init(MagazineCartridgeContainer cartridgeContainer);
         public abstract void OnQuantityUpdate(int count);
     }
 }

@@ -1,4 +1,5 @@
-﻿using Ammo;
+﻿using Ammunition;
+using Ammunition.Cartridge;
 using UnityEngine;
 
 namespace Weapon
@@ -9,7 +10,7 @@ namespace Weapon
         [SerializeField] private float _force;
         [SerializeField] private float _torque;
 
-        private Cartridge _cartridge;
+        private CartridgeCase _cartridgeCase;
         private Chamber _chamber;
 
         public void Init(Slide slide, Chamber chamber)
@@ -19,13 +20,13 @@ namespace Weapon
             slide.OnBackward += Backward;
             slide.OnBackward += BackwardDropPatron;
 
-            _cartridge = null;
+            _cartridgeCase = null;
         }
 
-        public void SetCartridge(Cartridge cartridge)
+        public void SetCartridge(CartridgeCase cartridgeCase)
         {
-            _cartridge = cartridge;
-            _cartridge.Deactivate();
+            _cartridgeCase = cartridgeCase;
+            _cartridgeCase.Deactivate();
         }
 
         private void BackwardDropPatron()
@@ -47,21 +48,21 @@ namespace Weapon
 
         private void Backward()
         {
-            if (_cartridge == null) return;
-            _cartridge.Activate();
+            if (_cartridgeCase == null) return;
+            _cartridgeCase.Activate();
 
-            var cartridgeTransform = _cartridge.GetTransform();
+            var cartridgeTransform = _cartridgeCase.GetTransform();
             cartridgeTransform.position = _extractTransform.position;
             cartridgeTransform.rotation = _extractTransform.rotation;
             cartridgeTransform.parent = null;
 
-            var cartridgeRigidbody = _cartridge.GetRigidbody();
+            var cartridgeRigidbody = _cartridgeCase.GetRigidbody();
             cartridgeRigidbody.AddForce(cartridgeTransform.forward * _force, ForceMode.Impulse);
 
             var torque = ForceTorque();
             cartridgeRigidbody.AddTorque(torque, ForceMode.Impulse);
 
-            _cartridge = null;
+            _cartridgeCase = null;
         }
 
         private Vector3 ForceTorque()
