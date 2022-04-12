@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c118afee4b5495a97fa506c237c50bb, type: 3}
-  m_Name: 9x19_LUGER
+  m_Name: 9x19_PBP
   m_EditorClassIdentifier: 
-  CartridgeName: 9x19_LUGER
-  BulletSpeed: 360
+  CartridgeName: 9x19_PBP
+  BulletSpeed: 550

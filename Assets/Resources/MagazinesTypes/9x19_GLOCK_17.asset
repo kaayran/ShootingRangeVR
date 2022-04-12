@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7c118afee4b5495a97fa506c237c50bb, type: 3}
-  m_Name: 9x19_LUGER
+  m_Script: {fileID: 11500000, guid: 32dd4c171e764634b1a92fcc1c0a6ede, type: 3}
+  m_Name: 9x19_GLOCK_17
   m_EditorClassIdentifier: 
-  CartridgeName: 9x19_LUGER
-  BulletSpeed: 360
+  MagazineName: Standard Glock 17 9x19
