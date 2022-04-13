@@ -10,7 +10,7 @@ namespace MagazineStructure
         public override void Init(MagazineCartridgeContainer cartridgeContainer)
         {
             MagazineCartridgeContainer = cartridgeContainer;
-            _leftText.text = "LEFT: " + cartridgeContainer;
+            _leftText.text = "LEFT: " + cartridgeContainer.GetQuantity();
 
             MagazineCartridgeContainer.OnQuantityUpdate += OnQuantityUpdate;
         }

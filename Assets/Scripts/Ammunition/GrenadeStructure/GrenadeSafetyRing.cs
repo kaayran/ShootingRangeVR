@@ -25,7 +25,7 @@ namespace Ammunition.GrenadeStructure
             if (!(updatedDistance > _DistanceToDrag)) return;
 
             OnDrag?.Invoke();
-            Debug.Log("Ring Dropped");
+            Debug.Log("Ring Dragged!");
         }
     }
 }

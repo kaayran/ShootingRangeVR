@@ -8,11 +8,13 @@ namespace Ammunition.CartridgeStructure
     {
         public string CartridgeName;
         public float BulletSpeed;
+        public string Caliber;
 
-        public CartridgeType(string cartridgeName, float bulletSpeed)
+        public CartridgeType(string cartridgeName, float bulletSpeed, string caliber)
         {
             CartridgeName = cartridgeName;
             BulletSpeed = bulletSpeed;
+            Caliber = caliber;
         }
 
         public object Clone()

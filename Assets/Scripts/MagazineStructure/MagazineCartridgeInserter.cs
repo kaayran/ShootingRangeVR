@@ -7,11 +7,11 @@ namespace MagazineStructure
     [RequireComponent(typeof(Collider))]
     internal class MagazineCartridgeInserter : MonoBehaviour
     {
-        private Container<Cartridge, CartridgeType> _container;
+        private MagazineCartridgeContainer _container;
         private Attachment _attachment;
         private Cartridge _cartridge;
 
-        public void Init(Container<Cartridge, CartridgeType> container, Attachment attachment)
+        public void Init(MagazineCartridgeContainer container, Attachment attachment)
         {
             _container = container;
             _attachment = attachment;
@@ -33,9 +33,9 @@ namespace MagazineStructure
         {
             if (!_attachment.TryGetHand(out var hand)) return;
 
-            var magazineCartridgeName = _container.GetStoredType().CartridgeName;
-            var cartridgeName = _cartridge.GetCartridgeType().CartridgeName;
-            if (!magazineCartridgeName.Equals(cartridgeName)) return;
+            var magazineCaliber = _container.GetCaliber();
+            var cartridgeCaliber = _cartridge.GetCartridgeType().Caliber;
+            if (!magazineCaliber.Equals(cartridgeCaliber)) return;
 
             if (!_container.TryPush(_cartridge)) return;
 

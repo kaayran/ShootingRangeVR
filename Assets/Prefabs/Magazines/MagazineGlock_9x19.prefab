@@ -242,9 +242,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b4c6621a7a234c00836e8f6edbb13b29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _cartridgeType: {fileID: 0}
   _cartridge: {fileID: 0}
   _capacity: 17
+  _caliber: 9mm
 --- !u!114 &1392603012431407535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -481,8 +481,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7977472701254512134}
   m_LocalRotation: {x: -0.17787927, y: -0, z: -0, w: 0.98405236}
-  m_LocalPosition: {x: 0, y: 0.103, z: -0.0339}
-  m_LocalScale: {x: 0.035179574, y: 0.055915736, z: 0.087103024}
+  m_LocalPosition: {x: 0, y: 0.1186, z: -0.0397}
+  m_LocalScale: {x: 0.035179574, y: 0.08934216, z: 0.087103024}
   m_Children: []
   m_Father: {fileID: 8157328940395542869}
   m_RootOrder: 0

@@ -13,9 +13,9 @@ namespace MagazineStructure
         public override event Action OnPopped;
         public override event Action OnEntered;
 
-        [SerializeField] private CartridgeType _cartridgeType;
         [SerializeField] private Cartridge _cartridge;
         [SerializeField] private int _capacity;
+        [SerializeField] private string _caliber;
 
         private Stack<Cartridge> _cartridges;
 
@@ -65,14 +65,20 @@ namespace MagazineStructure
             return _cartridges.Count != 0;
         }
 
+        // Need to do something with this shit.
         public override CartridgeType GetStoredType()
         {
-            return (CartridgeType) _cartridgeType.Clone();
+            return ScriptableObject.CreateInstance<CartridgeType>();
         }
 
         public int GetQuantity()
         {
             return _cartridges.Count;
+        }
+
+        public string GetCaliber()
+        {
+            return _caliber;
         }
     }
 }
