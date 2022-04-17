@@ -2,6 +2,7 @@
 
 namespace Ammunition.CartridgeStructure
 {
+    [RequireComponent(typeof(CartridgeBulletDamageDetection))]
     [RequireComponent(typeof(Rigidbody))]
     [RequireComponent(typeof(Collider))]
     public class CartridgeBullet : MonoBehaviour
