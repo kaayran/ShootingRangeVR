@@ -11,6 +11,9 @@ namespace Ammunition.CartridgeStructure
 
             var contactPoint = collision.GetContact(0).point;
             component.Damage(contactPoint);
+            
+            // For tests, Destroy() object after collision with object.
+            Destroy(gameObject);
         }
     }
 }
