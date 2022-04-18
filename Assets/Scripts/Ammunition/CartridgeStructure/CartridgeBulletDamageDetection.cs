@@ -10,8 +10,10 @@ namespace Ammunition.CartridgeStructure
             if (!TryGetComponent<IDamageable>(out var component)) return;
 
             var contactPoint = collision.GetContact(0).point;
-            component.Damage(contactPoint);
-            
+            var normal = Quaternion.LookRotation(collision.GetContact(0).normal);
+
+            component.Damage(contactPoint, normal);
+
             // For tests, Destroy() object after collision with object.
             Destroy(gameObject);
         }

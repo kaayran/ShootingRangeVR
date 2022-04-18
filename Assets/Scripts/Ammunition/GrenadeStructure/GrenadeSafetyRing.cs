@@ -4,6 +4,7 @@ using Valve.VR.InteractionSystem;
 
 namespace Ammunition.GrenadeStructure
 {
+    [RequireComponent(typeof(Throwable))]
     public class GrenadeSafetyRing : MonoBehaviour
     {
         public event Action OnDrag;
