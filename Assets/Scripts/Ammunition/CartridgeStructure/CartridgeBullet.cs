@@ -21,6 +21,7 @@ namespace Ammunition.CartridgeStructure
 
             bulletCollider.isTrigger = false;
             _rb.isKinematic = false;
+            _rb.collisionDetectionMode = CollisionDetectionMode.Continuous;
             var bulletTransform = transform;
             bulletTransform.parent = null;
 

@@ -6,11 +6,14 @@ namespace Detections
 {
     public class BulletHitDetection : MonoBehaviour, IDamageable
     {
+        public event Action OnDamage;
         [SerializeField] private GameObject _damageMark;
+        
         public void Damage(Vector3 contactPoint, Quaternion normal)
         {
             Debug.Log("IDamageable!");
-            Instantiate(_damageMark, contactPoint, normal);
+            OnDamage?.Invoke();
+            Instantiate(_damageMark, contactPoint, normal, transform);
         }
     }
 }

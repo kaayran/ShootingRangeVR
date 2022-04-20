@@ -23,7 +23,7 @@ namespace Ammunition.GrenadeStructure
             _attachment = GetComponent<Attachment>();
 
             grenadeSafetyRing.Init();
-            grenadeStrikerLever.Init();
+            grenadeStrikerLever.Init(_attachment);
             _isRingDragged = false;
 
             grenadeSafetyRing.OnDrag += OnDrag;

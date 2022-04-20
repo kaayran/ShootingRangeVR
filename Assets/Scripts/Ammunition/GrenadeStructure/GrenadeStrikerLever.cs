@@ -14,9 +14,9 @@ namespace Ammunition.GrenadeStructure
         private Attachment _attachment;
         private bool _isInit;
 
-        public void Init()
+        public void Init(Attachment attachment)
         {
-            _attachment = GetComponent<Attachment>();
+            _attachment = attachment;
             _isInit = true;
         }
 

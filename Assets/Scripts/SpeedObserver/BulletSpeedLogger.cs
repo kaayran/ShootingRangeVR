@@ -14,7 +14,7 @@ namespace SpeedObserver
 
         private void Update()
         {
-            Debug.Log(_bulletRigidbody.velocity);
+            //Debug.Log(_bulletRigidbody.velocity);
         }
     }
 }

@@ -6,8 +6,9 @@ namespace Ammunition.CartridgeStructure
     public class CartridgeBulletDamageDetection : MonoBehaviour
     {
         private void OnCollisionEnter(Collision collision)
-        {
-            if (!TryGetComponent<IDamageable>(out var component)) return;
+        {   
+            Debug.Log(collision.gameObject.name);
+            if (!collision.gameObject.TryGetComponent<IDamageable>(out var component)) return;
 
             var contactPoint = collision.GetContact(0).point;
             var normal = Quaternion.LookRotation(collision.GetContact(0).normal);
