@@ -11,9 +11,9 @@ namespace Detections
         
         public void Damage(Vector3 contactPoint, Quaternion normal)
         {
-            Debug.Log("IDamageable!");
             OnDamage?.Invoke();
-            Instantiate(_damageMark, contactPoint, normal, transform);
+            var obj = Instantiate(_damageMark, contactPoint, normal);
+            obj.transform.SetParent(transform, true);
         }
     }
 }
