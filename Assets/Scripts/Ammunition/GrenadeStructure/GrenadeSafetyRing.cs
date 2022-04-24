@@ -9,24 +9,16 @@ namespace Ammunition.GrenadeStructure
     {
         public event Action OnDrag;
 
-        private Vector3 _startPos;
-        private const float _DistanceToDrag = 0.15f;
-
         public void Init()
         {
-            _startPos = transform.position;
         }
 
-        private void HandAttachedUpdate(Hand hand)
+        private void OnJointBreak(float breakForce)
         {
-            Debug.Log("UPDATED");
-
-            var updatedDistance = Vector3.Distance(_startPos, transform.position);
-
-            if (!(updatedDistance > _DistanceToDrag)) return;
-
+            Debug.Log($"HingeJoint broke force: {breakForce}");
             OnDrag?.Invoke();
-            Debug.Log("Ring Dragged!");
+
+            gameObject.transform.parent = null;
         }
     }
 }

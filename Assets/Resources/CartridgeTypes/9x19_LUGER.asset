@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 9x19_LUGER
   m_EditorClassIdentifier: 
   CartridgeName: 9x19_LUGER
-  BulletSpeed: 330
+  BulletSpeed: 100
   Caliber: 9mm

@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &955072250232107738
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2507925715909122631}
+  - component: {fileID: 6106851495542353673}
+  m_Layer: 0
+  m_Name: MagazineCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2507925715909122631
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955072250232107738}
+  m_LocalRotation: {x: -0.17327975, y: -0, z: -0, w: 0.98487264}
+  m_LocalPosition: {x: 0.0003, y: 0.0132, z: -0.0026}
+  m_LocalScale: {x: 0.019486768, y: 0.17849496, z: 0.05928733}
+  m_Children: []
+  m_Father: {fileID: 8157328940395542869}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: -19.957, y: 0, z: 0}
+--- !u!65 &6106851495542353673
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955072250232107738}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1392603012431407511
 GameObject:
   m_ObjectHideFlags: 0
@@ -14,7 +58,6 @@ GameObject:
   - component: {fileID: 1392603012431407531}
   - component: {fileID: 1392603012431407530}
   - component: {fileID: 1392603012431407529}
-  - component: {fileID: 1392603012431407528}
   - component: {fileID: 1392603012431407520}
   - component: {fileID: 1392603012431407535}
   - component: {fileID: 1392603012431407532}
@@ -43,6 +86,7 @@ Transform:
   - {fileID: 7977472701254512135}
   - {fileID: 7977472701442918861}
   - {fileID: 7977472700123171305}
+  - {fileID: 2507925715909122631}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -217,19 +261,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactable: {fileID: 0}
---- !u!65 &1392603012431407528
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1392603012431407511}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.015932124, y: 0.14703561, z: 0.09618029}
-  m_Center: {x: 0, y: 0.01847717, z: 0.0013343301}
 --- !u!114 &1392603012431407520
 MonoBehaviour:
   m_ObjectHideFlags: 0

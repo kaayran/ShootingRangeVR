@@ -9,6 +9,7 @@ namespace WeaponsRealization
     [RequireComponent(typeof(WeaponMagazineContainer))]
     [RequireComponent(typeof(WeaponMagazineExtractor))]
     [RequireComponent(typeof(WeaponChamberEjector))]
+    [RequireComponent(typeof(CollisionIgnoring))]
     [RequireComponent(typeof(WeaponFiringPin))]
     [RequireComponent(typeof(WeaponChamber))]
     [RequireComponent(typeof(WeaponTrigger))]
@@ -23,6 +24,7 @@ namespace WeaponsRealization
             WeaponMagazineExtractor = GetComponent<WeaponMagazineExtractor>();
             Container = GetComponent<Container<Magazine, MagazineType>>();
             WeaponChamberEjector = GetComponent<WeaponChamberEjector>();
+            CollisionIgnoring = GetComponent<CollisionIgnoring>();
             WeaponFiringPin = GetComponent<WeaponFiringPin>();
             WeaponTrigger = GetComponent<WeaponTrigger>();
             WeaponChamber = GetComponent<WeaponChamber>();
@@ -30,6 +32,7 @@ namespace WeaponsRealization
             Attachment = GetComponent<Attachment>();
             Popper = GetComponent<Popper>();
 
+            CollisionIgnoring.Init();
             Attachment.Init();
             Popper.Init(Attachment);
             WeaponTrigger.Init(Attachment);

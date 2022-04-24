@@ -5,7 +5,7 @@ using Valve.VR;
 
 namespace Ammunition.GrenadeStructure
 {
-    public class GrenadeStrikerLever : MonoBehaviour
+    public class GrenadeFuseStrikerLever : MonoBehaviour
     {
         public event Action OnRelease;
 
@@ -27,9 +27,9 @@ namespace Ammunition.GrenadeStructure
 
             var type = hand.handType;
 
-            if (!(_grip[type].axis < 0.25f)) return;
+            if (_grip[type].axis > 0.75f) return;
 
-            Debug.Log("Grip Released");
+            Debug.Log("Grip released.");
             OnRelease?.Invoke();
         }
     }

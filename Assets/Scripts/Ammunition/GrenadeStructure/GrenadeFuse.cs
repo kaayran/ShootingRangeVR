@@ -6,28 +6,40 @@ using UnityEngine;
 
 namespace Ammunition.GrenadeStructure
 {
+    [RequireComponent(typeof(GrenadeStriker))]
+    [RequireComponent(typeof(CollisionIgnoring))]
     [RequireComponent(typeof(Attachment))]
     public class GrenadeFuse : MonoBehaviour, IActivatable
     {
         public event Action OnDetonate;
 
-        [SerializeField] private GrenadeStrikerLever grenadeStrikerLever;
-        [SerializeField] private GrenadeSafetyRing grenadeSafetyRing;
-        [SerializeField] private GrenadeFuseType grenadeFuseType;
+        [SerializeField] private GrenadeFuseStrikerLever _grenadeFuseStrikerLever;
+        [SerializeField] private GrenadeSafetyRing _grenadeSafetyRing;
+        [SerializeField] private GrenadeFuseType _grenadeFuseType;
 
         private Attachment _attachment;
+        private CollisionIgnoring _collisionIgnoring;
         private bool _isRingDragged;
+        private GrenadeStriker _grenadeStriker;
 
         public void Init()
         {
+            _collisionIgnoring = GetComponent<CollisionIgnoring>();
             _attachment = GetComponent<Attachment>();
 
-            grenadeSafetyRing.Init();
-            grenadeStrikerLever.Init(_attachment);
+            _attachment.Init();
+            _collisionIgnoring.Init();
+
+            // Something wrong here!
+            _grenadeStriker = GetComponent<GrenadeStriker>();
+            _grenadeStriker.Init();
+
+            _grenadeSafetyRing.Init();
+            _grenadeFuseStrikerLever.Init(_attachment);
             _isRingDragged = false;
 
-            grenadeSafetyRing.OnDrag += OnDrag;
-            grenadeStrikerLever.OnRelease += OnRelease;
+            _grenadeSafetyRing.OnDrag += OnDrag;
+            _grenadeFuseStrikerLever.OnRelease += OnRelease;
         }
 
         public void Activate()
@@ -47,7 +59,7 @@ namespace Ammunition.GrenadeStructure
 
         public GrenadeFuseType GetFuseType()
         {
-            return (GrenadeFuseType) grenadeFuseType.Clone();
+            return (GrenadeFuseType) _grenadeFuseType.Clone();
         }
 
         private void OnRelease()
@@ -59,16 +71,18 @@ namespace Ammunition.GrenadeStructure
 
         private IEnumerator FuseDelay()
         {
+            _grenadeFuseStrikerLever.OnRelease -= OnRelease;
             yield return new WaitForSeconds(5f);
 
             OnDetonate?.Invoke();
-            grenadeStrikerLever.OnRelease -= OnRelease;
         }
 
         private void OnDrag()
         {
+            Debug.Log("Ring dragged with force!");
+
             _isRingDragged = true;
-            grenadeSafetyRing.OnDrag -= OnDrag;
+            _grenadeSafetyRing.OnDrag -= OnDrag;
         }
 
         private void Awake()

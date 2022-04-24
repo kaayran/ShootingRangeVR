@@ -20,7 +20,8 @@ namespace WeaponStructure
         private void OnTriggerStay(Collider other)
         {
             if (_magazine != null) return;
-            if (!other.TryGetComponent<Magazine>(out var magazine)) return;
+            if (other.transform.parent == null) return;
+            if (!other.transform.parent.TryGetComponent<Magazine>(out var magazine)) return;
             if (!magazine.GetMagazineAttachment().TryGetHand(out var hand)) return;
 
             _magazine = magazine;
@@ -48,7 +49,8 @@ namespace WeaponStructure
         private void OnTriggerExit(Collider other)
         {
             if (_magazine == null) return;
-            if (!other.TryGetComponent<Magazine>(out var magazine)) return;
+            if (other.transform.parent == null) return;
+            if (!other.transform.parent.TryGetComponent<Magazine>(out var magazine)) return;
             if (_magazine != magazine) return;
 
             var magazineAttachment = _magazine.GetMagazineAttachment();
