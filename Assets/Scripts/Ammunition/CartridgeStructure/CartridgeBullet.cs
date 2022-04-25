@@ -66,7 +66,6 @@ namespace Ammunition.CartridgeStructure
                 Destroy(gameObject);
                 return;
             }
-
             
             var bulletForce = transform.forward * _rb.velocity.magnitude * _rb.mass / _impactMultiplier;
             rb.AddForceAtPosition(bulletForce, hitPoint, ForceMode.Impulse);

@@ -805,7 +805,7 @@ GameObject:
   - component: {fileID: 4000013303659494}
   - component: {fileID: 114000013038800862}
   m_Layer: 0
-  m_Name: vr_glove_left_model_slim
+  m_Name: vr_glove_left_model_slim Edited
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1153,7 +1153,7 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 8f32b3d74401443479c643e48c21915a, type: 2}
+  - {fileID: 2100000, guid: c31f27997f02d3742b8397344a831ae0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

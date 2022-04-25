@@ -10,10 +10,8 @@ namespace StructureComponents
         public void Init()
         {
             for (var i = 0; i < _colliders.Count - 1; i++)
-                _colliders.GetRange(i + 1, _colliders.Count - i - 1).ForEach(delegate(Collider col)
-                {
-                    Physics.IgnoreCollision(_colliders[i], col);
-                });
+                _colliders.GetRange(i + 1, _colliders.Count - i - 1).ForEach(col =>
+                    Physics.IgnoreCollision(_colliders[i], col));
         }
     }
 }
