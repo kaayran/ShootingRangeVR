@@ -1,9 +1,9 @@
-﻿using UnityEngine;
+﻿using Resources;
 
 namespace Interfaces
 {
     public interface IDamageable
     {
-        public void Damage(Vector3 contactPoint, Quaternion normal);
+        public void Damage(DamageData damageData);
     }
 }
