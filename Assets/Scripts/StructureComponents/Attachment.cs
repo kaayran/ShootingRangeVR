@@ -1,10 +1,10 @@
 ﻿using System;
 using UnityEngine;
+using Utilities;
 using Valve.VR.InteractionSystem;
 
 namespace StructureComponents
 {
-    [RequireComponent(typeof(Throwable))]
     public class Attachment : MonoBehaviour
     {
         public event Action OnDrop;

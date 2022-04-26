@@ -11,6 +11,7 @@ namespace Utilities
         [SerializeField] private TextMeshProUGUI _labelAverage;
         [SerializeField] private TextMeshProUGUI _labelMin;
         [SerializeField] private TextMeshProUGUI _labelMax;
+        [SerializeField] private FramesPerSecondColor[] _colors;
 
         private FramesPerSecondCounter _counter;
 
@@ -39,9 +40,29 @@ namespace Utilities
             var minValue = Mathf.Clamp(_counter.minFramesPerSecond, 0, 90);
             var maxValue = Mathf.Clamp(_counter.maxFramesPerSecond, 0, 90);
 
-            _labelAverage.text = _values[averageValue];
-            _labelMin.text = _values[minValue];
-            _labelMax.text = _values[maxValue];
+            DisplayColor(_labelAverage, averageValue);
+            DisplayColor(_labelMin, minValue);
+            DisplayColor(_labelMax, maxValue);
+        }
+
+        private void DisplayColor(TMP_Text label, int framesPerSecond)
+        {
+            label.text = _values[framesPerSecond];
+
+            for (var i = 0; i < _colors.Length; i++)
+            {
+                if (framesPerSecond <= _colors[i].Minimum) continue;
+
+                label.color = _colors[i].Color;
+                break;
+            }
+        }
+
+        [Serializable]
+        private struct FramesPerSecondColor
+        {
+            public Color Color;
+            public int Minimum;
         }
     }
 }

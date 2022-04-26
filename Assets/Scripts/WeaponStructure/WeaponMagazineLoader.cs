@@ -23,7 +23,16 @@ namespace WeaponStructure
             if (other.transform.parent == null) return;
             if (!other.transform.parent.TryGetComponent<Magazine>(out var magazine)) return;
             if (!magazine.GetMagazineAttachment().TryGetHand(out var hand)) return;
+            // Using Vector3.Dot to provide information about magazine & weapon rotation
 
+            var magazineUp = magazine.transform.up;
+            var weaponUp = transform.up;
+
+            var dot = Vector3.Dot(weaponUp, magazineUp);
+
+            if (dot < 0.75f) return;
+            Debug.Log("Magazine in position.");
+            
             _magazine = magazine;
 
             var magazineAttachment = _magazine.GetMagazineAttachment();
