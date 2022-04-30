@@ -1,15 +1,14 @@
-﻿using System;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 namespace Utilities.Logger
 {
     [RequireComponent(typeof(TextMeshProUGUI))]
-    public class InGameLoggerView : Component
+    public class InGameLoggerView : MonoBehaviour
     {
         private TextMeshProUGUI _text;
 
-        public void Init()
+        public void Start()
         {
             _text = GetComponent<TextMeshProUGUI>();
             InGameLogger.Clear += OnClearLog;
