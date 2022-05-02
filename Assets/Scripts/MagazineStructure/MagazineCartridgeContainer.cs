@@ -32,12 +32,12 @@ namespace MagazineStructure
             }
         }
 
-        public override bool TryPop(out Cartridge cartridge)
+        public override bool TryPop(out Cartridge fuse)
         {
-            cartridge = null;
+            fuse = null;
             if (_cartridges.Count == 0) return false;
 
-            cartridge = _cartridges.Pop();
+            fuse = _cartridges.Pop();
             OnPopped?.Invoke();
             OnQuantityUpdate?.Invoke(_cartridges.Count);
 

@@ -20,6 +20,7 @@ namespace Ammunition.GrenadeStructure
 
         private CollisionIgnoring _collisionIgnoring;
         private Attachment _attachment;
+        private Rigidbody _rigidbody;
 
         private void Start()
         {
@@ -30,6 +31,7 @@ namespace Ammunition.GrenadeStructure
         {
             _collisionIgnoring = GetComponent<CollisionIgnoring>();
             _attachment = GetComponent<Attachment>();
+            _rigidbody = GetComponent<Rigidbody>();
 
             _collisionIgnoring.Init();
             _attachment.Init();
@@ -43,23 +45,28 @@ namespace Ammunition.GrenadeStructure
             _fuseExploder.Init(_fuseStriker);
             _fuseExploderView.Init(_fuseExploder);
 
-            _fuseExploder.OnExplosion += OnExplosion;
+            _fuseExploder.OnDetonate += Detonate;
         }
 
-        private void OnExplosion()
+        private void Detonate()
         {
-            Deactivate();
-            _fuseExploder.OnExplosion -= OnExplosion;
+            //Deactivate();
+            _fuseExploder.OnDetonate -= Detonate;
         }
 
         public void Activate()
         {
+            _rigidbody.velocity = Vector3.up;
+            _rigidbody.angularVelocity = Vector3.zero;
+
             gameObject.SetActive(true);
         }
 
         public void Deactivate()
         {
-            gameObject.SetActive(false);
+            //TODO: set fuse in grenade
+            _attachment.TryGetHand(out var hand);
+            hand.DetachObject(gameObject, false);
         }
 
         public Attachment GetAttachment()
@@ -70,6 +77,16 @@ namespace Ammunition.GrenadeStructure
         public GrenadeFuseType GetFuseType()
         {
             return (GrenadeFuseType) _fuseType.Clone();
+        }
+
+        public Rigidbody GetRigidbody()
+        {
+            return _rigidbody;
+        }
+
+        public GrenadeFuseExploder GetExploder()
+        {
+            return _fuseExploder;
         }
     }
 }

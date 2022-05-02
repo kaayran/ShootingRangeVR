@@ -21,6 +21,7 @@ namespace MagazineStructure
         private protected MagazineCartridgeExtractor MagazineCartridgeExtractor;
         private protected Attachment MagazineAttachment;
         private protected Popper MagazinePopper;
+        private protected Rigidbody Rigidbody;
 
         public abstract void Init();
 
@@ -43,9 +44,8 @@ namespace MagazineStructure
 
         public void Deactivate()
         {
-            var rb = GetComponent<Rigidbody>();
-            rb.velocity = Vector3.down;
-            rb.angularVelocity = Vector3.zero;
+            Rigidbody.velocity = Vector3.down;
+            Rigidbody.angularVelocity = Vector3.zero;
 
             gameObject.SetActive(false);
         }
@@ -63,6 +63,11 @@ namespace MagazineStructure
         internal Attachment GetMagazineAttachment()
         {
             return MagazineAttachment;
+        }
+
+        public Rigidbody GetRigidbody()
+        {
+            return Rigidbody;
         }
     }
 }

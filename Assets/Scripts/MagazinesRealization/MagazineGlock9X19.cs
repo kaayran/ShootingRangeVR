@@ -1,5 +1,6 @@
 ﻿using MagazineStructure;
 using StructureComponents;
+using UnityEngine;
 
 namespace MagazinesRealization
 {
@@ -11,6 +12,7 @@ namespace MagazinesRealization
             MagazineCartridgeExtractor = GetComponent<MagazineCartridgeExtractor>();
             MagazinePopper = GetComponent<Popper>();
             MagazineAttachment = GetComponent<Attachment>();
+            Rigidbody = GetComponent<Rigidbody>();
 
             MagazineCartridgeContainer.Init();
             MagazineAttachment.Init();

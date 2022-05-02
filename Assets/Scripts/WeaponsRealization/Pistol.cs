@@ -6,8 +6,8 @@ using WeaponStructure;
 
 namespace WeaponsRealization
 {
-    [RequireComponent(typeof(WeaponMagazineContainer))]
-    [RequireComponent(typeof(WeaponMagazineExtractor))]
+    [RequireComponent(typeof(WeaponContainer))]
+    [RequireComponent(typeof(WeaponExtractor))]
     [RequireComponent(typeof(WeaponChamberEjector))]
     [RequireComponent(typeof(CollisionIgnoring))]
     [RequireComponent(typeof(WeaponFiringPin))]
@@ -21,7 +21,7 @@ namespace WeaponsRealization
     {
         public override void Init()
         {
-            WeaponMagazineExtractor = GetComponent<WeaponMagazineExtractor>();
+            WeaponExtractor = GetComponent<WeaponExtractor>();
             Container = GetComponent<Container<Magazine, MagazineType>>();
             WeaponChamberEjector = GetComponent<WeaponChamberEjector>();
             CollisionIgnoring = GetComponent<CollisionIgnoring>();
@@ -38,8 +38,8 @@ namespace WeaponsRealization
             WeaponTrigger.Init(Attachment);
 
             Container.Init();
-            WeaponMagazineLoader.Init(Container, Attachment);
-            WeaponMagazineExtractor.Init(Container, Popper, Attachment);
+            weaponLoader.Init(Container, Attachment);
+            WeaponExtractor.Init(Container, Popper, Attachment);
 
             WeaponChamber.Init();
             WeaponBarrel.Init();

@@ -1,15 +1,16 @@
 ﻿using MagazineStructure;
 using StructureComponents;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace WeaponStructure
 {
     public abstract class Weapon : MonoBehaviour
     {
-        [SerializeField] protected WeaponMagazineLoader WeaponMagazineLoader;
+        [FormerlySerializedAs("WeaponMagazineLoader")] [SerializeField] protected WeaponLoader weaponLoader;
         [SerializeField] protected WeaponSlide WeaponSlide;
 
-        protected WeaponMagazineExtractor WeaponMagazineExtractor;
+        protected WeaponExtractor WeaponExtractor;
         protected Container<Magazine, MagazineType> Container;
         protected WeaponChamberEjector WeaponChamberEjector;
         protected WeaponTrigger WeaponTrigger;

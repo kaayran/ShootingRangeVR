@@ -5,17 +5,18 @@ namespace Ammunition.GrenadeStructure
 {
     public class GrenadeFuseExploderView : MonoBehaviour
     {
+        [SerializeField] private GameObject _explosion;
         private GrenadeFuseExploder _fuseExploder;
 
         public void Init(GrenadeFuseExploder exploder)
         {
             _fuseExploder = exploder;
-            _fuseExploder.OnExplosion += OnExplosion;
+            _fuseExploder.OnDetonate += Detonate;
         }
 
-        private void OnExplosion()
+        private void Detonate()
         {
-            InGameLogger.Log("Fuse explode", true);
+            Instantiate(_explosion, transform.position, transform.rotation);
         }
     }
 }

@@ -29,7 +29,7 @@ namespace MagazineStructure
             cartridgeTransform.position = _extractTransform.position;
             cartridgeTransform.rotation = _extractTransform.rotation;
 
-            var rb = cartridge.GetComponent<Rigidbody>();
+            var rb = cartridge.GetRigidbody();
             rb.velocity = hand.GetTrackedObjectVelocity();
             rb.angularVelocity = hand.GetTrackedObjectAngularVelocity();
 

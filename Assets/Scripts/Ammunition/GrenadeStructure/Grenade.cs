@@ -5,17 +5,15 @@ namespace Ammunition.GrenadeStructure
 {
     public abstract class Grenade : MonoBehaviour
     {
-        [SerializeField] protected GrenadeLoader grenadeLoader;
-        [SerializeField] protected GrenadeFuseType GrenadeFuseType;
+        [SerializeField] protected GrenadeExplosionView ExplosionView;
+        [SerializeField] protected GrenadeLoader Loader;
 
-        protected GrenadeFuseExtractor GrenadeFuseExtractor;
-        protected GrenadeContainer GrenadeContainer;
-        protected GrenadeExplosionView GrenadeExplosionView;
-        protected GrenadeExplosion GrenadeExplosion;
-        protected GrenadeView GrenadeView;
+        protected Container<GrenadeFuse, GrenadeFuseType> Container;
+        protected GrenadeExplosion Explosion;
+        protected GrenadeExtractor Extractor;
+
         protected Attachment Attachment;
         protected Popper Popper;
-
         public abstract void Init();
     }
 }

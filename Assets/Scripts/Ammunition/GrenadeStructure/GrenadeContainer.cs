@@ -9,47 +9,47 @@ namespace Ammunition.GrenadeStructure
         public override event Action OnPopped;
         public override event Action OnEntered;
 
-        [SerializeField] private GrenadeFuseType grenadeFuseType;
+        [SerializeField] private GrenadeFuseType _fuseType;
 
-        private GrenadeFuse _grenadeFuse;
+        private GrenadeFuse _fuse;
 
         public override void Init()
         {
         }
 
-        public override bool TryPop(out GrenadeFuse grenadeFuse)
+        public override bool TryPop(out GrenadeFuse fuse)
         {
-            grenadeFuse = null;
-            if (_grenadeFuse is null) return false;
+            fuse = null;
+            if (_fuse is null) return false;
 
-            grenadeFuse = _grenadeFuse;
-            _grenadeFuse = null;
+            fuse = _fuse;
+            _fuse = null;
             OnPopped?.Invoke();
             return true;
         }
 
         public override bool TryPush(GrenadeFuse grenadeFuse)
         {
-            if (!(_grenadeFuse is null)) return false;
+            if (!(_fuse is null)) return false;
 
-            _grenadeFuse = grenadeFuse;
+            _fuse = grenadeFuse;
             OnEntered?.Invoke();
             return true;
         }
 
         public override GrenadeFuse GetStored()
         {
-            return _grenadeFuse;
+            return _fuse;
         }
 
         public override bool CheckStored()
         {
-            throw new NotImplementedException();
+            return _fuse != null;
         }
 
         public override GrenadeFuseType GetStoredType()
         {
-            return (GrenadeFuseType) grenadeFuseType.Clone();
+            return (GrenadeFuseType) _fuseType.Clone();
         }
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace WeaponStructure
 {
-    public class WeaponMagazineContainer : Container<Magazine, MagazineType>
+    public class WeaponContainer : Container<Magazine, MagazineType>
     {
         public override event Action OnPopped;
         public override event Action OnEntered;

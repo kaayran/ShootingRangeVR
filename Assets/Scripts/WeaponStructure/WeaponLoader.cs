@@ -5,7 +5,7 @@ using UnityEngine;
 namespace WeaponStructure
 {
     [RequireComponent(typeof(Collider))]
-    public class WeaponMagazineLoader : MonoBehaviour
+    public class WeaponLoader : MonoBehaviour
     {
         private Container<Magazine, MagazineType> _container;
         private Attachment _attachment;
@@ -31,7 +31,7 @@ namespace WeaponStructure
 
             if (dot < 0.75f) return;
             Debug.Log("Magazine in position.");
-            
+
             _magazine = magazine;
 
             var magazineAttachment = _magazine.GetMagazineAttachment();

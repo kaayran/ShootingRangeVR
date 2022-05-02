@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace WeaponStructure
 {
-    public class WeaponMagazineExtractor : MonoBehaviour
+    public class WeaponExtractor : MonoBehaviour
     {
         [SerializeField] private Transform _extractTransform;
 
@@ -29,7 +29,7 @@ namespace WeaponStructure
             magazineTransform.position = _extractTransform.position;
             magazineTransform.rotation = _extractTransform.rotation;
 
-            var rb = magazine.GetComponent<Rigidbody>();
+            var rb = magazine.GetRigidbody();
             rb.velocity = hand.GetTrackedObjectVelocity();
             rb.angularVelocity = hand.GetTrackedObjectAngularVelocity();
 
