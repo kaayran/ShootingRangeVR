@@ -6,8 +6,6 @@ namespace Utilities
     {
         protected override void OnHandHoverBegin(Hand hand)
         {
-            bool showHint = false;
-
             // "Catch" the throwable by holding down the interaction button instead of pressing it.
             // Only do this if the throwable is moving faster than the prescribed threshold speed,
             // and if it isn't attached to another hand
@@ -23,7 +21,6 @@ namespace Utilities
                     if (rigidbody.velocity.magnitude >= catchingThreshold)
                     {
                         hand.AttachObject(gameObject, bestGrabType, attachmentFlags);
-                        showHint = false;
                     }
                 }
             }
