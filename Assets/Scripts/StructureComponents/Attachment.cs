@@ -1,6 +1,5 @@
 ﻿using System;
 using UnityEngine;
-using Utilities;
 using Valve.VR.InteractionSystem;
 
 namespace StructureComponents
