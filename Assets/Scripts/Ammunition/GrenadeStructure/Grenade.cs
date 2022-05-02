@@ -8,7 +8,6 @@ namespace Ammunition.GrenadeStructure
         [SerializeField] protected GrenadeInserter GrenadeInserter;
 
         protected GrenadeContainer GrenadeContainer;
-        protected GrenadeStriker GrenadeStriker;
         protected GrenadeView GrenadeView;
         protected Attachment Attachment;
 

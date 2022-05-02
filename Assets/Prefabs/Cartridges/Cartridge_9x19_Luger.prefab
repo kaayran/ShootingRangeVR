@@ -140,8 +140,8 @@ GameObject:
   - component: {fileID: 3720117329981020637}
   - component: {fileID: 3720117329981020636}
   - component: {fileID: 3720117329981020632}
-  - component: {fileID: 3720117329981020633}
   - component: {fileID: 2885396919060359536}
+  - component: {fileID: 4453408548113355721}
   m_Layer: 0
   m_Name: Cartridge_9x19_LUGER
   m_TagString: Untagged
@@ -326,21 +326,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4af0376b2e34179a001477f35241fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &3720117329981020633
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3720117329981020639}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 69a28e6ace768d74f8d9c5ee31f12238, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  CartridgeBullet: {fileID: 7130490058729668140}
-  CartridgeType: {fileID: 11400000, guid: d963b659f9a70f8449a30c68a87c3ef6, type: 2}
-  CartridgeCase: {fileID: 1740913697971719901}
 --- !u!136 &2885396919060359536
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -355,6 +340,21 @@ CapsuleCollider:
   m_Height: 0.034765363
   m_Direction: 2
   m_Center: {x: 4.656613e-10, y: -0.000000006519258, z: 0.0008395314}
+--- !u!114 &4453408548113355721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3720117329981020639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 69a28e6ace768d74f8d9c5ee31f12238, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CartridgeBullet: {fileID: 7130490058729668140}
+  CartridgeType: {fileID: 11400000, guid: d963b659f9a70f8449a30c68a87c3ef6, type: 2}
+  CartridgeCase: {fileID: 1740913697971719901}
 --- !u!1 &7130490058729668142
 GameObject:
   m_ObjectHideFlags: 0

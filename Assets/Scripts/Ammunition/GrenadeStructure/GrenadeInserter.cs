@@ -1,5 +1,6 @@
 ﻿using StructureComponents;
 using UnityEngine;
+using Utilities.Logger;
 
 namespace Ammunition.GrenadeStructure
 {
@@ -18,8 +19,8 @@ namespace Ammunition.GrenadeStructure
         private void OnTriggerStay(Collider other)
         {
             if (_grenadeFuse != null) return;
-            if (!other.TryGetComponent<GrenadeFuse>(out var fuse)) return;
-            if (fuse.GetAttachment().TryGetHand(out var hand)) return;
+            if (!other.transform.root.TryGetComponent<GrenadeFuse>(out var fuse)) return;
+            if (!fuse.GetAttachment().TryGetHand(out var hand)) return;
 
             _grenadeFuse = fuse;
 
@@ -34,7 +35,7 @@ namespace Ammunition.GrenadeStructure
             var fuseReqs = _grenadeContainer.GetStoredType().FuseName;
             var fuseName = _grenadeFuse.GetFuseType().FuseName;
             if (!fuseReqs.Equals(fuseName)) return;
-
+            
             if (!_grenadeContainer.TryPush(_grenadeFuse)) return;
 
             var attachment = _grenadeFuse.GetAttachment();
@@ -46,8 +47,8 @@ namespace Ammunition.GrenadeStructure
         private void OnTriggerExit(Collider other)
         {
             if (_grenadeFuse == null) return;
-            if (!other.TryGetComponent<GrenadeFuse>(out var magazine)) return;
-            if (_grenadeFuse != magazine) return;
+            if (!other.transform.root.TryGetComponent<GrenadeFuse>(out var grenadeFuse)) return;
+            if (_grenadeFuse != grenadeFuse) return;
 
             var magazineAttachment = _grenadeFuse.GetAttachment();
             magazineAttachment.OnDrop -= OnDrop;
