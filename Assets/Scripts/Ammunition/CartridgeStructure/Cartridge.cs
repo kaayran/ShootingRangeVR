@@ -14,13 +14,14 @@ namespace Ammunition.CartridgeStructure
 
         protected Attachment CartridgeAttachment;
 
+        protected Rigidbody RigidBody;
+
         public abstract void Init();
 
         public void Activate()
         {
-            var rb = GetComponent<Rigidbody>();
-            rb.velocity = Vector3.up;
-            rb.angularVelocity = Vector3.zero;
+            RigidBody.velocity = Vector3.up;
+            RigidBody.angularVelocity = Vector3.zero;
 
             gameObject.SetActive(true);
         }
@@ -57,7 +58,7 @@ namespace Ammunition.CartridgeStructure
 
         public Rigidbody GetRigidbody()
         {
-            return GetComponent<Rigidbody>();
+            return RigidBody;
         }
 
         public Transform GetTransform()
