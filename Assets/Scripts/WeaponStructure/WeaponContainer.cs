@@ -18,12 +18,12 @@ namespace WeaponStructure
         {
         }
 
-        public override bool TryPop(out Magazine magazine)
+        public override bool TryPop(out Magazine fuse)
         {
-            magazine = null;
+            fuse = null;
             if (_magazine == null) return false;
 
-            magazine = _magazine;
+            fuse = _magazine;
             _magazine = null;
             OnPopped?.Invoke();
             return true;
