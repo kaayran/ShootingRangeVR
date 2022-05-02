@@ -1,10 +1,9 @@
 ﻿using StructureComponents;
 using UnityEngine;
-using Utilities.Logger;
 
 namespace Ammunition.GrenadeStructure
 {
-    public class GrenadeInserter : MonoBehaviour
+    public class GrenadeLoader : MonoBehaviour
     {
         private GrenadeContainer _grenadeContainer;
         private Attachment _attachment;

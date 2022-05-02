@@ -5,7 +5,7 @@ using Valve.VR;
 
 namespace Ammunition.GrenadeStructure
 {
-    public class GrenadeFuseStrikerLever : MonoBehaviour
+    public class GrenadeFuseLever : MonoBehaviour
     {
         public event Action OnRelease;
         public event Action OnLock;
@@ -13,6 +13,7 @@ namespace Ammunition.GrenadeStructure
         [SerializeField] private SteamVR_Action_Single _trigger;
 
         private Attachment _attachment;
+
         private bool _isInit;
         private LeverState _state;
         private SteamVR_Input_Sources _type;

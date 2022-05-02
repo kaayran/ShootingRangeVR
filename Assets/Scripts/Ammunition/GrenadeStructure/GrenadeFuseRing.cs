@@ -1,12 +1,11 @@
 ﻿using System;
 using UnityEngine;
-using Utilities.Logger;
 using Valve.VR.InteractionSystem;
 
 namespace Ammunition.GrenadeStructure
 {
     [RequireComponent(typeof(Throwable))]
-    public class GrenadeSafetyRing : MonoBehaviour
+    public class GrenadeFuseRing : MonoBehaviour
     {
         public event Action OnDrag;
 
@@ -16,7 +15,6 @@ namespace Ammunition.GrenadeStructure
 
         private void OnJointBreak(float breakForce)
         {
-            InGameLogger.Log($"Ring Broke: {breakForce}", true);
             OnDrag?.Invoke();
 
             gameObject.transform.parent = null;

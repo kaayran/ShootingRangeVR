@@ -1,78 +1,55 @@
-using System;
-using System.Collections;
 using Interfaces;
 using StructureComponents;
 using UnityEngine;
-using Utilities.Logger;
 
 namespace Ammunition.GrenadeStructure
 {
-    [RequireComponent(typeof(GrenadeStriker))]
+    [RequireComponent(typeof(GrenadeFuseExploder))]
+    [RequireComponent(typeof(GrenadeFuseStriker))]
     [RequireComponent(typeof(CollisionIgnoring))]
     [RequireComponent(typeof(Attachment))]
     public class GrenadeFuse : MonoBehaviour, IActivatable
     {
-        public event Action OnDetonate;
+        [SerializeField] private GrenadeFuseExploderView _fuseExploderView;
+        [SerializeField] private GrenadeFuseLever _fuseLever;
+        [SerializeField] private GrenadeFuseRing _fuseRing;
+        [SerializeField] private GrenadeFuseType _fuseType;
 
-        [SerializeField] private GrenadeFuseStrikerLever _grenadeFuseStrikerLever;
-        [SerializeField] private GrenadeSafetyRing _grenadeSafetyRing;
-        [SerializeField] private GrenadeFuseType _grenadeFuseType;
+        private GrenadeFuseExploder _fuseExploder;
+        private GrenadeFuseStriker _fuseStriker;
 
-        private Attachment _attachment;
         private CollisionIgnoring _collisionIgnoring;
-        private GrenadeStriker _grenadeStriker;
+        private Attachment _attachment;
 
-        private bool _isLeverLocked;
-        private bool _isRingDragged;
+        private void Start()
+        {
+            Init();
+        }
 
         public void Init()
         {
             _collisionIgnoring = GetComponent<CollisionIgnoring>();
             _attachment = GetComponent<Attachment>();
 
-            _attachment.Init();
             _collisionIgnoring.Init();
+            _attachment.Init();
 
-            // Something wrong here!
-            _grenadeStriker = GetComponent<GrenadeStriker>();
-            _grenadeStriker.Init();
+            _fuseExploder = GetComponent<GrenadeFuseExploder>();
+            _fuseStriker = GetComponent<GrenadeFuseStriker>();
 
-            _grenadeSafetyRing.Init();
-            _grenadeFuseStrikerLever.Init(_attachment);
+            _fuseRing.Init();
+            _fuseLever.Init(_attachment);
+            _fuseStriker.Init(_fuseLever, _fuseRing);
+            _fuseExploder.Init(_fuseStriker);
+            _fuseExploderView.Init(_fuseExploder);
 
-            _grenadeSafetyRing.OnDrag += OnDrag;
-            _grenadeFuseStrikerLever.OnLock += OnLock;
-            _grenadeFuseStrikerLever.OnRelease += OnRelease;
+            _fuseExploder.OnExplosion += OnExplosion;
         }
 
-        private void OnLock()
+        private void OnExplosion()
         {
-            InGameLogger.Log("Lever Locked", true);
-            _isLeverLocked = true;
-            // Switch state, on action from lever,
-            // we can freely lock then unlock lever
-        }
-
-        private void OnRelease()
-        {
-            InGameLogger.Log("Lever Released", true);
-            _isLeverLocked = false;
-            if (!_isRingDragged) return;
-            // If we release lever, then we check is ring already dragged?
-            // Then detonate
-            StartCoroutine(FuseDelay());
-        }
-
-        private void OnDrag()
-        {
-            InGameLogger.Log("Ring Dragged", true);
-            _isRingDragged = true;
-            _grenadeSafetyRing.OnDrag -= OnDrag;
-
-            if (_isLeverLocked) return;
-            // Explode anyway, if ring dragged, and lever is not locked
-
-            StartCoroutine(FuseDelay());
+            Deactivate();
+            _fuseExploder.OnExplosion -= OnExplosion;
         }
 
         public void Activate()
@@ -92,24 +69,7 @@ namespace Ammunition.GrenadeStructure
 
         public GrenadeFuseType GetFuseType()
         {
-            return (GrenadeFuseType) _grenadeFuseType.Clone();
-        }
-
-        private IEnumerator FuseDelay()
-        {
-            InGameLogger.Log("Start Fuse Delay", true);
-
-            _grenadeFuseStrikerLever.OnRelease -= OnRelease;
-            _grenadeFuseStrikerLever.OnLock -= OnLock;
-
-            yield return new WaitForSeconds(5f);
-
-            OnDetonate?.Invoke();
-        }
-
-        private void Awake()
-        {
-            Init();
+            return (GrenadeFuseType) _fuseType.Clone();
         }
     }
 }

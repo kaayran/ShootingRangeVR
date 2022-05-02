@@ -24,7 +24,6 @@ namespace Ammunition.GrenadesRealization
             Attachment.Init();
             GrenadeView.Init();
             GrenadeContainer.Init();
-            GrenadeInserter.Init(GrenadeContainer, Attachment);
         }
     }
 }
