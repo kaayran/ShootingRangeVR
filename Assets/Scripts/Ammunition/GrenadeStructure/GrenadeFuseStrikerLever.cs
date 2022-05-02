@@ -1,7 +1,6 @@
 ﻿using System;
 using StructureComponents;
 using UnityEngine;
-using Utilities.Logger;
 using Valve.VR;
 
 namespace Ammunition.GrenadeStructure
@@ -9,6 +8,7 @@ namespace Ammunition.GrenadeStructure
     public class GrenadeFuseStrikerLever : MonoBehaviour
     {
         public event Action OnRelease;
+        public event Action OnLock;
 
         [SerializeField] private SteamVR_Action_Single _trigger;
 
@@ -21,6 +21,15 @@ namespace Ammunition.GrenadeStructure
         {
             _attachment = attachment;
             _isInit = true;
+
+            _attachment.OnDrop += OnDrop;
+        }
+
+        private void OnDrop()
+        {
+            OnRelease?.Invoke();
+            // If we throw fuse away, when need to be sure, 
+            // than we release lever
         }
 
         private void Update()
@@ -42,6 +51,7 @@ namespace Ammunition.GrenadeStructure
                     break;
                 case LeverState.Locking:
                     if (!(_trigger[_type].axis > 0.75f)) return;
+                    OnLock?.Invoke();
                     _state = LeverState.Unlocking;
                     break;
                 case LeverState.Unlocking:
@@ -49,7 +59,6 @@ namespace Ammunition.GrenadeStructure
                     _state = LeverState.Pull;
                     break;
                 case LeverState.Pull:
-                    InGameLogger.Log("Grip Released", true);
                     OnRelease?.Invoke();
                     _state = LeverState.Attached;
                     break;

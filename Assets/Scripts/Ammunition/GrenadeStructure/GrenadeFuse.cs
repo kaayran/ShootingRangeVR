@@ -12,7 +12,7 @@ namespace Ammunition.GrenadeStructure
     [RequireComponent(typeof(Attachment))]
     public class GrenadeFuse : MonoBehaviour, IActivatable
     {
-        public Action Detonate;
+        public event Action OnDetonate;
 
         [SerializeField] private GrenadeFuseStrikerLever _grenadeFuseStrikerLever;
         [SerializeField] private GrenadeSafetyRing _grenadeSafetyRing;
@@ -20,8 +20,10 @@ namespace Ammunition.GrenadeStructure
 
         private Attachment _attachment;
         private CollisionIgnoring _collisionIgnoring;
-        private bool _isRingDragged;
         private GrenadeStriker _grenadeStriker;
+
+        private bool _isLeverLocked;
+        private bool _isRingDragged;
 
         public void Init()
         {
@@ -37,10 +39,40 @@ namespace Ammunition.GrenadeStructure
 
             _grenadeSafetyRing.Init();
             _grenadeFuseStrikerLever.Init(_attachment);
-            _isRingDragged = false;
 
             _grenadeSafetyRing.OnDrag += OnDrag;
+            _grenadeFuseStrikerLever.OnLock += OnLock;
             _grenadeFuseStrikerLever.OnRelease += OnRelease;
+        }
+
+        private void OnLock()
+        {
+            InGameLogger.Log("Lever Locked", true);
+            _isLeverLocked = true;
+            // Switch state, on action from lever,
+            // we can freely lock then unlock lever
+        }
+
+        private void OnRelease()
+        {
+            InGameLogger.Log("Lever Released", true);
+            _isLeverLocked = false;
+            if (!_isRingDragged) return;
+            // If we release lever, then we check is ring already dragged?
+            // Then detonate
+            StartCoroutine(FuseDelay());
+        }
+
+        private void OnDrag()
+        {
+            InGameLogger.Log("Ring Dragged", true);
+            _isRingDragged = true;
+            _grenadeSafetyRing.OnDrag -= OnDrag;
+
+            if (_isLeverLocked) return;
+            // Explode anyway, if ring dragged, and lever is not locked
+
+            StartCoroutine(FuseDelay());
         }
 
         public void Activate()
@@ -63,26 +95,16 @@ namespace Ammunition.GrenadeStructure
             return (GrenadeFuseType) _grenadeFuseType.Clone();
         }
 
-        private void OnRelease()
-        {
-            if (!_isRingDragged) return;
-
-            StartCoroutine(FuseDelay());
-        }
-
         private IEnumerator FuseDelay()
         {
+            InGameLogger.Log("Start Fuse Delay", true);
+
             _grenadeFuseStrikerLever.OnRelease -= OnRelease;
+            _grenadeFuseStrikerLever.OnLock -= OnLock;
+
             yield return new WaitForSeconds(5f);
 
-            Detonate?.Invoke();
-        }
-
-        private void OnDrag()
-        {
-            InGameLogger.Log("Ring Dragged", true);
-            _isRingDragged = true;
-            _grenadeSafetyRing.OnDrag -= OnDrag;
+            OnDetonate?.Invoke();
         }
 
         private void Awake()
