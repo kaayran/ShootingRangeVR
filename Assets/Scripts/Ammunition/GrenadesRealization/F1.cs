@@ -1,13 +1,9 @@
-﻿using System;
-using Ammunition.GrenadeStructure;
+﻿using Ammunition.GrenadeStructure;
 using StructureComponents;
 using UnityEngine;
 
 namespace Ammunition.GrenadesRealization
 {
-    [RequireComponent(typeof(Attachment))]
-    [RequireComponent(typeof(GrenadeView))]
-    [RequireComponent(typeof(GrenadeContainer))]
     public class F1Grenade : Grenade
     {
         private void Start()

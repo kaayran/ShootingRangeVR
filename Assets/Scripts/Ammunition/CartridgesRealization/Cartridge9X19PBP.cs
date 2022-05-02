@@ -1,5 +1,6 @@
 using Ammunition.CartridgeStructure;
 using StructureComponents;
+using UnityEngine;
 
 namespace Ammunition.CartridgesRealization
 {
@@ -8,6 +9,7 @@ namespace Ammunition.CartridgesRealization
         public override void Init()
         {
             CartridgeAttachment = GetComponent<Attachment>();
+            RigidBody = GetComponent<Rigidbody>();
 
             CartridgeAttachment.Init();
 
