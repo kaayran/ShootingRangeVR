@@ -1,6 +1,7 @@
 ﻿using System;
 using StructureComponents;
 using UnityEngine;
+using Utilities.Logger;
 using Valve.VR;
 
 namespace Ammunition.GrenadeStructure
@@ -48,7 +49,7 @@ namespace Ammunition.GrenadeStructure
                     _state = LeverState.Pull;
                     break;
                 case LeverState.Pull:
-                    Debug.Log("Grip released");
+                    InGameLogger.Log("Grip Released", true);
                     OnRelease?.Invoke();
                     _state = LeverState.Attached;
                     break;

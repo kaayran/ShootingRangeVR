@@ -3,6 +3,7 @@ using System.Collections;
 using Interfaces;
 using StructureComponents;
 using UnityEngine;
+using Utilities.Logger;
 
 namespace Ammunition.GrenadeStructure
 {
@@ -11,7 +12,7 @@ namespace Ammunition.GrenadeStructure
     [RequireComponent(typeof(Attachment))]
     public class GrenadeFuse : MonoBehaviour, IActivatable
     {
-        public event Action OnDetonate;
+        public Action Detonate;
 
         [SerializeField] private GrenadeFuseStrikerLever _grenadeFuseStrikerLever;
         [SerializeField] private GrenadeSafetyRing _grenadeSafetyRing;
@@ -74,13 +75,12 @@ namespace Ammunition.GrenadeStructure
             _grenadeFuseStrikerLever.OnRelease -= OnRelease;
             yield return new WaitForSeconds(5f);
 
-            OnDetonate?.Invoke();
+            Detonate?.Invoke();
         }
 
         private void OnDrag()
         {
-            Debug.Log("Ring dragged with force!");
-
+            InGameLogger.Log("Ring Dragged", true);
             _isRingDragged = true;
             _grenadeSafetyRing.OnDrag -= OnDrag;
         }

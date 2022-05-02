@@ -20,7 +20,7 @@ namespace Ammunition.GrenadeStructure
         public override bool TryPop(out GrenadeFuse grenadeFuse)
         {
             grenadeFuse = null;
-            if (_grenadeFuse == null) return false;
+            if (_grenadeFuse is null) return false;
 
             grenadeFuse = _grenadeFuse;
             _grenadeFuse = null;
@@ -30,7 +30,7 @@ namespace Ammunition.GrenadeStructure
 
         public override bool TryPush(GrenadeFuse grenadeFuse)
         {
-            if (_grenadeFuse != null) return false;
+            if (!(_grenadeFuse is null)) return false;
 
             _grenadeFuse = grenadeFuse;
             OnEntered?.Invoke();

@@ -3,7 +3,7 @@ using StructureComponents;
 
 namespace Ammunition.CartridgesRealization
 {
-    public class Cartridge9X19PBP : Cartridge
+    public class Cartridge9X19Pbp : Cartridge
     {
         public override void Init()
         {

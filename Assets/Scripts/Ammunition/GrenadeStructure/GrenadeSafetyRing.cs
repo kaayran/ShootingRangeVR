@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Utilities.Logger;
 using Valve.VR.InteractionSystem;
 
 namespace Ammunition.GrenadeStructure
@@ -15,7 +16,7 @@ namespace Ammunition.GrenadeStructure
 
         private void OnJointBreak(float breakForce)
         {
-            Debug.Log($"HingeJoint broke force: {breakForce}");
+            InGameLogger.Log($"Ring Broke: {breakForce}", true);
             OnDrag?.Invoke();
 
             gameObject.transform.parent = null;

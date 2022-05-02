@@ -1,19 +1,21 @@
 ﻿using UnityEngine;
+using Utilities.Logger;
 
 namespace Ammunition.GrenadeStructure
 {
     public class GrenadeStriker : MonoBehaviour
     {
-        [SerializeField] private GrenadeFuse grenadeFuse;
+        [SerializeField] private GrenadeFuse _grenadeFuse;
 
         public void Init()
         {
-            grenadeFuse.OnDetonate += OnDetonate;
+            _grenadeFuse.Detonate += OnDetonate;
         }
 
         private void OnDetonate()
         {
-            Debug.Log("BOOM!");
+            InGameLogger.Log("BOOM!", false);
+            _grenadeFuse.Detonate -= OnDetonate;
         }
     }
 }
