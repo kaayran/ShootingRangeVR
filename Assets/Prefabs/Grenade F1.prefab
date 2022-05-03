@@ -41,7 +41,6 @@ Transform:
   - {fileID: 3510831104387344197}
   - {fileID: 8811717018811196145}
   - {fileID: 8811717019245484582}
-  - {fileID: 7457135677060310850}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -74,7 +73,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionView: {fileID: 8811717018811196144}
-  ExplosionParticle: {fileID: 7659478867788923825}
   Loader: {fileID: 8811717019696299604}
   _collider: {fileID: 7939266069392783099}
 --- !u!114 &3069994173194904348
@@ -248,49 +246,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   interactable: {fileID: 0}
---- !u!1 &5400484975402872304
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 7457135677060310850}
-  - component: {fileID: 7659478867788923825}
-  m_Layer: 0
-  m_Name: Particle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &7457135677060310850
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5400484975402872304}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2436763799009458622}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7659478867788923825
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5400484975402872304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 23fb83ea47454398936d631ab0969f11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7939266069392783098
 GameObject:
   m_ObjectHideFlags: 0
@@ -460,6 +415,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6a0dd3659a8467a8b665e21418abea8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _particleComponent: {fileID: -3763562238737466929, guid: f7d8368025b3afe4f8c53c28bee1862e, type: 3}
 --- !u!1 &8811717019245484585
 GameObject:
   m_ObjectHideFlags: 0

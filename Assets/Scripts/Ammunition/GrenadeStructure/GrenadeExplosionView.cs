@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using Particle;
+using UnityEngine;
 
 namespace Ammunition.GrenadeStructure
 {
     public class GrenadeExplosionView : MonoBehaviour
     {
+        [SerializeField] private ParticleComponent _particleComponent;
+
         private GrenadeExplosion _explosion;
 
         public void Init(GrenadeExplosion grenadeExplosion)
@@ -14,9 +17,9 @@ namespace Ammunition.GrenadeStructure
 
         private void Explosion()
         {
-            var explosion = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            explosion.transform.position = transform.root.position;
-            explosion.transform.rotation = transform.root.rotation;
+            var particle = Instantiate(_particleComponent, transform.root.position, transform.root.rotation);
+            particle.Play();
+
             _explosion.OnExplosion -= Explosion;
         }
     }

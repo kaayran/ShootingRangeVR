@@ -1,9 +1,12 @@
-﻿using UnityEngine;
+﻿using Particle;
+using UnityEngine;
 
 namespace Ammunition.GrenadeStructure
 {
     public class GrenadeFuseExploderView : MonoBehaviour
-    {
+    {        
+        [SerializeField] private ParticleComponent _particleComponent;
+
         private GrenadeFuseExploder _exploder;
 
         public void Init(GrenadeFuseExploder exploder)
@@ -14,10 +17,9 @@ namespace Ammunition.GrenadeStructure
 
         private void Detonate()
         {
-            var explosion = GameObject.CreatePrimitive(PrimitiveType.Sphere);
-            explosion.transform.localScale = Vector3.one * 0.25f;
-            explosion.transform.position = transform.root.position;
-            explosion.transform.rotation = transform.root.rotation;
+            var particle = Instantiate(_particleComponent, transform.root.position, transform.root.rotation);
+            particle.Play();
+            
             _exploder.OnDetonate -= Detonate;
         }
     }

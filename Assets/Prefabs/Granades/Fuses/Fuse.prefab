@@ -143,49 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 04edb6a3a9f1491ea4635c0348d75904, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &2940222510654005235
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2204125682139976162}
-  - component: {fileID: 1291663048577959961}
-  m_Layer: 0
-  m_Name: Particle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2204125682139976162
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2940222510654005235}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 7897359043905520532}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1291663048577959961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2940222510654005235}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d68dda20fc1548898930a24958ebef11, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  _particleComponent: {fileID: 4921682447848036373, guid: 70a31cdea923e53478ab9525bd8b886b, type: 3}
 --- !u!1 &3280353524603338678
 GameObject:
   m_ObjectHideFlags: 0
@@ -599,7 +557,6 @@ Transform:
   - {fileID: 1713398218360202697}
   - {fileID: 8650433355109410417}
   - {fileID: 9007080113701978244}
-  - {fileID: 2204125682139976162}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -631,7 +588,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d9b34d1d4dfdc3e40bad1a90e87cf722, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _fuseExploderParticle: {fileID: 1291663048577959961}
   _fuseExploderView: {fileID: 2624363979291141818}
   _fuseLever: {fileID: 637493523779570388}
   _fuseRing: {fileID: 3280353524603338667}

@@ -37,7 +37,6 @@ namespace Ammunition.GrenadesRealization
             Extractor.Init(Container, Attachment, Popper, _collider);
             Explosion.Init(Container);
             ExplosionView.Init(Explosion);
-            ExplosionParticle.Init(Explosion);
         }
     }
 }
