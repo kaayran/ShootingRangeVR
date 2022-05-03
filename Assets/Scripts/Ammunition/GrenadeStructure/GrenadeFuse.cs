@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using Interfaces;
 using StructureComponents;
 using UnityEngine;
@@ -23,6 +24,8 @@ namespace Ammunition.GrenadeStructure
         private Attachment _attachment;
         private Rigidbody _rigidbody;
 
+        private List<Collider> _colliders;
+
         private void Start()
         {
             Init();
@@ -36,6 +39,8 @@ namespace Ammunition.GrenadeStructure
 
             _collisionIgnoring.Init();
             _attachment.Init();
+
+            _colliders = _collisionIgnoring.GetColliders();
 
             _fuseExploder = GetComponent<GrenadeFuseExploder>();
             _fuseStriker = GetComponent<GrenadeFuseStriker>();
@@ -52,7 +57,6 @@ namespace Ammunition.GrenadeStructure
 
         private void Detonate()
         {
-            //Deactivate();
             _fuseExploder.OnDetonate -= Detonate;
         }
 
@@ -66,7 +70,6 @@ namespace Ammunition.GrenadeStructure
 
         public void Deactivate()
         {
-            //TODO: set fuse in grenade
             _attachment.TryGetHand(out var hand);
             hand.DetachObject(gameObject, false);
         }
@@ -89,6 +92,11 @@ namespace Ammunition.GrenadeStructure
         public GrenadeFuseExploder GetExploder()
         {
             return _fuseExploder;
+        }
+
+        public List<Collider> GetColliders()
+        {
+            return _colliders;
         }
     }
 }

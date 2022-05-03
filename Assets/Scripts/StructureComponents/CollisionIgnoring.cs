@@ -13,5 +13,10 @@ namespace StructureComponents
                 _colliders.GetRange(i + 1, _colliders.Count - i - 1).ForEach(col =>
                     Physics.IgnoreCollision(_colliders[i], col));
         }
+
+        public List<Collider> GetColliders()
+        {
+            return _colliders;
+        }
     }
 }

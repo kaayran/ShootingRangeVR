@@ -9,7 +9,7 @@ namespace Ammunition.GrenadeStructure
         public event Action OnExplosion;
 
         private Container<GrenadeFuse, GrenadeFuseType> _container;
-        private GrenadeFuseExploder _fuseExploder;
+        private GrenadeFuseExploder _exploder;
         private GrenadeFuse _fuse;
 
         public void Init(Container<GrenadeFuse, GrenadeFuseType> container)
@@ -23,15 +23,15 @@ namespace Ammunition.GrenadeStructure
         private void Popped()
         {
             _fuse = null;
-            _fuseExploder.OnDetonate -= Detonate;
-            _fuseExploder = null;
+            _exploder.OnDetonate -= Detonate;
+            _exploder = null;
         }
 
         private void Entered()
         {
             _fuse = _container.GetStored();
-            _fuseExploder = _fuse.GetExploder();
-            _fuseExploder.OnDetonate += Detonate;
+            _exploder = _fuse.GetExploder();
+            _exploder.OnDetonate += Detonate;
         }
 
         private void Detonate()
@@ -41,8 +41,8 @@ namespace Ammunition.GrenadeStructure
             _container.OnEntered -= Entered;
             _container.OnPopped -= Popped;
 
-            _fuseExploder.OnDetonate -= Detonate;
-            _fuseExploder = null;
+            _exploder.OnDetonate -= Detonate;
+            _exploder = null;
         }
     }
 }

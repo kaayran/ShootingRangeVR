@@ -6,28 +6,28 @@ namespace Ammunition.GrenadeStructure
     public class GrenadeLoader : MonoBehaviour
     {
         [SerializeField] private Transform _placement;
-        
-        private Container<GrenadeFuse, GrenadeFuseType> _grenadeContainer;
+
+        private Container<GrenadeFuse, GrenadeFuseType> _container;
         private Attachment _attachment;
-        private GrenadeFuse _grenadeFuse;
+        private GrenadeFuse _fuse;
         private Collider _collider;
 
-        public void Init(Container<GrenadeFuse, GrenadeFuseType> container, Attachment attachment, Collider collider)
+        public void Init(Container<GrenadeFuse, GrenadeFuseType> container, Attachment attachment, Collider col)
         {
-            _grenadeContainer = container;
+            _container = container;
             _attachment = attachment;
-            _collider = collider;
+            _collider = col;
         }
 
         private void OnTriggerStay(Collider other)
         {
-            if (_grenadeFuse != null) return;
+            if (_fuse != null) return;
             if (!other.transform.root.TryGetComponent<GrenadeFuse>(out var fuse)) return;
             if (!fuse.GetAttachment().TryGetHand(out var hand)) return;
 
-            _grenadeFuse = fuse;
+            _fuse = fuse;
 
-            var attachment = _grenadeFuse.GetAttachment();
+            var attachment = _fuse.GetAttachment();
             attachment.OnDrop += OnDrop;
         }
 
@@ -35,38 +35,36 @@ namespace Ammunition.GrenadeStructure
         {
             if (!_attachment.TryGetHand(out var hand)) return;
 
-            var fuseReqs = _grenadeContainer.GetStoredType().FuseName;
-            var fuseName = _grenadeFuse.GetFuseType().FuseName;
+            var fuseReqs = _container.GetStoredType().FuseName;
+            var fuseName = _fuse.GetFuseType().FuseName;
             if (!fuseReqs.Equals(fuseName)) return;
 
-            if (!_grenadeContainer.TryPush(_grenadeFuse)) return;
+            if (!_container.TryPush(_fuse)) return;
 
-            var attachment = _grenadeFuse.GetAttachment();
+            var attachment = _fuse.GetAttachment();
             attachment.OnDrop -= OnDrop;
 
-            _grenadeFuse.transform.parent = _placement.transform;
-            _grenadeFuse.transform.position = _placement.position;
-            _grenadeFuse.transform.rotation = _placement.rotation;
-            _grenadeFuse.GetRigidbody().isKinematic = true;
+            var fuseTransform = _fuse.transform;
+            fuseTransform.parent = _placement.transform;
+            fuseTransform.position = _placement.position;
+            fuseTransform.rotation = _placement.rotation;
+            _fuse.GetRigidbody().isKinematic = true;
 
-            var fuseColliders = _grenadeFuse.GetComponentsInChildren<Collider>();
-            foreach (var fuseCollider in fuseColliders)
-            {
-                Physics.IgnoreCollision(_collider, fuseCollider);
-            }
-            
-            _grenadeFuse = null;
+            var fuseColliders = _fuse.GetColliders();
+            foreach (var fuseCollider in fuseColliders) Physics.IgnoreCollision(_collider, fuseCollider);
+
+            _fuse = null;
         }
 
         private void OnTriggerExit(Collider other)
         {
-            if (_grenadeFuse == null) return;
+            if (_fuse == null) return;
             if (!other.transform.root.TryGetComponent<GrenadeFuse>(out var grenadeFuse)) return;
-            if (_grenadeFuse != grenadeFuse) return;
+            if (_fuse != grenadeFuse) return;
 
-            var magazineAttachment = _grenadeFuse.GetAttachment();
+            var magazineAttachment = _fuse.GetAttachment();
             magazineAttachment.OnDrop -= OnDrop;
-            _grenadeFuse = null;
+            _fuse = null;
         }
     }
 }

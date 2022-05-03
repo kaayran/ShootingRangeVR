@@ -1,22 +1,21 @@
 ﻿using UnityEngine;
-using Utilities.Logger;
 
 namespace Ammunition.GrenadeStructure
 {
     public class GrenadeFuseExploderView : MonoBehaviour
     {
-        [SerializeField] private GameObject _explosion;
-        private GrenadeFuseExploder _fuseExploder;
+        private GrenadeFuseExploder _exploder;
 
         public void Init(GrenadeFuseExploder exploder)
         {
-            _fuseExploder = exploder;
-            _fuseExploder.OnDetonate += Detonate;
+            _exploder = exploder;
+            _exploder.OnDetonate += Detonate;
         }
 
         private void Detonate()
         {
-            Instantiate(_explosion, transform.position, transform.rotation);
+            Destroy(gameObject);
+            _exploder.OnDetonate -= Detonate;
         }
     }
 }
