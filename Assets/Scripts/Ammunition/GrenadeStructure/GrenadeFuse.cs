@@ -2,6 +2,8 @@ using System.Collections.Generic;
 using Interfaces;
 using StructureComponents;
 using UnityEngine;
+using Utilities;
+using Valve.VR.InteractionSystem;
 
 namespace Ammunition.GrenadeStructure
 {
@@ -65,18 +67,40 @@ namespace Ammunition.GrenadeStructure
             _rigidbody.velocity = Vector3.up;
             _rigidbody.angularVelocity = Vector3.zero;
 
+            foreach (var col in _colliders)
+            {
+                if (col.transform.parent.TryGetComponent<GrenadeFuseRing>(out var component)) continue;
+                var ignore = col.gameObject.GetComponent<IgnoreHovering>();
+                Destroy(ignore);
+            }
+
             gameObject.SetActive(true);
         }
 
         public void Deactivate()
         {
-            _attachment.TryGetHand(out var hand);
-            hand.DetachObject(gameObject, false);
+            foreach (var col in _colliders)
+            {
+                if (!col.transform.parent.TryGetComponent<GrenadeFuseRing>(out var component))
+                {
+                    col.gameObject.AddComponent<IgnoreHovering>();
+                }
+            }
         }
 
         public Attachment GetAttachment()
         {
             return _attachment;
+        }
+        
+        public void SetLeverAttachment(Attachment attachment)
+        {
+            _fuseLever.SetAttachment(attachment);
+        }
+        
+        public void RevertLeverAttachment()
+        {
+            _fuseLever.SetAttachment(_attachment);
         }
 
         public GrenadeFuseType GetFuseType()
