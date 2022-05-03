@@ -26,6 +26,11 @@ namespace Ammunition.GrenadeStructure
             _attachment.OnDrop += OnDrop;
         }
 
+        public void SetAttachment(Attachment attachment)
+        {
+            _attachment = attachment;
+        }
+
         private void OnDrop()
         {
             OnRelease?.Invoke();

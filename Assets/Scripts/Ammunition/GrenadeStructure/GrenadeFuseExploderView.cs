@@ -14,7 +14,10 @@ namespace Ammunition.GrenadeStructure
 
         private void Detonate()
         {
-            Destroy(gameObject);
+            var explosion = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            explosion.transform.localScale = Vector3.one * 0.25f;
+            explosion.transform.position = transform.root.position;
+            explosion.transform.rotation = transform.root.rotation;
             _exploder.OnDetonate -= Detonate;
         }
     }

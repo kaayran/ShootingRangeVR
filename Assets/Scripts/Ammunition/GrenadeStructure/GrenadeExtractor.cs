@@ -13,12 +13,12 @@ namespace Ammunition.GrenadeStructure
         private Collider _collider;
 
         public void Init(Container<GrenadeFuse, GrenadeFuseType> container, Attachment attachment, Popper popper,
-            Collider collider)
+            Collider col)
         {
             _container = container;
             _attachment = attachment;
             _popper = popper;
-            _collider = collider;
+            _collider = col;
 
             _popper.OnButtonPressed += OnButtonPressed;
         }
@@ -33,11 +33,9 @@ namespace Ammunition.GrenadeStructure
             fuseTransform.position = _extractTransform.position;
             fuseTransform.rotation = _extractTransform.rotation;
 
-            var fuseColliders = fuseTransform.GetComponentsInChildren<Collider>();
+            var fuseColliders = fuse.GetColliders();
             foreach (var fuseCollider in fuseColliders)
-            {
                 Physics.IgnoreCollision(_collider, fuseCollider, false);
-            }
 
             var rb = fuse.GetRigidbody();
             rb.isKinematic = false;
@@ -45,6 +43,7 @@ namespace Ammunition.GrenadeStructure
             rb.angularVelocity = hand.GetTrackedObjectAngularVelocity();
 
             fuse.Activate();
+            fuse.RevertLeverAttachment();
         }
     }
 }

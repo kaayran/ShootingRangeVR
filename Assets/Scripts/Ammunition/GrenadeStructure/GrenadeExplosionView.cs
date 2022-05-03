@@ -14,7 +14,9 @@ namespace Ammunition.GrenadeStructure
 
         private void Explosion()
         {
-            Destroy(gameObject);
+            var explosion = GameObject.CreatePrimitive(PrimitiveType.Sphere);
+            explosion.transform.position = transform.root.position;
+            explosion.transform.rotation = transform.root.rotation;
             _explosion.OnExplosion -= Explosion;
         }
     }
