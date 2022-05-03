@@ -14,6 +14,7 @@ namespace Ammunition.GrenadesRealization
     public class F1 : Grenade
     {
         [SerializeField] private Collider _collider;
+
         private void Start()
         {
             Init();
@@ -36,6 +37,7 @@ namespace Ammunition.GrenadesRealization
             Extractor.Init(Container, Attachment, Popper, _collider);
             Explosion.Init(Container);
             ExplosionView.Init(Explosion);
+            ExplosionParticle.Init(Explosion);
         }
     }
 }
