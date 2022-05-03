@@ -28,7 +28,12 @@ namespace Ammunition.GrenadeStructure
 
         public void SetAttachment(Attachment attachment)
         {
+            // Unsubscribe from event of old attachment
+            _attachment.OnDrop -= OnDrop;
+
             _attachment = attachment;
+            _attachment.OnDrop += OnDrop;
+            // Subscribe to new attachment event
         }
 
         private void OnDrop()
