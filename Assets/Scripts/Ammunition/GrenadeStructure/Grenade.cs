@@ -6,6 +6,7 @@ namespace Ammunition.GrenadeStructure
     public abstract class Grenade : MonoBehaviour
     {
         [SerializeField] protected GrenadeExplosionView ExplosionView;
+        [SerializeField] protected GrenadeExplosionParticle ExplosionParticle;
         [SerializeField] protected GrenadeLoader Loader;
 
         protected Container<GrenadeFuse, GrenadeFuseType> Container;

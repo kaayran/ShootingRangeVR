@@ -10,6 +10,7 @@ namespace Ammunition.GrenadeStructure
     [RequireComponent(typeof(Attachment))]
     public class GrenadeFuse : MonoBehaviour, IActivatable
     {
+        [SerializeField] private GrenadeFuseExploderParticle _fuseExploderParticle;
         [SerializeField] private GrenadeFuseExploderView _fuseExploderView;
         [SerializeField] private GrenadeFuseLever _fuseLever;
         [SerializeField] private GrenadeFuseRing _fuseRing;
@@ -44,6 +45,7 @@ namespace Ammunition.GrenadeStructure
             _fuseStriker.Init(_fuseLever, _fuseRing);
             _fuseExploder.Init(_fuseStriker);
             _fuseExploderView.Init(_fuseExploder);
+            _fuseExploderParticle.Init(_fuseExploder);
 
             _fuseExploder.OnDetonate += Detonate;
         }
