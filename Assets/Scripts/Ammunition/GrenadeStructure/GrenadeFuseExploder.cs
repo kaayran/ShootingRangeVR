@@ -28,7 +28,7 @@ namespace Ammunition.GrenadeStructure
         private IEnumerator ExplosionDelay(float delay)
         {
             yield return new WaitForSeconds(delay);
-            
+
             var hits = Physics.OverlapSphere(transform.position, _radius);
 
             foreach (var hit in hits)
@@ -40,6 +40,8 @@ namespace Ammunition.GrenadeStructure
             }
 
             OnDetonate?.Invoke();
+
+            Destroy(gameObject);
         }
     }
 }

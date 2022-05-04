@@ -19,7 +19,7 @@ namespace Ammunition.GrenadeStructure
             _attachment = GetComponent<Attachment>();
             _joint = GetComponent<Joint>();
             FreezeJoint();
-            
+
             _attachment.OnDrop += OnDrop;
             _attachment.OnTake += OnTake;
         }
@@ -34,14 +34,14 @@ namespace Ammunition.GrenadeStructure
             FreezeJoint();
         }
 
-        public void FreezeJoint()
+        private void FreezeJoint()
         {
             if (_joint == null) return;
             _joint.breakForce = 100000;
             _joint.breakTorque = 100000;
         }
 
-        public void UnFreezeJoint()
+        private void UnFreezeJoint()
         {
             if (_joint == null) return;
             _joint.breakForce = 500;

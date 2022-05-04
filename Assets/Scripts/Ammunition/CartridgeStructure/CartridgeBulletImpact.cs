@@ -36,7 +36,7 @@ namespace Ammunition.CartridgeStructure
             {
                 contactPoint = contactPoint,
                 normalPoint = normalPoint,
-                force = transform.forward * _rb.velocity.magnitude * _rb.mass / _impactMultiplier
+                force = transform.forward * (_rb.velocity.magnitude * _rb.mass) / _impactMultiplier
             };
 
             component.Damage(data);

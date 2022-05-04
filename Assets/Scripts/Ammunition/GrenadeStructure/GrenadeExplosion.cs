@@ -56,6 +56,8 @@ namespace Ammunition.GrenadeStructure
 
             _exploder.OnDetonate -= Detonate;
             _exploder = null;
+
+            Destroy(gameObject);
         }
     }
 }
