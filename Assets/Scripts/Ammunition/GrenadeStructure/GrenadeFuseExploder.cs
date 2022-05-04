@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections;
-using Particle;
 using UnityEngine;
 
 namespace Ammunition.GrenadeStructure
