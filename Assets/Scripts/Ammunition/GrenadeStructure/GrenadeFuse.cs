@@ -45,7 +45,7 @@ namespace Ammunition.GrenadeStructure
             _fuseExploder = GetComponent<GrenadeFuseExploder>();
             _fuseStriker = GetComponent<GrenadeFuseStriker>();
 
-            _fuseRing.Init(_attachment);
+            _fuseRing.Init();
             _fuseLever.Init(_attachment);
             _fuseStriker.Init(_fuseLever, _fuseRing);
             _fuseExploder.Init(_fuseStriker);
@@ -71,7 +71,6 @@ namespace Ammunition.GrenadeStructure
                 Destroy(ignore);
             }
 
-            _fuseRing.FreezeJoint();
             gameObject.SetActive(true);
         }
 
@@ -84,8 +83,6 @@ namespace Ammunition.GrenadeStructure
                     col.gameObject.AddComponent<IgnoreHovering>();
                 }
             }
-
-            _fuseRing.UnFreezeJoint();
         }
 
         public Attachment GetAttachment()

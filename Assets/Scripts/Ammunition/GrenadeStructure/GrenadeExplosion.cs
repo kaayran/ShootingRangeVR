@@ -8,6 +8,9 @@ namespace Ammunition.GrenadeStructure
     {
         public event Action OnExplosion;
 
+        [SerializeField] private float _radius;
+        [SerializeField] private float _force;
+
         private Container<GrenadeFuse, GrenadeFuseType> _container;
         private GrenadeFuseExploder _exploder;
         private GrenadeFuse _fuse;
@@ -36,6 +39,16 @@ namespace Ammunition.GrenadeStructure
 
         private void Detonate()
         {
+            var hits = Physics.OverlapSphere(transform.position, _radius);
+
+            foreach (var hit in hits)
+            {
+                if (hit.TryGetComponent<Rigidbody>(out var rb))
+                {
+                    rb.AddExplosionForce(_force, transform.position, _radius);
+                }
+            }
+
             OnExplosion?.Invoke();
 
             _container.OnEntered -= Entered;

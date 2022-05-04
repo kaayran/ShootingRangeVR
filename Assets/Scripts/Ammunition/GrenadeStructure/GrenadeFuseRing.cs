@@ -6,6 +6,7 @@ using Valve.VR.InteractionSystem;
 namespace Ammunition.GrenadeStructure
 {
     [RequireComponent(typeof(Throwable))]
+    [RequireComponent(typeof(Attachment))]
     public class GrenadeFuseRing : MonoBehaviour
     {
         public event Action OnDrag;
@@ -13,12 +14,12 @@ namespace Ammunition.GrenadeStructure
         private Attachment _attachment;
         private Joint _joint;
 
-        public void Init(Attachment attachment)
+        public void Init()
         {
+            _attachment = GetComponent<Attachment>();
             _joint = GetComponent<Joint>();
             FreezeJoint();
-
-            _attachment = attachment;
+            
             _attachment.OnDrop += OnDrop;
             _attachment.OnTake += OnTake;
         }
@@ -35,12 +36,14 @@ namespace Ammunition.GrenadeStructure
 
         public void FreezeJoint()
         {
+            if (_joint == null) return;
             _joint.breakForce = 100000;
             _joint.breakTorque = 100000;
         }
 
         public void UnFreezeJoint()
         {
+            if (_joint == null) return;
             _joint.breakForce = 750;
             _joint.breakTorque = 750;
         }
