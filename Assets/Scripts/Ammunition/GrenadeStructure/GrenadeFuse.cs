@@ -50,13 +50,6 @@ namespace Ammunition.GrenadeStructure
             _fuseStriker.Init(_fuseLever, _fuseRing);
             _fuseExploder.Init(_fuseStriker);
             _fuseExploderView.Init(_fuseExploder);
-
-            _fuseExploder.OnDetonate += Detonate;
-        }
-
-        private void Detonate()
-        {
-            _fuseExploder.OnDetonate -= Detonate;
         }
 
         public void Activate()

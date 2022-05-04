@@ -17,7 +17,7 @@ namespace Ammunition.GrenadeStructure
 
         private void Detonate()
         {
-            var particle = Instantiate(_particleComponent, transform.root.position, transform.root.rotation);
+            var particle = Instantiate(_particleComponent, transform.position, transform.rotation);
             particle.Play();
             
             _exploder.OnDetonate -= Detonate;

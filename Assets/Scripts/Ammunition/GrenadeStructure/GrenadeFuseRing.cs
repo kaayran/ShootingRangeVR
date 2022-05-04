@@ -44,8 +44,8 @@ namespace Ammunition.GrenadeStructure
         public void UnFreezeJoint()
         {
             if (_joint == null) return;
-            _joint.breakForce = 750;
-            _joint.breakTorque = 750;
+            _joint.breakForce = 500;
+            _joint.breakTorque = 500;
         }
 
         private void OnJointBreak(float breakForce)
