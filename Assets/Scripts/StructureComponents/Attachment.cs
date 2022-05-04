@@ -7,6 +7,7 @@ namespace StructureComponents
     public class Attachment : MonoBehaviour
     {
         public event Action OnDrop;
+        public event Action OnTake;
 
         private Hand _attachedHand;
 
@@ -24,6 +25,7 @@ namespace StructureComponents
 
         private void OnAttachedToHand(Hand hand)
         {
+            OnTake?.Invoke();
             _attachedHand = hand;
         }
 
