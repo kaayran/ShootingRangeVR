@@ -130,7 +130,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateActionSetOnAttach:
     actionSetPath: 
-  hideHandOnAttach: 1
+  hideHandOnAttach: 0
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
@@ -280,17 +280,42 @@ MonoBehaviour:
   poseEditorExpanded: 1
   blendEditorExpanded: 1
   poseNames:
-  - F1GrenadePose (MAIN)
+  - F1GrenadePoseOpen (MAIN)
+  - F1GrenadePoseClose
   overridePreviewLeftHandPrefab: {fileID: 1000013348574242, guid: eb6cba678d43b444bb001f29548e4a9a, type: 3}
   overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 6dba408ff18626a4bbb522ba663c2266, type: 3}
   skeletonMainPose: {fileID: 11400000, guid: 38c0cea28e57d2a42bf61e6692c8296b, type: 2}
-  skeletonAdditionalPoses: []
+  skeletonAdditionalPoses:
+  - {fileID: 11400000, guid: 56c731773c353b549b8092d0253c189a, type: 2}
   showLeftPreview: 0
   showRightPreview: 0
   previewLeftInstance: {fileID: 0}
   previewRightInstance: {fileID: 0}
   previewPoseSelection: 0
-  blendingBehaviours: []
+  blendingBehaviours:
+  - name: LeverBehaviour
+    enabled: 1
+    influence: 1
+    pose: 1
+    value: 0
+    action_single:
+      actionPath: /actions/default/in/Trigger
+      needsReinit: 0
+    action_bool:
+      actionPath: 
+      needsReinit: 0
+    smoothingSpeed: 10
+    type: 1
+    useMask: 1
+    mask:
+      palm: 1
+      thumb: 1
+      index: 1
+      middle: 1
+      ring: 1
+      pinky: 1
+      values: 000001000000
+    previewEnabled: 1
   scale: 1
 --- !u!1 &7939266069392783098
 GameObject:
@@ -520,8 +545,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8811717019696299611}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.12437463, z: 0}
-  m_LocalScale: {x: 0.042122997, y: 0.049143497, z: 0.042122997}
+  m_LocalPosition: {x: 0, y: 0.15, z: 0}
+  m_LocalScale: {x: 0.1, y: 0.065, z: 0.1}
   m_Children: []
   m_Father: {fileID: 2436763799009458622}
   m_RootOrder: 1

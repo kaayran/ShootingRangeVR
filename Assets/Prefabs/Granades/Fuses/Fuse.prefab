@@ -161,6 +161,8 @@ GameObject:
   - component: {fileID: 3280353524603338666}
   - component: {fileID: 3280353524603338668}
   - component: {fileID: 3280353524603338667}
+  - component: {fileID: 7557951000590591691}
+  - component: {fileID: 2302938099557010201}
   m_Layer: 0
   m_Name: SafetyRing
   m_TagString: Untagged
@@ -301,7 +303,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateActionSetOnAttach:
     actionSetPath: 
-  hideHandOnAttach: 1
+  hideHandOnAttach: 0
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
@@ -420,6 +422,45 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce20fb07d93b400bac5892ad42df4cfc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &7557951000590591691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3280353524603338678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e4af0376b2e34179a001477f35241fc3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2302938099557010201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3280353524603338678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7418c7dd8f977d4e969202d3fa7e926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poseEditorExpanded: 1
+  blendEditorExpanded: 1
+  poseNames:
+  - FuseRingPose (MAIN)
+  overridePreviewLeftHandPrefab: {fileID: 1000013348574242, guid: eb6cba678d43b444bb001f29548e4a9a, type: 3}
+  overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 6dba408ff18626a4bbb522ba663c2266, type: 3}
+  skeletonMainPose: {fileID: 11400000, guid: 3e238236f1d126a4aa4c5435ce84b275, type: 2}
+  skeletonAdditionalPoses: []
+  showLeftPreview: 0
+  showRightPreview: 0
+  previewLeftInstance: {fileID: 0}
+  previewRightInstance: {fileID: 0}
+  previewPoseSelection: 0
+  blendingBehaviours: []
+  scale: 1
 --- !u!1 &3629027857756063840
 GameObject:
   m_ObjectHideFlags: 0
@@ -534,6 +575,7 @@ GameObject:
   - component: {fileID: 7409229088927602979}
   - component: {fileID: 5440216120932633640}
   - component: {fileID: 7409229088927602978}
+  - component: {fileID: 8577400516415707231}
   m_Layer: 0
   m_Name: Fuse
   m_TagString: Untagged
@@ -631,15 +673,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ace03448580d495d80a40e828391c9a7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _colliders:
-  - {fileID: 8650433353822622817}
-  - {fileID: 8650433354837935376}
-  - {fileID: 8650433354156486926}
-  - {fileID: 8650433354023681207}
-  - {fileID: 8650433354055559356}
-  - {fileID: 8650433354301831860}
-  - {fileID: 8650433354488405620}
-  - {fileID: 3629027857756063843}
 --- !u!114 &7409229088927602980
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -666,7 +699,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateActionSetOnAttach:
     actionSetPath: 
-  hideHandOnAttach: 1
+  hideHandOnAttach: 0
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
@@ -773,6 +806,33 @@ MonoBehaviour:
   velocityAverageFrames: 5
   angularVelocityAverageFrames: 11
   estimateOnAwake: 0
+--- !u!114 &8577400516415707231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7409229088927602990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7418c7dd8f977d4e969202d3fa7e926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poseEditorExpanded: 1
+  blendEditorExpanded: 1
+  poseNames:
+  - FusePose (MAIN)
+  overridePreviewLeftHandPrefab: {fileID: 1000013348574242, guid: eb6cba678d43b444bb001f29548e4a9a, type: 3}
+  overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 6dba408ff18626a4bbb522ba663c2266, type: 3}
+  skeletonMainPose: {fileID: 11400000, guid: 948910f25c3780c4e872b05907bd9d98, type: 2}
+  skeletonAdditionalPoses: []
+  showLeftPreview: 0
+  showRightPreview: 0
+  previewLeftInstance: {fileID: 0}
+  previewRightInstance: {fileID: 0}
+  previewPoseSelection: 0
+  blendingBehaviours: []
+  scale: 1
 --- !u!1 &8650433353822622831
 GameObject:
   m_ObjectHideFlags: 0
