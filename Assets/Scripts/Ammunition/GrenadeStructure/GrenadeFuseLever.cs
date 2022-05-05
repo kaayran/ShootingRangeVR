@@ -1,6 +1,7 @@
 ﻿using System;
 using StructureComponents;
 using UnityEngine;
+using Utilities.Logger;
 using Valve.VR;
 
 namespace Ammunition.GrenadeStructure
@@ -23,20 +24,21 @@ namespace Ammunition.GrenadeStructure
             _attachment = attachment;
             _isInit = true;
 
-            _attachment.OnDrop += OnDrop;
+            _attachment.OnDrop += Drop;
         }
 
         public void SetAttachment(Attachment attachment)
         {
             // Unsubscribe from event of old attachment
-            _attachment.OnDrop -= OnDrop;
+            _attachment.OnDrop -= Drop;
 
             _attachment = attachment;
-            _attachment.OnDrop += OnDrop;
+            _attachment.OnDrop += Drop;
             // Subscribe to new attachment event
+            _state = LeverState.Unlocking;
         }
 
-        private void OnDrop()
+        private void Drop()
         {
             OnRelease?.Invoke();
             // If we throw fuse away, when need to be sure, 
