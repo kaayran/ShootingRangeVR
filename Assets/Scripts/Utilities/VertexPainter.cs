@@ -18,7 +18,7 @@ namespace Utilities
 
             var vertices = _mesh.vertices;
             var colors = new Color32[vertices.Length];
-            var hitVertex = vertices[Random.Range(0, vertices.Length - 1)];
+            var hitVertex = new Vector3(1f, 0f, 0f);
 
 
             for (var i = 0; i < vertices.Length; i++)
