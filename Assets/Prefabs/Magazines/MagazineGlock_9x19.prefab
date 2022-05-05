@@ -65,6 +65,7 @@ GameObject:
   - component: {fileID: 1392603012431407533}
   - component: {fileID: 1392603012431407534}
   - component: {fileID: 1392603012431407522}
+  - component: {fileID: 8955400130916326233}
   m_Layer: 0
   m_Name: MagazineGlock_9x19
   m_TagString: Untagged
@@ -188,7 +189,7 @@ MonoBehaviour:
   snapAttachEaseInCompleted: 0
   skeletonPoser: {fileID: 0}
   handFollowTransform: 1
-  highlightOnHover: 1
+  highlightOnHover: 0
   hideHighlight: []
   hoverPriority: 0
 --- !u!54 &1392603012431407530
@@ -331,7 +332,7 @@ MonoBehaviour:
   poseEditorExpanded: 1
   blendEditorExpanded: 1
   poseNames:
-  - MagazinePose (MAIN)
+  - Magazine_HoldPose (MAIN)
   overridePreviewLeftHandPrefab: {fileID: 1000013348574242, guid: 638779290bce1af49b356f33dcc6fccf, type: 3}
   overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 6def53d002137b747aec0b29551e0e25, type: 3}
   skeletonMainPose: {fileID: 11400000, guid: 29769d6c2a5850d41a4af447dcf4f4ce, type: 2}
@@ -370,6 +371,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4af0376b2e34179a001477f35241fc3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &8955400130916326233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1392603012431407511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineMode: 1
+  _outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  _outlineWidth: 2
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7977472700123171285
 GameObject:
   m_ObjectHideFlags: 0

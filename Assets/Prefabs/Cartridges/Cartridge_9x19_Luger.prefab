@@ -142,6 +142,7 @@ GameObject:
   - component: {fileID: 3720117329981020632}
   - component: {fileID: 2885396919060359536}
   - component: {fileID: 4453408548113355721}
+  - component: {fileID: 5335408014295150189}
   m_Layer: 0
   m_Name: Cartridge_9x19_LUGER
   m_TagString: Untagged
@@ -214,7 +215,7 @@ MonoBehaviour:
   snapAttachEaseInCompleted: 0
   skeletonPoser: {fileID: 0}
   handFollowTransform: 1
-  highlightOnHover: 1
+  highlightOnHover: 0
   hideHighlight: []
   hoverPriority: 0
 --- !u!54 &3720117329981020634
@@ -355,6 +356,24 @@ MonoBehaviour:
   CartridgeBullet: {fileID: 7130490058729668140}
   CartridgeType: {fileID: 11400000, guid: d963b659f9a70f8449a30c68a87c3ef6, type: 2}
   CartridgeCase: {fileID: 1740913697971719901}
+--- !u!114 &5335408014295150189
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3720117329981020639}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _outlineMode: 1
+  _outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  _outlineWidth: 1
+  precomputeOutline: 1
+  bakeKeys: []
+  bakeValues: []
 --- !u!1 &7130490058729668142
 GameObject:
   m_ObjectHideFlags: 0
