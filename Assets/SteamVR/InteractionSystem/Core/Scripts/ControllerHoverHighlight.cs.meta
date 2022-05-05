@@ -1,10 +1,10 @@
 fileFormatVersion: 2
 guid: 8ca2cc563cc33f542a5d9f8f661184ba
-timeCreated: 1544851960
-licenseType: Store
 MonoImporter:
+  externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - highLightMaterial: {fileID: 2100000, guid: 205922f2f6cef6f4e886cbeb581b0d81, type: 2}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

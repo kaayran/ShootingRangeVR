@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0353a89b1f911e48b9e16bdc9f2e058, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  version: 1
+  version: 4
 --- !u!21 &2100000
 Material:
   serializedVersion: 6
@@ -26,7 +26,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2051
+  m_CustomRenderQueue: 1999
   stringTagMap:
     RenderType: Opaque
   disabledShaderPasses: []
@@ -134,8 +134,9 @@ Material:
     - _BaseColorAddSubDiff: {r: 0, g: 0, b: 0, a: 0}
     - _CameraFadeParams: {r: 0, g: Infinity, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _EmissionColor: {r: 0, g: 0.65882355, b: 0.7490196, a: 1}
+    - _EmissionColor: {r: 0, g: 0.39157256, b: 0.5209957, a: 1}
     - _MainColor: {r: 1, g: 1, b: 0, a: 0}
     - _OutlineColor: {r: 1, g: 1, b: 1, a: 1}
     - _SoftParticleFadeParams: {r: 0, g: 0, b: 0, a: 0}
     - g_vOutlineColor: {r: 0.94509804, g: 0.92156863, b: 0, a: 1}
+  m_BuildTextureStacks: []

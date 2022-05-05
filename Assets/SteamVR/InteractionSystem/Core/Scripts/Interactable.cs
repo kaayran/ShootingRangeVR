@@ -102,7 +102,7 @@ namespace Valve.VR.InteractionSystem
         {
             if (highlightMat == null)
 #if UNITY_URP
-                highlightMat = (Material)Resources.Load("SteamVR_HoverHighlight_URP", typeof(Material));
+                highlightMat = (Material)Resources.Load(@"Materials/OutlineMask", typeof(Material));
 #else
                 highlightMat = (Material)Resources.Load("SteamVR_HoverHighlight", typeof(Material));
 #endif

@@ -21,7 +21,7 @@ namespace Utilities
             var hitVertex = vertices[Random.Range(0, vertices.Length - 1)];
 
 
-            for (int i = 0; i < vertices.Length; i++)
+            for (var i = 0; i < vertices.Length; i++)
             {
                 var distance = Vector3.Distance(hitVertex.normalized, vertices[i].normalized) - 0.25f;
                 colors[i] = Color32.Lerp(Color.black, Color.green, distance);
