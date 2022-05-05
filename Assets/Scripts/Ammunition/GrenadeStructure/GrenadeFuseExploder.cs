@@ -32,8 +32,6 @@ namespace Ammunition.GrenadeStructure
 
             var hits = Physics.OverlapSphere(transform.position, _radius);
 
-            ExplosionPaint();
-            
             foreach (var hit in hits)
             {
                 if (hit.TryGetComponent<Rigidbody>(out var rb))
@@ -41,30 +39,10 @@ namespace Ammunition.GrenadeStructure
                     rb.AddExplosionForce(_force, transform.position, _radius);
                 }
             }
-            
+
             OnDetonate?.Invoke();
 
             Destroy(gameObject);
-        }
-
-        private void ExplosionPaint()
-        {
-            var ray = new Ray(transform.position, transform.up * -1f);
-
-            if (!Physics.Raycast(ray, out var hit)) return;
-
-            var mesh = hit.transform.GetComponent<MeshFilter>().mesh;
-            var vertices = mesh.vertices;
-            var colors = new Color32[vertices.Length];
-            var hitVertex = hit.barycentricCoordinate;
-
-            for (var i = 0; i < vertices.Length; i++)
-            {
-                var distance = Vector3.Distance(hitVertex.normalized, vertices[i].normalized) - 0.15f;
-                colors[i] = Color32.Lerp(Color.black, Color.green, distance);
-            }
-
-            mesh.colors32 = colors;
         }
     }
 }

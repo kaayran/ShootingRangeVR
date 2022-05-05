@@ -22,31 +22,19 @@ namespace Utilities
         public Mode outlineMode
         {
             get => _outlineMode;
-            set
-            {
-                _outlineMode = value;
-                _needsUpdate = true;
-            }
+            set => _outlineMode = value;
         }
 
         public Color outlineColor
         {
             get => _outlineColor;
-            set
-            {
-                _outlineColor = value;
-                _needsUpdate = true;
-            }
+            set => _outlineColor = value;
         }
 
         public float outlineWidth
         {
             get => _outlineWidth;
-            set
-            {
-                _outlineWidth = value;
-                _needsUpdate = true;
-            }
+            set => _outlineWidth = value;
         }
 
         [Serializable]
@@ -75,8 +63,6 @@ namespace Utilities
         private Material _outlineMaskMaterial;
         private Material _outlineFillMaterial;
 
-        private bool _needsUpdate;
-
         private void Awake()
         {
             // Cache renderers
@@ -91,9 +77,6 @@ namespace Utilities
 
             // Retrieve or generate smooth normals
             LoadSmoothNormals();
-
-            // Apply material properties immediately
-            _needsUpdate = true;
         }
 
         private void OnHandHoverBegin()
@@ -252,45 +235,6 @@ namespace Utilities
             // Append combined submesh
             mesh.subMeshCount++;
             mesh.SetTriangles(mesh.triangles, mesh.subMeshCount - 1);
-        }
-
-        private void UpdateMaterialProperties()
-        {
-            // Apply properties according to mode
-            _outlineFillMaterial.SetColor("_OutlineColor", _outlineColor);
-
-            switch (_outlineMode)
-            {
-                case Mode.OutlineAll:
-                    _outlineMaskMaterial.SetFloat("_ZTest", (float) UnityEngine.Rendering.CompareFunction.Always);
-                    _outlineFillMaterial.SetFloat("_ZTest", (float) UnityEngine.Rendering.CompareFunction.Always);
-                    _outlineFillMaterial.SetFloat("_OutlineWidth", _outlineWidth);
-                    break;
-
-                case Mode.OutlineVisible:
-                    _outlineMaskMaterial.SetFloat("_ZTest", (float) UnityEngine.Rendering.CompareFunction.Always);
-                    _outlineFillMaterial.SetFloat("_ZTest", (float) UnityEngine.Rendering.CompareFunction.LessEqual);
-                    _outlineFillMaterial.SetFloat("_OutlineWidth", _outlineWidth);
-                    break;
-
-                case Mode.OutlineHidden:
-                    _outlineMaskMaterial.SetFloat("_ZTest", (float) UnityEngine.Rendering.CompareFunction.Always);
-                    _outlineFillMaterial.SetFloat("_ZTest", (float) UnityEngine.Rendering.CompareFunction.Greater);
-                    _outlineFillMaterial.SetFloat("_OutlineWidth", _outlineWidth);
-                    break;
-
-                case Mode.OutlineAndSilhouette:
-                    _outlineMaskMaterial.SetFloat("_ZTest", (float) UnityEngine.Rendering.CompareFunction.LessEqual);
-                    _outlineFillMaterial.SetFloat("_ZTest", (float) UnityEngine.Rendering.CompareFunction.Always);
-                    _outlineFillMaterial.SetFloat("_OutlineWidth", _outlineWidth);
-                    break;
-
-                case Mode.SilhouetteOnly:
-                    _outlineMaskMaterial.SetFloat("_ZTest", (float) UnityEngine.Rendering.CompareFunction.LessEqual);
-                    _outlineFillMaterial.SetFloat("_ZTest", (float) UnityEngine.Rendering.CompareFunction.Greater);
-                    _outlineFillMaterial.SetFloat("_OutlineWidth", 0f);
-                    break;
-            }
         }
     }
 }
