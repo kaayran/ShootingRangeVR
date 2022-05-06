@@ -1,5 +1,6 @@
 ﻿using System;
 using Ammunition.CartridgeStructure;
+using Particle;
 using UnityEngine;
 
 namespace WeaponStructure
@@ -9,6 +10,7 @@ namespace WeaponStructure
         public event Action OnBulletFired;
 
         [SerializeField] private Transform _fireTransform;
+        [SerializeField] private ParticleComponent _particle;
 
         public void Init()
         {
@@ -18,13 +20,22 @@ namespace WeaponStructure
         {
             var bullet = cartridge.GetBullet();
             var bulletTransform = bullet.GetTransform();
-            bulletTransform.position = _fireTransform.position;
-            bulletTransform.rotation = _fireTransform.rotation;
+
+            var position = _fireTransform.position;
+            var rotation = _fireTransform.rotation;
+
+            bulletTransform.position = position;
+            bulletTransform.rotation = rotation;
 
             // Take cartridge velocity and deploy it with it speed
             var speed = cartridge.GetBulletSpeed();
 
             bullet.Deploy(speed);
+
+            var particle = Instantiate(_particle, position, rotation);
+            particle.Play();
+
+
             OnBulletFired?.Invoke();
 
             cartridge.DestroyCartridge();

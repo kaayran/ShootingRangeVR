@@ -1,4 +1,5 @@
 using Interfaces;
+using Particle;
 using Resources;
 using UnityEngine;
 
@@ -7,14 +8,12 @@ namespace Detections
     [RequireComponent(typeof(Collider))]
     public class StaticHitDetection : MonoBehaviour, IDamageable
     {
-        [SerializeField] private GameObject _damageMark;
+        [SerializeField] private ParticleComponent _particle;
 
         public void Damage(DamageData damageData)
         {
-            var obj = Instantiate(_damageMark, damageData.contactPoint, damageData.normalPoint);
-            obj.transform.SetParent(transform, true);
-            
-            Debug.Log("I have damaged by static impact!");
+            var particle = Instantiate(_particle, damageData.contactPoint, damageData.normalPoint);
+            particle.Play();
         }
     }
 }

@@ -21,7 +21,6 @@ namespace Detections
             var contactPoint = damageData.contactPoint;
 
             _rb.AddForceAtPosition(force, contactPoint, ForceMode.Impulse);
-            Debug.Log("I have damaged by physic force!");
         }
     }
 }

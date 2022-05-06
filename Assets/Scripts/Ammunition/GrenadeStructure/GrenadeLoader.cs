@@ -52,7 +52,7 @@ namespace Ammunition.GrenadeStructure
 
             var fuseColliders = _fuse.GetColliders();
             foreach (var fuseCollider in fuseColliders) Physics.IgnoreCollision(_collider, fuseCollider);
-            
+
             _fuse.Deactivate();
             _fuse.SetLeverAttachment(_attachment);
 

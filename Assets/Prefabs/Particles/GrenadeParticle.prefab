@@ -14600,7 +14600,7 @@ GameObject:
   - component: {fileID: 452146368959581097}
   - component: {fileID: -3763562238737466929}
   m_Layer: 0
-  m_Name: GrenadeExplosionParticle
+  m_Name: GrenadeParticle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

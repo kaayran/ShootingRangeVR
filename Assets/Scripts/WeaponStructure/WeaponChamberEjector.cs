@@ -1,4 +1,5 @@
 ﻿using Ammunition.CartridgeStructure;
+using Particle;
 using UnityEngine;
 
 namespace WeaponStructure
@@ -6,6 +7,7 @@ namespace WeaponStructure
     public class WeaponChamberEjector : MonoBehaviour
     {
         [SerializeField] private Transform _extractTransform;
+        [SerializeField] private ParticleComponent _particle;
         [SerializeField] private float _force;
         [SerializeField] private float _torque;
 
@@ -50,9 +52,14 @@ namespace WeaponStructure
             if (_cartridgeCase == null) return;
             _cartridgeCase.Activate();
 
+            var position = _extractTransform.position;
+            var rotation = _extractTransform.rotation;
+            var particle = Instantiate(_particle, position, rotation);
+            particle.Play();
+
             var cartridgeTransform = _cartridgeCase.GetTransform();
-            cartridgeTransform.position = _extractTransform.position;
-            cartridgeTransform.rotation = _extractTransform.rotation;
+            cartridgeTransform.position = position;
+            cartridgeTransform.rotation = rotation;
             cartridgeTransform.parent = null;
 
             var cartridgeRigidbody = _cartridgeCase.GetRigidbody();

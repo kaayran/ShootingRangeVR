@@ -766,6 +766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _extractTransform: {fileID: 3714243940369882300}
+  _particle: {fileID: 2259030537502549337, guid: b49ab34b122c3344da5849623e266d2b, type: 3}
   _force: 1
   _torque: 30
 --- !u!114 &6540261419152374811
@@ -826,6 +827,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _fireTransform: {fileID: 3714243940056485942}
+  _particle: {fileID: 5367923717321323137, guid: 0ce42cb621fc69542867f32b05231797, type: 3}
 --- !u!114 &6540261419152374812
 MonoBehaviour:
   m_ObjectHideFlags: 0
