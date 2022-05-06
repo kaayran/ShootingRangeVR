@@ -77,4 +77,4 @@ crashlytics-build.properties
 !*.obj
 
 # VR Project Settings
-.\unityProject.vrmanifest
+unityProject.vrmanifest
