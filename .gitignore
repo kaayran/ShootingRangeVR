@@ -75,3 +75,6 @@ crashlytics-build.properties
 # Exceptions
 !*.dll
 !*.obj
+
+# VR Project Settings
+.\unityProject.vrmanifest
