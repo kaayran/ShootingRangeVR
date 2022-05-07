@@ -17,8 +17,6 @@ namespace Equipment.Interfaces
         public override void SetEquipmentInSlot(IHelmet equipment)
         {
             Equipment = equipment;
-
-            Debug.Log(Equipment.GetHelmetName());
         }
 
         public override bool IsSlotAvailable()

@@ -2,10 +2,12 @@
 using Equipment.Interfaces;
 using StructureComponents;
 using UnityEngine;
+using Valve.VR.InteractionSystem;
 
 namespace Equipment
 {
     [RequireComponent(typeof(Attachment))]
+    [RequireComponent(typeof(Throwable))]
     [RequireComponent(typeof(Rigidbody))]
     public class Helmet : MonoBehaviour, IHelmet
     {
