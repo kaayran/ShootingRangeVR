@@ -9,7 +9,7 @@ namespace Equipment
     [RequireComponent(typeof(Attachment))]
     [RequireComponent(typeof(Throwable))]
     [RequireComponent(typeof(Rigidbody))]
-    public class Helmet : MonoBehaviour, IHelmet
+    public class Helmet : MonoBehaviour, IHead
     {
         [SerializeField] private string _name;
 
@@ -46,7 +46,7 @@ namespace Equipment
             return _attachment;
         }
 
-        public string GetHelmetName()
+        public string GetHeadEquipmentName()
         {
             return _name;
         }

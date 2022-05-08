@@ -3,12 +3,12 @@ using UnityEngine;
 
 namespace Equipment
 {
-    public class HelmetSlot : EquipmentSlot<IHelmet>
+    public class HeadSlot : EquipmentSlot<IHead>
     {
-        public override void Init()
+        public override void Init(Transform transform)
         {
             Equipment = null;
-            Transform = GetComponent<Transform>();
+            Transform = transform;
         }
 
         public override Transform GetEquipSlotTransform()
@@ -16,7 +16,7 @@ namespace Equipment
             return Transform;
         }
 
-        public override void SetEquipmentInSlot(IHelmet equipment)
+        public override void SetEquipmentInSlot(IHead equipment)
         {
             Equipment = equipment;
         }
@@ -24,6 +24,12 @@ namespace Equipment
         public override bool IsSlotAvailable()
         {
             return Equipment == null;
+        }
+
+        public override void RemoveEquipmentInSlot(out IHead removed)
+        {
+            removed = Equipment;
+            Equipment = null;
         }
     }
 }
