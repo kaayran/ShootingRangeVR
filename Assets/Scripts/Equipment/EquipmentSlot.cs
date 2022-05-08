@@ -1,11 +1,11 @@
-﻿using UnityEngine;
+﻿using Equipment.Interfaces;
+using UnityEngine;
 
 namespace Equipment
 {
-    public abstract class EquipmentSlot<T> : MonoBehaviour
+    public abstract class EquipmentSlot<T> : MonoBehaviour where T : IEquippable
     {
-        [SerializeField] private protected Transform _transform;
-
+        private protected Transform Transform;
         private protected T Equipment;
 
         public abstract void Init();

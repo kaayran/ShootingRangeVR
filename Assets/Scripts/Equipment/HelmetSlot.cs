@@ -1,17 +1,19 @@
-﻿using UnityEngine;
+﻿using Equipment.Interfaces;
+using UnityEngine;
 
-namespace Equipment.Interfaces
+namespace Equipment
 {
     public class HelmetSlot : EquipmentSlot<IHelmet>
     {
         public override void Init()
         {
             Equipment = null;
+            Transform = GetComponent<Transform>();
         }
 
         public override Transform GetEquipSlotTransform()
         {
-            return _transform;
+            return Transform;
         }
 
         public override void SetEquipmentInSlot(IHelmet equipment)

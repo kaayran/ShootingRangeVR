@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using Equipment.Interfaces;
 using UnityEngine;
 
 namespace Equipment
 {
-    public abstract class EquipmentVisualizer<T> : MonoBehaviour
+    public abstract class EquipmentVisualizer<T> : MonoBehaviour where T : IEquippable
+
     {
         [SerializeField] private protected EquipmentSlot<T> _slot;
 
