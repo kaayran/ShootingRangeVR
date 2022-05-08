@@ -8,12 +8,13 @@ namespace Equipment
     public abstract class EquipmentVisualizer<T> : MonoBehaviour where T : IEquippable
 
     {
-        [SerializeField] private protected EquipmentSlot<T> _slot;
+        private protected EquipmentSlot<T> Slot;
 
         public abstract void Init();
 
         private protected abstract void OnTriggerStay(Collider other);
         private protected abstract void OnTriggerExit(Collider other);
-        private protected abstract void OnEquipmentDrop();
+        private protected abstract void EquipmentDrop();
+        private protected abstract void EquipmentTake();
     }
 }
