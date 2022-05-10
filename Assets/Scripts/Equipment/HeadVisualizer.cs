@@ -1,6 +1,6 @@
-﻿using Equipment.Interfaces;
+﻿using System;
+using Equipment.Interfaces;
 using UnityEngine;
-using Valve.VR.InteractionSystem;
 
 namespace Equipment
 {
@@ -11,7 +11,7 @@ namespace Equipment
         public override void Init()
         {
             // Init!
-            Slot = GetComponent<EquipmentSlot<IHead>>();
+            Slot = new HeadSlot();
             Slot.Init(transform);
         }
 

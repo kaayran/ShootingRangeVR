@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Equipment.Interfaces;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Equipment
 {
     public class PlayerEquipment : MonoBehaviour
     {
-        private List<EquipmentVisualizer<IEquippable>> _equipmentVisualizers;
-        //private List<EquipmentSlot> _equipmentSlots;
+        [SerializeField] private HeadVisualizer _headVisualizer;
 
         private void Start()
         {
@@ -18,13 +13,7 @@ namespace Equipment
 
         private void Init()
         {
-            _equipmentVisualizers = GetComponents<EquipmentVisualizer<IEquippable>>().ToList();
-            //_equipmentSlots = GetComponents<EquipmentSlot>().ToList();
-
-            foreach (var visualizer in _equipmentVisualizers)
-            {
-                visualizer.Init();
-            }
+            _headVisualizer.Init();
         }
     }
 }

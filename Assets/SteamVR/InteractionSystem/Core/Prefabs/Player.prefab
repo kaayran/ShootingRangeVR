@@ -222,8 +222,7 @@ GameObject:
   m_Component:
   - component: {fileID: 447954}
   - component: {fileID: 11465950}
-  - component: {fileID: 4265133917550216757}
-  - component: {fileID: 518131038115279659}
+  - component: {fileID: 5615364627832992820}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -280,7 +279,7 @@ MonoBehaviour:
     actionPath: /actions/default/in/HeadsetOnHead
     needsReinit: 1
   allowToggleTo2D: 1
---- !u!114 &4265133917550216757
+--- !u!114 &5615364627832992820
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -292,19 +291,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d41373e2260f41e7b92860dbff412526, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &518131038115279659
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 107946}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 33b5ee40559047f8845c4da5c5c70571, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _slot: {fileID: 2314801515998889999}
+  _headVisualizer: {fileID: 7190627988315741028}
 --- !u!1 &109154
 GameObject:
   m_ObjectHideFlags: 0
@@ -2734,7 +2721,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8904343674448671671}
-  - component: {fileID: 2314801515998889999}
+  - component: {fileID: 3222148624628101156}
+  - component: {fileID: 7190627988315741028}
   m_Layer: 0
   m_Name: Helmet
   m_TagString: Untagged
@@ -2756,7 +2744,20 @@ Transform:
   m_Father: {fileID: 471722}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: -90, z: 0}
---- !u!114 &2314801515998889999
+--- !u!65 &3222148624628101156
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6931364523215264590}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.35, y: 0.35, z: 0.35}
+  m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7190627988315741028
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2765,7 +2766,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6931364523215264590}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a357b906f29044fea64e1402c7941ed3, type: 3}
+  m_Script: {fileID: 11500000, guid: 33b5ee40559047f8845c4da5c5c70571, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _transform: {fileID: 8904343674448671671}

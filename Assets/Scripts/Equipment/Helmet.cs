@@ -1,5 +1,4 @@
-﻿using System;
-using Equipment.Interfaces;
+﻿using Equipment.Interfaces;
 using StructureComponents;
 using UnityEngine;
 using Valve.VR.InteractionSystem;

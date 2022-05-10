@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using Equipment.Interfaces;
+﻿using Equipment.Interfaces;
 using UnityEngine;
 
 namespace Equipment
 {
     public abstract class EquipmentVisualizer<T> : MonoBehaviour where T : IEquippable
-
     {
         private protected EquipmentSlot<T> Slot;
 
