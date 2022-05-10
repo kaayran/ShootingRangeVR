@@ -1,6 +1,8 @@
 ﻿using System;
+using Audio;
 using Equipment.Interfaces;
 using UnityEngine;
+using UnityEngine.Audio;
 
 namespace Equipment
 {
@@ -8,9 +10,10 @@ namespace Equipment
     {
         private IHead _head;
 
-        public override void Init()
+        public override void Init(AudioMixer mixer)
         {
             // Init!
+            Mixer = mixer;
             Slot = new HeadSlot();
             Slot.Init(transform);
         }
@@ -37,6 +40,8 @@ namespace Equipment
 
             _head.Equip(Slot.GetEquipSlotTransform());
             Slot.SetEquipmentInSlot(_head);
+            
+            AudioManager.Instance.MixerHelmetOn(_head.Suppression);
 
             _head = null;
         }
@@ -45,6 +50,8 @@ namespace Equipment
         {
             Slot.RemoveEquipmentInSlot(out var removed);
             removed.GetAttachment().OnTake -= EquipmentTake;
+            
+            AudioManager.Instance.MixerHelmetOn(0f);
 
             removed.UnEquip();
         }

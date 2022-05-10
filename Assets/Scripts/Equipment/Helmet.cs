@@ -9,6 +9,8 @@ namespace Equipment
     [RequireComponent(typeof(Rigidbody))]
     public class Helmet : MonoBehaviour, IHead
     {
+        public float Suppression { get; private set; }
+        
         [SerializeField] private string _name;
         [SerializeField] private HelmetVisor _visor;
 
@@ -21,7 +23,7 @@ namespace Equipment
             Init();
         }
 
-        private void Init()
+        public void Init()
         {
             _visor.Init();
             _collisionIgnoring = GetComponent<CollisionIgnoring>();
@@ -30,6 +32,8 @@ namespace Equipment
 
             _collisionIgnoring.Init();
             _attachment.Init();
+
+            Suppression = -10f;
         }
 
         public void Equip(Transform slot)
