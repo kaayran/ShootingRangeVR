@@ -1,12 +1,13 @@
-﻿using UnityEngine;
-using UnityEngine.Audio;
+﻿using Equipment.Body;
+using Equipment.Head;
+using UnityEngine;
 
 namespace Equipment
 {
     public class PlayerEquipment : MonoBehaviour
     {
         [SerializeField] private HeadVisualizer _headVisualizer;
-        [SerializeField] private AudioMixer _mixer;
+        [SerializeField] private BodyVisualizer _bodyVisualizer;
 
         private void Start()
         {
@@ -15,7 +16,8 @@ namespace Equipment
 
         private void Init()
         {
-            _headVisualizer.Init(_mixer);
+            _headVisualizer.Init();
+            _bodyVisualizer.Init();
         }
     }
 }

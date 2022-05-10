@@ -1,7 +1,6 @@
 ﻿using System;
 using StructureComponents;
 using UnityEngine;
-using Utilities.Logger;
 using Valve.VR;
 
 namespace Ammunition.GrenadeStructure

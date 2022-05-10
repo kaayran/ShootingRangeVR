@@ -1,6 +1,4 @@
-﻿using System;
-using Interfaces;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Ammunition.CartridgeStructure
 {

@@ -292,6 +292,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _headVisualizer: {fileID: 7190627988315741028}
+  _mixer: {fileID: 24100000, guid: 7baa9c965ad48c04586a3fb670429303, type: 2}
 --- !u!1 &109154
 GameObject:
   m_ObjectHideFlags: 0
