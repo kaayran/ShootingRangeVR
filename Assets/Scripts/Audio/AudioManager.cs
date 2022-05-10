@@ -36,7 +36,7 @@ namespace Audio
             helmetSnap.TransitionTo(.1f);
             helmetSnap.audioMixer.SetFloat("Volume", volume);
         }
-        
+
         public void MixerDefault()
         {
             var defaultSnap = _mixer.FindSnapshot("Default");

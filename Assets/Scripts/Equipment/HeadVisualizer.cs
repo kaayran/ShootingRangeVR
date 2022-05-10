@@ -1,5 +1,4 @@
-﻿using System;
-using Audio;
+﻿using Audio;
 using Equipment.Interfaces;
 using UnityEngine;
 using UnityEngine.Audio;
@@ -40,7 +39,7 @@ namespace Equipment
 
             _head.Equip(Slot.GetEquipSlotTransform());
             Slot.SetEquipmentInSlot(_head);
-            
+
             AudioManager.Instance.MixerHelmetOn(_head.Suppression);
 
             _head = null;
@@ -50,8 +49,8 @@ namespace Equipment
         {
             Slot.RemoveEquipmentInSlot(out var removed);
             removed.GetAttachment().OnTake -= EquipmentTake;
-            
-            AudioManager.Instance.MixerHelmetOn(0f);
+
+            AudioManager.Instance.MixerDefault();
 
             removed.UnEquip();
         }
