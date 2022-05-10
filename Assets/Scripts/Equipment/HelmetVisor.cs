@@ -11,44 +11,67 @@ namespace Equipment
         [SerializeField] private float _minAngle;
         [SerializeField] private float _time;
 
-        private Hand _attachedHand;
+        private bool _inMaxRotation;
+        private bool _inMinRotation;
 
         public void Init()
         {
+            _inMaxRotation = false;
+            _inMinRotation = true;
         }
 
-        private IEnumerator UpVisor()
+        private IEnumerator RotateVisorUp()
         {
-            var angle = transform.eulerAngles.z;
-            var road = angle / _maxAngle;
-            var temp = 0f;
+            var topRotation = Quaternion.Euler(0f, 0f, _maxAngle);
+            var t = 0f;
+            var dummy = 0f;
 
-            while (temp <= _time)
+            while (t <= _time)
             {
-                angle = Mathf.LerpAngle(angle, _maxAngle, temp);
-                transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, angle);
-                temp += road * _time / Time.deltaTime;
+                transform.localRotation = Quaternion.Lerp(transform.localRotation, topRotation, dummy);
+                t += Time.deltaTime;
+                dummy = t / _time;
 
                 yield return null;
             }
 
-            Debug.Log("Get to Max Angle");
+            transform.localRotation = topRotation;
+
+            _inMaxRotation = true;
+            _inMinRotation = false;
+        }
+
+        private IEnumerator RotateVisorDown()
+        {
+            var rotation = Quaternion.Euler(0f, 0f, _minAngle);
+            var t = 0f;
+            var dummy = 0f;
+
+            while (t <= _time)
+            {
+                transform.localRotation = Quaternion.Lerp(transform.localRotation, rotation, dummy);
+                t += Time.deltaTime;
+                dummy = t / _time;
+
+                yield return null;
+            }
+
+            transform.localRotation = rotation;
+
+            _inMinRotation = true;
+            _inMaxRotation = false;
         }
 
         private void OnAttachedToHand(Hand hand)
         {
-            _attachedHand = hand;
-
-            var up = transform.up;
-            var toHand = _attachedHand.transform.position - transform.position;
-            var dot = Vector3.Dot(up, toHand);
-
-            StartCoroutine(UpVisor());
-        }
-
-        private void OnDetachedFromHand(Hand hand)
-        {
-            _attachedHand = null;
+            if (!_inMaxRotation)
+            {
+                StartCoroutine(RotateVisorUp());
+            }
+            else if (!_inMinRotation)
+            {
+                StartCoroutine(RotateVisorDown());
+            }
         }
     }
 }

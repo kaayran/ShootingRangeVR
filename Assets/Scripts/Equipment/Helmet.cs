@@ -6,12 +6,13 @@ using Valve.VR.InteractionSystem;
 namespace Equipment
 {
     [RequireComponent(typeof(Attachment))]
-    [RequireComponent(typeof(Throwable))]
     [RequireComponent(typeof(Rigidbody))]
     public class Helmet : MonoBehaviour, IHead
     {
         [SerializeField] private string _name;
+        [SerializeField] private HelmetVisor _visor;
 
+        private CollisionIgnoring _collisionIgnoring;
         private Attachment _attachment;
         private Rigidbody _rb;
 
@@ -22,8 +23,13 @@ namespace Equipment
 
         private void Init()
         {
-            _rb = GetComponent<Rigidbody>();
+            _visor.Init();
+            _collisionIgnoring = GetComponent<CollisionIgnoring>();
             _attachment = GetComponent<Attachment>();
+            _rb = GetComponent<Rigidbody>();
+
+            _collisionIgnoring.Init();
+            _attachment.Init();
         }
 
         public void Equip(Transform slot)
