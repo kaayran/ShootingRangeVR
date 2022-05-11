@@ -24,9 +24,10 @@ namespace StructureComponents
             if (!_isInit) return;
             if (!_attachment.TryGetHand(out var hand)) return;
 
-            var type = hand.handType;
-
-            if (!_popperButton[type].lastStateDown) return;
+            var source = hand.handType;
+            var pressed = _popperButton.GetStateDown(source);
+            
+            if (!pressed) return;
 
             OnButtonPressed?.Invoke();
         }
