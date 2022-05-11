@@ -27,7 +27,6 @@ namespace Audio
 
         private void Init()
         {
-            Debug.Log("AudioManager Started!");
         }
 
         public void MixerHelmetOn(float volume)

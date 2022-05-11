@@ -30,7 +30,6 @@ namespace WeaponStructure
             var dot = Vector3.Dot(weaponUp, magazineUp);
 
             if (dot < 0.75f) return;
-            Debug.Log("Magazine in position.");
 
             _magazine = magazine;
 

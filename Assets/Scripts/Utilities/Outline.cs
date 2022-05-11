@@ -10,50 +10,11 @@ namespace Utilities
     {
         private static readonly HashSet<Mesh> RegisteredMeshes = new HashSet<Mesh>();
 
-        public enum Mode
-        {
-            OutlineAll,
-            OutlineVisible,
-            OutlineHidden,
-            OutlineAndSilhouette,
-            SilhouetteOnly
-        }
-
-        public Mode outlineMode
-        {
-            get => _outlineMode;
-            set => _outlineMode = value;
-        }
-
-        public Color outlineColor
-        {
-            get => _outlineColor;
-            set => _outlineColor = value;
-        }
-
-        public float outlineWidth
-        {
-            get => _outlineWidth;
-            set => _outlineWidth = value;
-        }
-
         [Serializable]
         private class ListVector3
         {
             public List<Vector3> data;
         }
-
-        [SerializeField] private Mode _outlineMode;
-
-        [SerializeField] private Color _outlineColor = Color.white;
-
-        [SerializeField, Range(0f, 10f)] private float _outlineWidth = 2f;
-
-        [Header("Optional")]
-        [SerializeField, Tooltip(
-             "Precompute enabled: Per-vertex calculations are performed in the editor and serialized with the object. "
-             + "Precompute disabled: Per-vertex calculations are performed at runtime in Awake(). This may cause a pause for large meshes.")]
-        private bool precomputeOutline;
 
         [SerializeField, HideInInspector] private List<Mesh> bakeKeys = new List<Mesh>();
 
@@ -112,27 +73,6 @@ namespace Utilities
             // Destroy material instances
             Destroy(_outlineMaskMaterial);
             Destroy(_outlineFillMaterial);
-        }
-
-        private void Bake()
-        {
-            // Generate smooth normals for each mesh
-            var bakedMeshes = new HashSet<Mesh>();
-
-            foreach (var meshFilter in GetComponentsInChildren<MeshFilter>())
-            {
-                // Skip duplicates
-                if (!bakedMeshes.Add(meshFilter.sharedMesh))
-                {
-                    continue;
-                }
-
-                // Serialize smooth normals
-                var smoothNormals = SmoothNormals(meshFilter.sharedMesh);
-
-                bakeKeys.Add(meshFilter.sharedMesh);
-                bakeValues.Add(new ListVector3() {data = smoothNormals});
-            }
         }
 
         private void LoadSmoothNormals()

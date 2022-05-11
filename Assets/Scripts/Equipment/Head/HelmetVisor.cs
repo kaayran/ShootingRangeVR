@@ -21,20 +21,20 @@ namespace Equipment.Head
 
         private IEnumerator RotateVisorUp()
         {
-            var topRotation = Quaternion.Euler(0f, 0f, _maxAngle);
+            var rotation = Quaternion.Euler(Vector3.right * _maxAngle);
             var t = 0f;
             var dummy = 0f;
 
             while (t <= _time)
             {
-                transform.localRotation = Quaternion.Lerp(transform.localRotation, topRotation, dummy);
+                transform.localRotation = Quaternion.Lerp(transform.localRotation, rotation, dummy);
                 t += Time.deltaTime;
                 dummy = t / _time;
 
                 yield return null;
             }
 
-            transform.localRotation = topRotation;
+            transform.localRotation = rotation;
 
             _inMaxRotation = true;
             _inMinRotation = false;
@@ -42,7 +42,7 @@ namespace Equipment.Head
 
         private IEnumerator RotateVisorDown()
         {
-            var rotation = Quaternion.Euler(0f, 0f, _minAngle);
+            var rotation = Quaternion.Euler(Vector3.right * _minAngle);
             var t = 0f;
             var dummy = 0f;
 

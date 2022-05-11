@@ -38,7 +38,7 @@ namespace Equipment.Head
             _head.Equip(Slot.GetEquipSlotTransform());
             Slot.SetEquipmentInSlot(_head);
 
-            AudioManager.Instance.MixerHelmetOn(_head.Suppression);
+            AudioManager.Instance.MixerHelmetOn(_head.GetHelmetSuppression());
 
             _head = null;
         }
