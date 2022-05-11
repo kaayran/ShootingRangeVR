@@ -11330,6 +11330,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glock17_1
       objectReference: {fileID: 0}
+    - target: {fileID: 6540261419152374815, guid: 573ac174a234b414fa6d41ff3f123c2a, type: 3}
+      propertyPath: _recoil
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 573ac174a234b414fa6d41ff3f123c2a, type: 3}
 --- !u!1 &298487514
@@ -11716,6 +11720,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Glock17
       objectReference: {fileID: 0}
+    - target: {fileID: 6540261419152374815, guid: 573ac174a234b414fa6d41ff3f123c2a, type: 3}
+      propertyPath: _recoil
+      value: 7.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 573ac174a234b414fa6d41ff3f123c2a, type: 3}
 --- !u!1001 &1090834058
@@ -11772,6 +11780,10 @@ PrefabInstance:
     - target: {fileID: 6540261419152374784, guid: 573ac174a234b414fa6d41ff3f123c2a, type: 3}
       propertyPath: m_Name
       value: Glock17_3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540261419152374815, guid: 573ac174a234b414fa6d41ff3f123c2a, type: 3}
+      propertyPath: _recoil
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 573ac174a234b414fa6d41ff3f123c2a, type: 3}
@@ -11947,6 +11959,10 @@ PrefabInstance:
     - target: {fileID: 6540261419152374784, guid: 573ac174a234b414fa6d41ff3f123c2a, type: 3}
       propertyPath: m_Name
       value: Glock17_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6540261419152374815, guid: 573ac174a234b414fa6d41ff3f123c2a, type: 3}
+      propertyPath: _recoil
+      value: 2.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 573ac174a234b414fa6d41ff3f123c2a, type: 3}

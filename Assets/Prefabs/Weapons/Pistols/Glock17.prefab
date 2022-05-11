@@ -828,6 +828,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fireTransform: {fileID: 3714243940056485942}
   _particle: {fileID: 5367923717321323137, guid: 0ce42cb621fc69542867f32b05231797, type: 3}
+  _recoil: 2.5
 --- !u!114 &6540261419152374812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -889,10 +890,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineMode: 1
-  _outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  _outlineWidth: 2
-  precomputeOutline: 1
   bakeKeys:
   - {fileID: -2643173543783292932, guid: 7e39e1da256869e40a5a4b56c012f611, type: 3}
   - {fileID: 1336412344088861436, guid: 7e39e1da256869e40a5a4b56c012f611, type: 3}
@@ -39671,10 +39668,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineMode: 0
-  _outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  _outlineWidth: 2
-  precomputeOutline: 1
   bakeKeys:
   - {fileID: 1336412344088861436, guid: 7e39e1da256869e40a5a4b56c012f611, type: 3}
   bakeValues:
