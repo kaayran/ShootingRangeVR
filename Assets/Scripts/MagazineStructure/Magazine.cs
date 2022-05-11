@@ -23,8 +23,6 @@ namespace MagazineStructure
         private protected Popper MagazinePopper;
         private protected Rigidbody Rigidbody;
 
-        public abstract void Init();
-
         public bool TryPopCartridge(out Cartridge cartridge)
         {
             if (MagazineCartridgeContainer.TryPop(out var poppedCartridge))
@@ -37,11 +35,6 @@ namespace MagazineStructure
             return false;
         }
 
-        public void Activate()
-        {
-            gameObject.SetActive(true);
-        }
-
         public void Deactivate()
         {
             Rigidbody.velocity = Vector3.down;
@@ -50,24 +43,14 @@ namespace MagazineStructure
             gameObject.SetActive(false);
         }
 
-        public MagazineType GetMagazineType()
-        {
-            return (MagazineType) MagazineType.Clone();
-        }
+        public void Activate() => gameObject.SetActive(true);
 
-        public bool CheckCartridge()
-        {
-            return MagazineCartridgeContainer.CheckStored();
-        }
+        public MagazineType GetMagazineType() => (MagazineType) MagazineType.Clone();
 
-        internal Attachment GetMagazineAttachment()
-        {
-            return MagazineAttachment;
-        }
+        public bool CheckCartridge() => MagazineCartridgeContainer.CheckStored();
 
-        public Rigidbody GetRigidbody()
-        {
-            return Rigidbody;
-        }
+        internal Attachment GetMagazineAttachment() => MagazineAttachment;
+
+        public Rigidbody GetRigidbody() => Rigidbody;
     }
 }

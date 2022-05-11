@@ -59,7 +59,7 @@ namespace Ammunition.GrenadeStructure
 
             foreach (var col in _colliders)
             {
-                if (col.transform.parent.TryGetComponent<GrenadeFuseRing>(out var component)) continue;
+                if (col.transform.parent.TryGetComponent<GrenadeFuseRing>(out _)) continue;
                 var ignore = col.gameObject.GetComponent<IgnoreHovering>();
                 Destroy(ignore);
             }
@@ -71,46 +71,19 @@ namespace Ammunition.GrenadeStructure
         {
             foreach (var col in _colliders)
             {
-                if (!col.transform.parent.TryGetComponent<GrenadeFuseRing>(out var component))
+                if (!col.transform.parent.TryGetComponent<GrenadeFuseRing>(out _))
                 {
                     col.gameObject.AddComponent<IgnoreHovering>();
                 }
             }
         }
 
-        public Attachment GetAttachment()
-        {
-            return _attachment;
-        }
-
-        public void SetLeverAttachment(Attachment attachment)
-        {
-            _fuseLever.SetAttachment(attachment);
-        }
-
-        public void RevertLeverAttachment()
-        {
-            _fuseLever.SetAttachment(_attachment);
-        }
-
-        public GrenadeFuseType GetFuseType()
-        {
-            return (GrenadeFuseType) _fuseType.Clone();
-        }
-
-        public Rigidbody GetRigidbody()
-        {
-            return _rigidbody;
-        }
-
-        public GrenadeFuseExploder GetExploder()
-        {
-            return _fuseExploder;
-        }
-
-        public List<Collider> GetColliders()
-        {
-            return _colliders;
-        }
+        public Attachment GetAttachment() => _attachment;
+        public void SetLeverAttachment(Attachment attachment) => _fuseLever.SetAttachment(attachment);
+        public void RevertLeverAttachment() => _fuseLever.SetAttachment(_attachment);
+        public GrenadeFuseType GetFuseType() => (GrenadeFuseType) _fuseType.Clone();
+        public Rigidbody GetRigidbody() => _rigidbody;
+        public GrenadeFuseExploder GetExploder() => _fuseExploder;
+        public List<Collider> GetColliders() => _colliders;
     }
 }

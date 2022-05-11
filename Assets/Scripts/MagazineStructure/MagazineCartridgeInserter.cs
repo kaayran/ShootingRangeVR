@@ -21,7 +21,7 @@ namespace MagazineStructure
         {
             if (_cartridge != null) return;
             if (!other.TryGetComponent<Cartridge>(out var cartridge)) return;
-            if (!cartridge.GetCartridgeAttachment().TryGetHand(out var hand)) return;
+            if (!cartridge.GetCartridgeAttachment().TryGetHand(out _)) return;
 
             _cartridge = cartridge;
 
@@ -31,7 +31,7 @@ namespace MagazineStructure
 
         private void OnCartridgeDrop()
         {
-            if (!_attachment.TryGetHand(out var hand)) return;
+            if (!_attachment.TryGetHand(out _)) return;
 
             var magazineCaliber = _container.GetCaliber();
             var cartridgeCaliber = _cartridge.GetCartridgeType().Caliber;

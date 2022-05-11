@@ -26,49 +26,14 @@ namespace Ammunition.CartridgeStructure
             gameObject.SetActive(true);
         }
 
-        public void Deactivate()
-        {
-            gameObject.SetActive(false);
-        }
-
-        public void DestroyCartridge()
-        {
-            Destroy(gameObject);
-        }
-
-        public CartridgeType GetCartridgeType()
-        {
-            return CartridgeType;
-        }
-
-        public Attachment GetCartridgeAttachment()
-        {
-            return CartridgeAttachment;
-        }
-
-        public CartridgeBullet GetBullet()
-        {
-            return CartridgeBullet;
-        }
-
-        public CartridgeCase GetCartridge()
-        {
-            return CartridgeCase;
-        }
-
-        public Rigidbody GetRigidbody()
-        {
-            return RigidBody;
-        }
-
-        public Transform GetTransform()
-        {
-            return transform;
-        }
-
-        public float GetBulletSpeed()
-        {
-            return CartridgeType.BulletSpeed;
-        }
+        public void Deactivate() => gameObject.SetActive(false);
+        public void DestroyCartridge() => Destroy(gameObject);
+        public CartridgeType GetCartridgeType() => CartridgeType;
+        public Attachment GetCartridgeAttachment() => CartridgeAttachment;
+        public CartridgeBullet GetBullet() => CartridgeBullet;
+        public CartridgeCase GetCartridge() => CartridgeCase;
+        public Rigidbody GetRigidbody() => RigidBody;
+        public Transform GetTransform() => transform;
+        public float GetBulletSpeed() => CartridgeType.BulletSpeed;
     }
 }

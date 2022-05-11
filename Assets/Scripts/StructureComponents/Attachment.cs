@@ -1,4 +1,5 @@
 ﻿using System;
+using JetBrains.Annotations;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
@@ -23,12 +24,14 @@ namespace StructureComponents
             return _attachedHand != null;
         }
 
+        [UsedImplicitly]
         private void OnAttachedToHand(Hand hand)
         {
             OnTake?.Invoke();
             _attachedHand = hand;
         }
 
+        [UsedImplicitly]
         private void OnDetachedFromHand(Hand hand)
         {
             OnDrop?.Invoke();

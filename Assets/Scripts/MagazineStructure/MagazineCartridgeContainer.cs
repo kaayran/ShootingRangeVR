@@ -9,7 +9,6 @@ namespace MagazineStructure
     internal class MagazineCartridgeContainer : Container<Cartridge, CartridgeType>
     {
         public event Action<int> OnQuantityUpdate;
-
         public override event Action OnPopped;
         public override event Action OnEntered;
 
@@ -60,7 +59,7 @@ namespace MagazineStructure
             return _cartridge;
         }
 
-        public override bool CheckStored()
+        public virtual bool CheckStored()
         {
             return _cartridges.Count != 0;
         }

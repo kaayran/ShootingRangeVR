@@ -43,11 +43,6 @@ namespace WeaponStructure
             return _magazine;
         }
 
-        public override bool CheckStored()
-        {
-            throw new NotImplementedException();
-        }
-
         public override MagazineType GetStoredType()
         {
             return (MagazineType) magazineType.Clone();

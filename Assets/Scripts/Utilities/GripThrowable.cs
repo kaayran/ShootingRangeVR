@@ -6,35 +6,27 @@ namespace Utilities
     {
         protected override void OnHandHoverBegin(Hand hand)
         {
-            // "Catch" the throwable by holding down the interaction button instead of pressing it.
-            // Only do this if the throwable is moving faster than the prescribed threshold speed,
-            // and if it isn't attached to another hand
-            if (!attached && catchingSpeedThreshold != -1)
-            {
-                float catchingThreshold = catchingSpeedThreshold *
-                                          SteamVR_Utils.GetLossyScale(Player.instance.trackingOriginTransform);
+            if (attached || catchingSpeedThreshold == -1) return;
 
-                GrabTypes bestGrabType = hand.GetBestGrabbingType();
+            var catchingThreshold = catchingSpeedThreshold *
+                                    SteamVR_Utils.GetLossyScale(Player.instance.trackingOriginTransform);
 
-                if (bestGrabType == GrabTypes.Grip)
-                {
-                    if (rigidbody.velocity.magnitude >= catchingThreshold)
-                    {
-                        hand.AttachObject(gameObject, bestGrabType, attachmentFlags);
-                    }
-                }
-            }
+            var bestGrabType = hand.GetBestGrabbingType();
+
+            if (bestGrabType != GrabTypes.Grip) return;
+
+            if (rigidbody.velocity.magnitude >= catchingThreshold)
+                hand.AttachObject(gameObject, bestGrabType, attachmentFlags);
         }
 
         protected override void HandHoverUpdate(Hand hand)
         {
-            GrabTypes startingGrabType = hand.GetGrabStarting();
+            var startingGrabType = hand.GetGrabStarting();
 
-            if (startingGrabType == GrabTypes.Grip)
-            {
-                hand.AttachObject(gameObject, startingGrabType, attachmentFlags, attachmentOffset);
-                hand.HideGrabHint();
-            }
+            if (startingGrabType != GrabTypes.Grip) return;
+            
+            hand.AttachObject(gameObject, startingGrabType, attachmentFlags, attachmentOffset);
+            hand.HideGrabHint();
         }
     }
 }

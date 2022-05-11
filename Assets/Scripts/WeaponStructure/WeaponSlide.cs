@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
@@ -150,6 +151,7 @@ namespace WeaponStructure
             OnBackward?.Invoke();
         }
 
+        [UsedImplicitly]
         private void OnAttachedToHand(Hand hand)
         {
             _attachedHand = hand;
@@ -165,6 +167,7 @@ namespace WeaponStructure
             _moveSlide = StartCoroutine(MoveSlide());
         }
 
+        [UsedImplicitly]
         private void OnDetachedFromHand(Hand hand)
         {
             if (_moveSlide != null) StopCoroutine(_moveSlide);

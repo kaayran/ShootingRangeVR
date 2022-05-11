@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using JetBrains.Annotations;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
 
@@ -61,6 +62,7 @@ namespace Equipment.Head
             _inMaxRotation = false;
         }
 
+        [UsedImplicitly]
         private void OnAttachedToHand(Hand hand)
         {
             if (!_inMaxRotation)

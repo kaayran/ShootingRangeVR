@@ -21,7 +21,7 @@ namespace WeaponStructure
         {
             if (_magazine != null) return;
             if (!other.transform.root.TryGetComponent<Magazine>(out var magazine)) return;
-            if (!magazine.GetMagazineAttachment().TryGetHand(out var hand)) return;
+            if (!magazine.GetMagazineAttachment().TryGetHand(out _)) return;
             // Using Vector3.Dot to provide information about magazine & weapon rotation
 
             var magazineUp = magazine.transform.up;
@@ -39,7 +39,7 @@ namespace WeaponStructure
 
         private void OnMagazineDrop()
         {
-            if (!_attachment.TryGetHand(out var hand)) return;
+            if (!_attachment.TryGetHand(out _)) return;
 
             var pistolMagazineTypeName = _container.GetStoredType().MagazineName;
             var magazineTypeName = _magazine.GetMagazineType().MagazineName;

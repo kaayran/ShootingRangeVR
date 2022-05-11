@@ -30,8 +30,9 @@ namespace MagazineStructure
             cartridgeTransform.rotation = _extractTransform.rotation;
 
             var rb = cartridge.GetRigidbody();
-            rb.velocity = hand.GetTrackedObjectVelocity();
-            rb.angularVelocity = hand.GetTrackedObjectAngularVelocity();
+            hand.GetEstimatedPeakVelocities(out var velocity, out var angularVelocity);
+            rb.velocity = velocity;
+            rb.angularVelocity = angularVelocity;
 
             cartridge.Activate();
         }

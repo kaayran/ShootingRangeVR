@@ -17,9 +17,9 @@ namespace WeaponsRealization
     [RequireComponent(typeof(Attachment))]
     [RequireComponent(typeof(Throwable))]
     [RequireComponent(typeof(Popper))]
-    public class Pistol : WeaponStructure.Weapon
+    public class Pistol : Weapon
     {
-        public override void Init()
+        public virtual void Init()
         {
             WeaponExtractor = GetComponent<WeaponExtractor>();
             Container = GetComponent<Container<Magazine, MagazineType>>();

@@ -15,7 +15,7 @@ namespace MagazineStructure
             MagazineCartridgeContainer.OnQuantityUpdate += OnQuantityUpdate;
         }
 
-        public override void OnQuantityUpdate(int count)
+        public virtual void OnQuantityUpdate(int count)
         {
             _leftText.text = "LEFT: " + count;
         }

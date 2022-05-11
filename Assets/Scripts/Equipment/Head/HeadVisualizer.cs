@@ -8,7 +8,7 @@ namespace Equipment.Head
     {
         private IHead _head;
 
-        public override void Init()
+        public virtual void Init()
         {
             // Init!
             Slot = new HeadSlot();
@@ -27,7 +27,7 @@ namespace Equipment.Head
             attachment.OnDrop += EquipmentDrop;
         }
 
-        private protected override void EquipmentDrop()
+        private protected virtual void EquipmentDrop()
         {
             if (!Slot.IsSlotAvailable()) return;
 
@@ -43,7 +43,7 @@ namespace Equipment.Head
             _head = null;
         }
 
-        private protected override void EquipmentTake()
+        private protected virtual void EquipmentTake()
         {
             Slot.RemoveEquipmentInSlot(out var headEquipment);
             headEquipment.GetAttachment().OnTake -= EquipmentTake;

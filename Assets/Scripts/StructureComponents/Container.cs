@@ -11,9 +11,7 @@ namespace StructureComponents
         public abstract void Init();
         public abstract bool TryPop(out T fuse);
         public abstract bool TryPush(T t);
-
         public abstract T GetStored();
-        public abstract bool CheckStored();
         public abstract T1 GetStoredType();
     }
 }

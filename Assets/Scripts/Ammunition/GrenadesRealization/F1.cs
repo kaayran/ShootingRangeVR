@@ -20,7 +20,7 @@ namespace Ammunition.GrenadesRealization
             Init();
         }
 
-        public override void Init()
+        public virtual void Init()
         {
             Attachment = GetComponent<Attachment>();
             Popper = GetComponent<Popper>();

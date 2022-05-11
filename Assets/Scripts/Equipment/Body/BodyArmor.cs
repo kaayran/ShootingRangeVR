@@ -21,9 +21,10 @@ namespace Equipment.Body
 
         public void Equip(Transform slot)
         {
-            transform.parent = slot;
-            transform.position = slot.position;
-            transform.rotation = slot.rotation;
+            var transformSelf = transform;
+            transformSelf.parent = slot;
+            transformSelf.position = slot.position;
+            transformSelf.rotation = slot.rotation;
             _rb.isKinematic = true;
         }
 

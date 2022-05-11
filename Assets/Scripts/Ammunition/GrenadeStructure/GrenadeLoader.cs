@@ -23,7 +23,7 @@ namespace Ammunition.GrenadeStructure
         {
             if (_fuse != null) return;
             if (!other.transform.root.TryGetComponent<GrenadeFuse>(out var fuse)) return;
-            if (!fuse.GetAttachment().TryGetHand(out var hand)) return;
+            if (!fuse.GetAttachment().TryGetHand(out _)) return;
 
             _fuse = fuse;
 
@@ -33,7 +33,7 @@ namespace Ammunition.GrenadeStructure
 
         private void OnDrop()
         {
-            if (!_attachment.TryGetHand(out var hand)) return;
+            if (!_attachment.TryGetHand(out _)) return;
 
             var fuseReqs = _container.GetStoredType().FuseName;
             var fuseName = _fuse.GetFuseType().FuseName;

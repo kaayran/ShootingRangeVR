@@ -7,7 +7,7 @@ namespace Equipment.Body
     {
         private IBody _body;
 
-        public override void Init()
+        public virtual void Init()
         {
             _body = null;
             Slot = new BodySlot();
@@ -39,7 +39,7 @@ namespace Equipment.Body
             _body = null;
         }
 
-        private protected override void EquipmentDrop()
+        private protected virtual void EquipmentDrop()
         {
             if (!Slot.IsSlotAvailable()) return;
 
@@ -53,7 +53,7 @@ namespace Equipment.Body
             _body = null;
         }
 
-        private protected override void EquipmentTake()
+        private protected virtual void EquipmentTake()
         {
             Slot.RemoveEquipmentInSlot(out var headEquipment);
             headEquipment.GetAttachment().OnTake -= EquipmentTake;

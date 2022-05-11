@@ -14,6 +14,5 @@ namespace Ammunition.GrenadeStructure
 
         protected Attachment Attachment;
         protected Popper Popper;
-        public abstract void Init();
     }
 }

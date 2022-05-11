@@ -17,7 +17,8 @@ namespace Ammunition.GrenadeStructure
 
         private void Explosion()
         {
-            var particle = Instantiate(_particleComponent, transform.position, transform.rotation);
+            var transformSelf = transform;
+            var particle = Instantiate(_particleComponent, transformSelf.position, transformSelf.rotation);
             particle.Play();
 
             _explosion.OnExplosion -= Explosion;

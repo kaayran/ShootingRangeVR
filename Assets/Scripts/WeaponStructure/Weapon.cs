@@ -20,6 +20,5 @@ namespace WeaponStructure
         protected WeaponChamber WeaponChamber;
         protected Popper Popper;
         protected CollisionIgnoring CollisionIgnoring;
-        public abstract void Init();
     }
 }

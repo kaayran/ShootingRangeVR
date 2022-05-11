@@ -37,19 +37,7 @@ namespace Ammunition.GrenadeStructure
             return true;
         }
 
-        public override GrenadeFuse GetStored()
-        {
-            return _fuse;
-        }
-
-        public override bool CheckStored()
-        {
-            return _fuse != null;
-        }
-
-        public override GrenadeFuseType GetStoredType()
-        {
-            return (GrenadeFuseType) _fuseType.Clone();
-        }
+        public override GrenadeFuse GetStored() => _fuse;
+        public override GrenadeFuseType GetStoredType() => (GrenadeFuseType) _fuseType.Clone();
     }
 }
