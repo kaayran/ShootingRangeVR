@@ -518,7 +518,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5875083940858209978}
   - component: {fileID: 6540261419152374788}
-  - component: {fileID: 6540261419152374791}
+  - component: {fileID: 1672085692800118154}
   - component: {fileID: 6540261419152374790}
   - component: {fileID: 6540261419152374785}
   - component: {fileID: 6540261419152374789}
@@ -578,7 +578,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &6540261419152374791
+--- !u!114 &1672085692800118154
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -587,10 +587,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6540261419152374784}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffefbea063cab884ca33e5a449e5c22c, type: 3}
+  m_Script: {fileID: 11500000, guid: d714c57d84cf4425ae933fe3b51e6c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachmentFlags: 87
+  attachmentFlags: 81
   attachmentOffset: {fileID: 0}
   catchingSpeedThreshold: -1
   releaseVelocityStyle: 1
@@ -663,16 +663,41 @@ MonoBehaviour:
   blendEditorExpanded: 1
   poseNames:
   - WeaponGlock17_HoldPose (MAIN)
+  - WeaponGlock17_HoldPoseTriggerPressed
   overridePreviewLeftHandPrefab: {fileID: 1000013348574242, guid: 638779290bce1af49b356f33dcc6fccf, type: 3}
   overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 6def53d002137b747aec0b29551e0e25, type: 3}
   skeletonMainPose: {fileID: 11400000, guid: 2c11f5e01f6e93f4e9e5ff9463ef265d, type: 2}
-  skeletonAdditionalPoses: []
+  skeletonAdditionalPoses:
+  - {fileID: 11400000, guid: c074637ae791eda47a289c57d41f19f9, type: 2}
   showLeftPreview: 0
   showRightPreview: 0
   previewLeftInstance: {fileID: 0}
   previewRightInstance: {fileID: 0}
-  previewPoseSelection: 0
-  blendingBehaviours: []
+  previewPoseSelection: 1
+  blendingBehaviours:
+  - name: TriggerPressed
+    enabled: 1
+    influence: 1
+    pose: 1
+    value: 0
+    action_single:
+      actionPath: /actions/default/in/Trigger
+      needsReinit: 0
+    action_bool:
+      actionPath: 
+      needsReinit: 0
+    smoothingSpeed: 25
+    type: 1
+    useMask: 1
+    mask:
+      palm: 1
+      thumb: 1
+      index: 1
+      middle: 1
+      ring: 1
+      pinky: 1
+      values: 000001000000
+    previewEnabled: 1
   scale: 1
 --- !u!114 &6540261419152374789
 MonoBehaviour:

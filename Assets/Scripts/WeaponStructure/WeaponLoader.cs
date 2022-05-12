@@ -1,5 +1,7 @@
-﻿using MagazineStructure;
+﻿using System;
+using MagazineStructure;
 using StructureComponents;
+using UnityEditor;
 using UnityEngine;
 
 namespace WeaponStructure
