@@ -1,6 +1,8 @@
-﻿using MagazineStructure;
+﻿using System;
+using MagazineStructure;
 using StructureComponents;
 using UnityEngine;
+using Utilities;
 
 namespace MagazinesRealization
 {
@@ -8,6 +10,12 @@ namespace MagazinesRealization
     {
         public virtual void Init()
         {
+            var references = GetComponentsInChildren<ParentReference<Magazine>>();
+            foreach (var reference in references)
+            {
+                reference.Init(this);
+            }
+            
             MagazineCartridgeContainer = GetComponent<MagazineCartridgeContainer>();
             MagazineCartridgeExtractor = GetComponent<MagazineCartridgeExtractor>();
             MagazinePopper = GetComponent<Popper>();

@@ -3,6 +3,7 @@ using Ammunition.CartridgeStructure;
 using Interfaces;
 using StructureComponents;
 using UnityEngine;
+using Utilities;
 using Valve.VR.InteractionSystem;
 
 namespace MagazineStructure

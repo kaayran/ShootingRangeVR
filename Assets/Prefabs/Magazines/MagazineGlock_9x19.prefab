@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2507925715909122631}
   - component: {fileID: 6106851495542353673}
+  - component: {fileID: 8416018484744627058}
   m_Layer: 0
   m_Name: MagazineCollider
   m_TagString: Untagged
@@ -44,6 +45,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8416018484744627058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 955072250232107738}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4bd575256b5afbf49a25acd0eb29e194, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1392603012431407511
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,10 +396,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineMode: 1
-  _outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  _outlineWidth: 2
-  precomputeOutline: 1
   bakeKeys: []
   bakeValues: []
 --- !u!1 &7977472700123171285

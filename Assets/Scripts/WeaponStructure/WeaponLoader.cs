@@ -3,6 +3,7 @@ using MagazineStructure;
 using StructureComponents;
 using UnityEditor;
 using UnityEngine;
+using Utilities;
 
 namespace WeaponStructure
 {
@@ -18,11 +19,12 @@ namespace WeaponStructure
             _container = container;
             _attachment = attachment;
         }
-
+        
         private void OnTriggerStay(Collider other)
         {
             if (_magazine != null) return;
-            if (!other.transform.root.TryGetComponent<Magazine>(out var magazine)) return;
+            if (!other.TryGetComponent<ParentReference<Magazine>>(out var reference)) return;
+            var magazine = reference.GetReference();
             if (!magazine.GetMagazineAttachment().TryGetHand(out _)) return;
             // Using Vector3.Dot to provide information about magazine & weapon rotation
 
