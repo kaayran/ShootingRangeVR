@@ -7,6 +7,7 @@ namespace Targets
     [RequireComponent(typeof(Attachment))]
     public class RemoteControl : MonoBehaviour
     {
+        [SerializeField] private AccuracyPanel _panel;
         [SerializeField] private HumanTarget _target;
         [SerializeField] private float _speed;
 
@@ -24,6 +25,8 @@ namespace Targets
         {
             _target.Init(_speed);
             _attachment = GetComponent<Attachment>();
+
+            _panel.Init(_target);
         }
 
         private void Update()

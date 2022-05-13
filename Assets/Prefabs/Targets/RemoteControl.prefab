@@ -456,8 +456,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: feae47dd52df4c3d90dfea8508ceb8fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _panel: {fileID: 0}
   _target: {fileID: 0}
-  _speed: 1
+  _speed: 3
   _forwardButton:
     actionPath: /actions/default/in/PullY
     needsReinit: 0
