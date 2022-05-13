@@ -1,5 +1,6 @@
 ﻿using StructureComponents;
 using UnityEngine;
+using Utilities;
 
 namespace Ammunition.GrenadeStructure
 {
@@ -22,7 +23,8 @@ namespace Ammunition.GrenadeStructure
         private void OnTriggerStay(Collider other)
         {
             if (_fuse != null) return;
-            if (!other.transform.root.TryGetComponent<GrenadeFuse>(out var fuse)) return;
+            if (!other.transform.TryGetComponent<ParentReference<GrenadeFuse>>(out var reference)) return;
+            var fuse = reference.GetReference();
             if (!fuse.GetAttachment().TryGetHand(out _)) return;
 
             _fuse = fuse;

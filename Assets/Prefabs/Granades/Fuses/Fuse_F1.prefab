@@ -474,10 +474,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineMode: 1
-  _outlineColor: {r: 1, g: 0.27507275, b: 0, a: 1}
-  _outlineWidth: 2
-  precomputeOutline: 1
   bakeKeys: []
   bakeValues: []
 --- !u!1 &3629027857756063840
@@ -492,6 +488,7 @@ GameObject:
   - component: {fileID: 2405798683533393386}
   - component: {fileID: 8822034011271670582}
   - component: {fileID: 3629027857756063843}
+  - component: {fileID: 4141294680108676271}
   m_Layer: 0
   m_Name: FuseBody
   m_TagString: Untagged
@@ -576,6 +573,18 @@ CapsuleCollider:
   m_Height: 0.11062352
   m_Direction: 1
   m_Center: {x: -0.00065311976, y: -0.005482938, z: 0.00014738506}
+--- !u!114 &4141294680108676271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3629027857756063840}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7903294abd8c401aa04fc04a60031f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7409229088927602990
 GameObject:
   m_ObjectHideFlags: 0
@@ -865,10 +874,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _outlineMode: 1
-  _outlineColor: {r: 1, g: 1, b: 1, a: 1}
-  _outlineWidth: 2
-  precomputeOutline: 1
   bakeKeys: []
   bakeValues: []
 --- !u!1 &8650433353822622831
@@ -881,6 +886,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8650433353822622830}
   - component: {fileID: 8650433353822622817}
+  - component: {fileID: 3297063011729528430}
   m_Layer: 0
   m_Name: StrikerCollider1
   m_TagString: Untagged
@@ -915,6 +921,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3297063011729528430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650433353822622831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7903294abd8c401aa04fc04a60031f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8650433354023681205
 GameObject:
   m_ObjectHideFlags: 0
@@ -925,6 +943,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8650433354023681204}
   - component: {fileID: 8650433354023681207}
+  - component: {fileID: 2695429067467509216}
   m_Layer: 0
   m_Name: SafetyRingCollider1
   m_TagString: Untagged
@@ -959,6 +978,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2695429067467509216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650433354023681205}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7903294abd8c401aa04fc04a60031f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8650433354055559354
 GameObject:
   m_ObjectHideFlags: 0
@@ -969,6 +1000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8650433354055559357}
   - component: {fileID: 8650433354055559356}
+  - component: {fileID: 5766754481732960404}
   m_Layer: 0
   m_Name: SafetyRingCollider2
   m_TagString: Untagged
@@ -1003,6 +1035,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5766754481732960404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650433354055559354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7903294abd8c401aa04fc04a60031f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8650433354156486924
 GameObject:
   m_ObjectHideFlags: 0
@@ -1013,6 +1057,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8650433354156486927}
   - component: {fileID: 8650433354156486926}
+  - component: {fileID: 8260981023814109924}
   m_Layer: 0
   m_Name: StrikerCollider3
   m_TagString: Untagged
@@ -1047,6 +1092,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8260981023814109924
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650433354156486924}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7903294abd8c401aa04fc04a60031f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8650433354301831858
 GameObject:
   m_ObjectHideFlags: 0
@@ -1057,6 +1114,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8650433354301831861}
   - component: {fileID: 8650433354301831860}
+  - component: {fileID: 2570347594619337436}
   m_Layer: 0
   m_Name: SafetyRingCollider3
   m_TagString: Untagged
@@ -1091,6 +1149,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2570347594619337436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650433354301831858}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7903294abd8c401aa04fc04a60031f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8650433354488405618
 GameObject:
   m_ObjectHideFlags: 0
@@ -1101,6 +1171,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8650433354488405621}
   - component: {fileID: 8650433354488405620}
+  - component: {fileID: 3746760847994047656}
   m_Layer: 0
   m_Name: SafetyRingCollider4
   m_TagString: Untagged
@@ -1135,6 +1206,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3746760847994047656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650433354488405618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7903294abd8c401aa04fc04a60031f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8650433354837935390
 GameObject:
   m_ObjectHideFlags: 0
@@ -1145,6 +1228,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8650433354837935377}
   - component: {fileID: 8650433354837935376}
+  - component: {fileID: 2405432296362355311}
   m_Layer: 0
   m_Name: StrikerCollider2
   m_TagString: Untagged
@@ -1179,6 +1263,18 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &2405432296362355311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8650433354837935390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7903294abd8c401aa04fc04a60031f93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8650433355109410428
 GameObject:
   m_ObjectHideFlags: 0

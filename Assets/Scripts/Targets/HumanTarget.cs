@@ -58,8 +58,6 @@ namespace Targets
             var accuracy = (int) ((_radius - distance) / _radius * 100);
             _count++;
             
-            Debug.Log($"{_radius}, {distance}, {accuracy}");
-            
             OnHit?.Invoke(accuracy, _count);
         }
     }

@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using Interfaces;
 using StructureComponents;
 using UnityEngine;
+using Utilities;
 using Valve.VR.InteractionSystem;
 
 namespace Ammunition.GrenadeStructure
@@ -33,6 +34,12 @@ namespace Ammunition.GrenadeStructure
 
         public void Init()
         {
+            var references = GetComponentsInChildren<ParentReference<GrenadeFuse>>();
+            foreach (var reference in references)
+            {
+                reference.Init(this);
+            }
+
             _collisionIgnoring = GetComponent<CollisionIgnoring>();
             _attachment = GetComponent<Attachment>();
             _rigidbody = GetComponent<Rigidbody>();
