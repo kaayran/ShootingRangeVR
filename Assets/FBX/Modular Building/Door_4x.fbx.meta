@@ -29,7 +29,8 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["Door_4x"],"padding":[53],"unwrapper":[0]}'
     clipAnimations: []
     isReadable: 1
   meshes:

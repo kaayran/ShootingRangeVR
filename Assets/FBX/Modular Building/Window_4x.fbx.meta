@@ -29,7 +29,8 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    extraUserProperties: []
+    extraUserProperties:
+    - '#BAKERY{"meshName":["WindowGlass_4x","Window_4x"],"padding":[76,60],"unwrapper":[0,0]}'
     clipAnimations: []
     isReadable: 1
   meshes:
