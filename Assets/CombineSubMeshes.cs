@@ -27,6 +27,8 @@ public class CombineSubMeshes : MonoBehaviour
         };
         
         mesh.CombineMeshes(combine);
+        Unwrapping.GenerateSecondaryUVSet(mesh);
+        
         transform.GetComponent<MeshFilter>().mesh = mesh;
         gameObject.SetActive(true);
     }
