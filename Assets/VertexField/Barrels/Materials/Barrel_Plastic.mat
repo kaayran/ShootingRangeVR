@@ -9,9 +9,10 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: Barrel_Plastic
   m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
-  m_ShaderKeywords: _METALLICSPECGLOSSMAP _NORMALMAP _OCCLUSIONMAP
+  m_ShaderKeywords: _ENVIRONMENTREFLECTIONS_OFF _METALLICSPECGLOSSMAP _NORMALMAP
+    _OCCLUSIONMAP
   m_LightmapFlags: 6
-  m_EnableInstancingVariants: 0
+  m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 2000
   stringTagMap:
@@ -87,7 +88,7 @@ Material:
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EnvironmentReflections: 1
+    - _EnvironmentReflections: 0
     - _GlossMapScale: 1
     - _Glossiness: 0.5
     - _GlossinessSource: 0
