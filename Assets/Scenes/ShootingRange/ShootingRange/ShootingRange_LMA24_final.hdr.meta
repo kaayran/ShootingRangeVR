@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: a17d9257ecb21d54596774fecc576215
+guid: 04e8fe4b7a08e9b488acb3fd7c60fdc9
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -65,7 +65,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 16
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
