@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 2344624454271456163}
   - component: {fileID: 888196811089739051}
   - component: {fileID: 7049663522375298064}
+  - component: {fileID: 3586591996658071199}
   m_Layer: 0
   m_Name: WindowGlass_4x
   m_TagString: Untagged
@@ -113,6 +114,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &3586591996658071199
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5288203090399621177}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -8966888024876238779, guid: 6675d3e4b3953114e877874111fbd9e8, type: 3}
 --- !u!1 &8573397467216318485
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,6 +139,7 @@ GameObject:
   - component: {fileID: 437652951823044521}
   - component: {fileID: 8906131103448191601}
   - component: {fileID: 5085886546705411627}
+  - component: {fileID: 4692060947659340489}
   m_Layer: 0
   m_Name: Window_4x
   m_TagString: Untagged
@@ -194,3 +210,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &4692060947659340489
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8573397467216318485}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 7817676004601866864, guid: 6675d3e4b3953114e877874111fbd9e8, type: 3}
