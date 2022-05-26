@@ -30,7 +30,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["WindowGlass_4x","Window_4x"],"padding":[152,120],"unwrapper":[0,0]}'
+    - '#BAKERY{"meshName":["WindowGlass_4x","Window_4x"],"padding":[38,30],"unwrapper":[0,0]}'
     clipAnimations: []
     isReadable: 1
   meshes:

@@ -30,7 +30,7 @@ ModelImporter:
     animationWrapMode: 0
     extraExposedTransformPaths: []
     extraUserProperties:
-    - '#BAKERY{"meshName":["Roof_4x"],"padding":[102],"unwrapper":[0]}'
+    - '#BAKERY{"meshName":["Roof_4x"],"padding":[25],"unwrapper":[0]}'
     clipAnimations: []
     isReadable: 1
   meshes:

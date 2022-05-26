@@ -96,7 +96,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   UID: 876013973
   color: {r: 1, g: 1, b: 1, a: 1}
-  intensity: 1
+  intensity: 2
   texture: {fileID: 0}
   cutoff: 1
   samples: 32
