@@ -12,6 +12,7 @@ namespace MagazineStructure
         public override event Action OnPopped;
         public override event Action OnEntered;
 
+        [SerializeField] private bool _isAutoLoaded;
         [SerializeField] private Cartridge _cartridge;
         [SerializeField] private int _capacity;
         [SerializeField] private string _caliber;
@@ -22,6 +23,8 @@ namespace MagazineStructure
         {
             _cartridges = new Stack<Cartridge>();
 
+            if (!_isAutoLoaded) return;
+            
             for (var i = 0; i < _capacity; i++)
             {
                 var cartridge = Instantiate(_cartridge);
