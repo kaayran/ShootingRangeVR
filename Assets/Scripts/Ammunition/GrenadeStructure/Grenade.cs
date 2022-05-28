@@ -11,6 +11,7 @@ namespace Ammunition.GrenadeStructure
         protected Container<GrenadeFuse, GrenadeFuseType> Container;
         protected GrenadeExplosion Explosion;
         protected GrenadeExtractor Extractor;
+        protected GrenadeAudio GrenadeAudio; 
 
         protected Attachment Attachment;
         protected Popper Popper;

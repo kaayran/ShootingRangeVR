@@ -12,9 +12,12 @@ namespace Ammunition.GrenadeStructure
         private Attachment _attachment;
         private GrenadeFuse _fuse;
         private Collider _collider;
+        private GrenadeAudio _grenadeAudio;
 
-        public void Init(Container<GrenadeFuse, GrenadeFuseType> container, Attachment attachment, Collider col)
+        public void Init(Container<GrenadeFuse, GrenadeFuseType> container, Attachment attachment, Collider col,
+            GrenadeAudio grenadeAudio)
         {
+            _grenadeAudio = grenadeAudio;
             _container = container;
             _attachment = attachment;
             _collider = col;
@@ -57,6 +60,8 @@ namespace Ammunition.GrenadeStructure
 
             _fuse.Deactivate();
             _fuse.SetLeverAttachment(_attachment);
+            
+            _grenadeAudio.PlayLoadSound();
 
             _fuse = null;
         }

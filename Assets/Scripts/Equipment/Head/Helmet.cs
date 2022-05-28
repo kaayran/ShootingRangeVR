@@ -15,10 +15,20 @@ namespace Equipment.Head
         private CollisionIgnoring _collisionIgnoring;
         private Attachment _attachment;
         private Rigidbody _rb;
+        private HelmetAudio _helmetAudio;
 
         private void Start()
         {
+            _helmetAudio = GetComponent<HelmetAudio>();
+
+            if (_visor) _visor.VisorMoved += OnVisorMoved;
+
             Init();
+        }
+
+        private void OnVisorMoved()
+        {
+            _helmetAudio.PlayHelmetVisorSound();
         }
 
         public void Init()
@@ -39,12 +49,16 @@ namespace Equipment.Head
             transformSelf.position = slot.position;
             transformSelf.rotation = slot.rotation;
             _rb.isKinematic = true;
+
+            _helmetAudio.PlayEquipSound();
         }
 
         public void UnEquip()
         {
             transform.parent = null;
             _rb.isKinematic = false;
+
+            _helmetAudio.PlayUnEquipSound();
         }
 
         public Attachment GetAttachment()

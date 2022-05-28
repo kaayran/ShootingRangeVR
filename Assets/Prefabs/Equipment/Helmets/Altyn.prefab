@@ -357,6 +357,7 @@ GameObject:
   - component: {fileID: 8285670981687924724}
   - component: {fileID: 8285670981687924731}
   - component: {fileID: 8285670981687924730}
+  - component: {fileID: 5121776370758347994}
   m_Layer: 0
   m_Name: Altyn
   m_TagString: Untagged
@@ -585,6 +586,20 @@ MonoBehaviour:
   _suppression: -10
   _name: Altyn
   _visor: {fileID: 9096695147594992183}
+--- !u!114 &5121776370758347994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8285670981687924707}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a5d49f26cb04d2ea19dbab10238a7c1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _equip: {fileID: 8300000, guid: 481d15efa420a9e47b8a68be1f6e44f9, type: 3}
+  _visor: {fileID: 8300000, guid: cbead009c9f254a41b1881cb3a9e6a32, type: 3}
 --- !u!1 &9096695147594992181
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,9 +18,9 @@ namespace Ammunition.GrenadeStructure
         [SerializeField] private GrenadeFuseRing _fuseRing;
         [SerializeField] private GrenadeFuseType _fuseType;
 
+        private GrenadeFuseAudio _fuseAudio;
         private GrenadeFuseExploder _fuseExploder;
         private GrenadeFuseStriker _fuseStriker;
-
         private CollisionIgnoring _collisionIgnoring;
         private Attachment _attachment;
         private Rigidbody _rigidbody;
@@ -40,6 +40,8 @@ namespace Ammunition.GrenadeStructure
                 reference.Init(this);
             }
 
+            _fuseAudio = GetComponent<GrenadeFuseAudio>();
+
             _collisionIgnoring = GetComponent<CollisionIgnoring>();
             _attachment = GetComponent<Attachment>();
             _rigidbody = GetComponent<Rigidbody>();
@@ -55,7 +57,7 @@ namespace Ammunition.GrenadeStructure
             _fuseRing.Init();
             _fuseLever.Init(_attachment);
             _fuseStriker.Init(_fuseLever, _fuseRing);
-            _fuseExploder.Init(_fuseStriker);
+            _fuseExploder.Init(_fuseStriker, _fuseAudio);
             _fuseExploderView.Init(_fuseExploder);
         }
 

@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 3403415530144406024}
   - component: {fileID: 3403415530144406026}
   - component: {fileID: 3403415530144406027}
+  - component: {fileID: 2865958529666757603}
   m_Layer: 0
   m_Name: Gzhel
   m_TagString: Untagged
@@ -279,3 +280,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _name: Gzhel
+--- !u!114 &2865958529666757603
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3403415530144406130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee23cf61aad14bcd971d902f54b39c99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _equip: {fileID: 8300000, guid: 00dd03245b88a144984ea1fb8a7b5cff, type: 3}

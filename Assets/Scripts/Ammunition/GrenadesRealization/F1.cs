@@ -24,6 +24,7 @@ namespace Ammunition.GrenadesRealization
         {
             Attachment = GetComponent<Attachment>();
             Popper = GetComponent<Popper>();
+            GrenadeAudio = GetComponent<GrenadeAudio>();
 
             Attachment.Init();
             Popper.Init(Attachment);
@@ -33,9 +34,9 @@ namespace Ammunition.GrenadesRealization
             Extractor = GetComponent<GrenadeExtractor>();
 
             Container.Init();
-            Loader.Init(Container, Attachment, _collider);
-            Extractor.Init(Container, Attachment, Popper, _collider);
-            Explosion.Init(Container);
+            Loader.Init(Container, Attachment, _collider, GrenadeAudio);
+            Extractor.Init(Container, Attachment, Popper, _collider, GrenadeAudio);
+            Explosion.Init(Container, GrenadeAudio);
             ExplosionView.Init(Explosion);
         }
     }

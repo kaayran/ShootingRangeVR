@@ -10,11 +10,13 @@ namespace Equipment.Body
 
         private Attachment _attachment;
         private Rigidbody _rb;
+        private BodyAudio _bodyAudio;
 
         private void Start()
         {
             _attachment = GetComponent<Attachment>();
             _rb = GetComponent<Rigidbody>();
+            _bodyAudio = GetComponent<BodyAudio>();
 
             _attachment.Init();
         }
@@ -26,12 +28,16 @@ namespace Equipment.Body
             transformSelf.position = slot.position;
             transformSelf.rotation = slot.rotation;
             _rb.isKinematic = true;
+
+            _bodyAudio.PlayEquipSound();
         }
 
         public void UnEquip()
         {
             transform.parent = null;
             _rb.isKinematic = false;
+
+            _bodyAudio.PlayUnEquipSound();
         }
 
         public Attachment GetAttachment()

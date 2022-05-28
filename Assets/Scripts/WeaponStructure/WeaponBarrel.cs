@@ -14,10 +14,12 @@ namespace WeaponStructure
         [SerializeField] private float _recoil;
 
         private Rigidbody _rb;
+        private WeaponAudio _weaponAudio;
 
-        public void Init()
+        public void Init(WeaponAudio weaponAudio)
         {
             _rb = GetComponent<Rigidbody>();
+            _weaponAudio = weaponAudio;
         }
 
         public void Fire(Cartridge cartridge)
@@ -40,6 +42,7 @@ namespace WeaponStructure
             var particle = Instantiate(_particle, position, rotation);
             particle.Play();
 
+            _weaponAudio.PlayShotSound();
 
             OnBulletFired?.Invoke();
 

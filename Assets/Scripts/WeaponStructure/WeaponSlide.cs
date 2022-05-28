@@ -26,9 +26,11 @@ namespace WeaponStructure
 
         private float _difference;
         private bool _isInPosition;
+        private WeaponAudio _weaponAudio;
 
-        public void Init(WeaponBarrel weaponBarrel)
+        public void Init(WeaponBarrel weaponBarrel, WeaponAudio weaponAudio)
         {
+            _weaponAudio = weaponAudio;
             _weaponBarrel = weaponBarrel;
 
             CreateSlidePositions();
@@ -50,11 +52,14 @@ namespace WeaponStructure
         private void BackwardSlideDeploy()
         {
             if (_attachedHand == null) _moveBackwardSlide = StartCoroutine(MoveSlideBackward());
+            _weaponAudio.PlayBackwardSlideSound();
+
         }
 
         private void ForwardSlideDeploy()
         {
             if (_attachedHand == null) _moveForwardSlide = StartCoroutine(MoveSlideForward());
+            _weaponAudio.PlayForwardSlideSound();
         }
 
         private void CreateSlidePositions()

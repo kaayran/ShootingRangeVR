@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using JetBrains.Annotations;
 using UnityEngine;
 using Valve.VR.InteractionSystem;
@@ -7,6 +8,8 @@ namespace Equipment.Head
 {
     public class HelmetVisor : MonoBehaviour
     {
+        public event Action VisorMoved;
+        
         [SerializeField] private float _maxAngle;
         [SerializeField] private float _minAngle;
         [SerializeField] private float _time;
@@ -68,10 +71,12 @@ namespace Equipment.Head
             if (!_inMaxRotation)
             {
                 StartCoroutine(RotateVisorUp());
+                VisorMoved?.Invoke();
             }
             else if (!_inMinRotation)
             {
                 StartCoroutine(RotateVisorDown());
+                VisorMoved?.Invoke();
             }
         }
     }

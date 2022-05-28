@@ -13,9 +13,11 @@ namespace WeaponStructure
         private Container<Magazine, MagazineType> _container;
         private Attachment _attachment;
         private Magazine _magazine;
+        private WeaponAudio _weaponAudio;
 
-        public void Init(Container<Magazine, MagazineType> container, Attachment attachment)
+        public void Init(Container<Magazine, MagazineType> container, Attachment attachment, WeaponAudio weaponAudio)
         {
+            _weaponAudio = weaponAudio;
             _container = container;
             _attachment = attachment;
         }
@@ -50,6 +52,8 @@ namespace WeaponStructure
             if (!pistolMagazineTypeName.Equals(magazineTypeName)) return;
 
             if (!_container.TryPush(_magazine)) return;
+            
+            _weaponAudio.PlayLoadMagazineSound();
 
             var magazineAttachment = _magazine.GetMagazineAttachment();
             magazineAttachment.OnDrop -= OnMagazineDrop;

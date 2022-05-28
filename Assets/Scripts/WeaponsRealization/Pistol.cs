@@ -7,6 +7,7 @@ using WeaponStructure;
 namespace WeaponsRealization
 {
     [RequireComponent(typeof(WeaponContainer))]
+    [RequireComponent(typeof(WeaponAudio))]
     [RequireComponent(typeof(WeaponExtractor))]
     [RequireComponent(typeof(WeaponChamberEjector))]
     [RequireComponent(typeof(CollisionIgnoring))]
@@ -31,6 +32,7 @@ namespace WeaponsRealization
             WeaponBarrel = GetComponent<WeaponBarrel>();
             Attachment = GetComponent<Attachment>();
             Popper = GetComponent<Popper>();
+            WeaponAudio = GetComponent<WeaponAudio>();
 
             CollisionIgnoring.Init();
             Attachment.Init();
@@ -38,12 +40,12 @@ namespace WeaponsRealization
             WeaponTrigger.Init(Attachment);
 
             Container.Init();
-            weaponLoader.Init(Container, Attachment);
-            WeaponExtractor.Init(Container, Popper, Attachment);
+            weaponLoader.Init(Container, Attachment, WeaponAudio);
+            WeaponExtractor.Init(Container, Popper, Attachment, WeaponAudio);
 
             WeaponChamber.Init();
-            WeaponBarrel.Init();
-            WeaponSlide.Init(WeaponBarrel);
+            WeaponBarrel.Init(WeaponAudio);
+            WeaponSlide.Init(WeaponBarrel, WeaponAudio);
             WeaponChamberEjector.Init(WeaponSlide, WeaponChamber);
 
             WeaponFiringPin.Init(Container, WeaponChamberEjector, WeaponChamber, WeaponTrigger, WeaponBarrel,

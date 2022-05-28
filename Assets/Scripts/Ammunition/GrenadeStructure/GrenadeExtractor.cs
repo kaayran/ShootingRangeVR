@@ -11,10 +11,12 @@ namespace Ammunition.GrenadeStructure
         private Attachment _attachment;
         private Popper _popper;
         private Collider _collider;
+        private GrenadeAudio _grenadeAudio;
 
         public void Init(Container<GrenadeFuse, GrenadeFuseType> container, Attachment attachment, Popper popper,
-            Collider col)
+            Collider col, GrenadeAudio grenadeAudio)
         {
+            _grenadeAudio = grenadeAudio;
             _container = container;
             _attachment = attachment;
             _popper = popper;
@@ -41,6 +43,8 @@ namespace Ammunition.GrenadeStructure
             rb.isKinematic = false;
             rb.velocity = hand.GetTrackedObjectVelocity();
             rb.angularVelocity = hand.GetTrackedObjectAngularVelocity();
+            
+            _grenadeAudio.PlayLoadSound();
 
             fuse.Activate();
             fuse.RevertLeverAttachment();

@@ -12,9 +12,11 @@ namespace Ammunition.GrenadeStructure
         [SerializeField] private float _force;
 
         private GrenadeFuseStriker _fuseStriker;
+        private GrenadeFuseAudio _fuseAudio;
 
-        public void Init(GrenadeFuseStriker striker)
+        public void Init(GrenadeFuseStriker striker, GrenadeFuseAudio fuseAudio)
         {
+            _fuseAudio = fuseAudio;
             _fuseStriker = striker;
             _fuseStriker.OnStrike += Strike;
         }
@@ -40,6 +42,8 @@ namespace Ammunition.GrenadeStructure
             }
 
             OnDetonate?.Invoke();
+            
+            _fuseAudio.PlayExplosionSound();
 
             Destroy(gameObject);
         }

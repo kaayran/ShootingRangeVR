@@ -11,9 +11,12 @@ namespace WeaponStructure
         private Container<Magazine, MagazineType> _container;
         private Attachment _attachment;
         private Popper _popper;
+        private WeaponAudio _weaponAudio;
 
-        public void Init(Container<Magazine, MagazineType> container, Popper popper, Attachment attachment)
+        public void Init(Container<Magazine, MagazineType> container, Popper popper, Attachment attachment,
+            WeaponAudio weaponAudio)
         {
+            _weaponAudio = weaponAudio;
             _container = container;
             _attachment = attachment;
             _popper = popper;
@@ -32,6 +35,8 @@ namespace WeaponStructure
             var rb = magazine.GetRigidbody();
             rb.velocity = hand.GetTrackedObjectVelocity();
             rb.angularVelocity = hand.GetTrackedObjectAngularVelocity();
+
+            _weaponAudio.PlayUnloadMagazineSound();
 
             magazine.Activate();
         }
