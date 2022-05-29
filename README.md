@@ -37,7 +37,7 @@ Russian anti-personnel fragmentation defensive grenade with fuse type of "UZRGM"
 
 ![Grenade F-1 #2](./Images/Gameplay/scr22.png)
 
-![Grenade F-1 #3](./Images/Gameplay/***.png)
+![Grenade F-1 #3](./Images/Gameplay/scr25.png)
 
 ### Equipment
 
@@ -68,7 +68,14 @@ In additional, with knife "Anti-Terror" you can try to open russian canned meat 
 
 ## Controllers Bindings
 
-You will need to configure your bindings to play this game. For Oculus Quest 2 you can find it by this link. ()
+You will need to configure your bindings to play this game. For Oculus Quest 2 you can find it by this link. ([Oculus Bindings](/ControllerBindings/shootings_range_vr_oculus_quest_2.json))
 You need to allocate two buttons with simple "Button" specialization. For example on Oculus it will be "A", "B" and "X" & "Y". More information on my controllers bindings on image below.
 
-![Controllers Bindings #1](./Images/Instructions/***.png)
+![Controllers Bindings #1](./Images/Instructions/scr1.png)
+
+## Link to latest release of game.
+
+Shooting Range VR Beta v1.0:
+
+- Link - [Shooting Range VR | Beta v1.0](https://github.com/kaayran/ShootingRangeVR/releases/download/beta/Beta_ShootingRangeVR.zip)
+- [Download](https://github.com/kaayran/ShootingRangeVR/releases/download/beta/Beta_ShootingRangeVR.zip)
