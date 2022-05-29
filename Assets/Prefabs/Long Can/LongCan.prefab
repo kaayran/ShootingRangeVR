@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1065913204933040146}
   - component: {fileID: 9102240778548363951}
   - component: {fileID: 8138906412106161222}
+  - component: {fileID: 8663379838050412159}
   m_Layer: 0
   m_Name: LongCan
   m_TagString: Untagged
@@ -82,13 +83,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   activateActionSetOnAttach:
     actionSetPath: 
-  hideHandOnAttach: 1
+  hideHandOnAttach: 0
   hideSkeletonOnAttach: 0
   hideControllerOnAttach: 0
   handAnimationOnPickup: 0
   setRangeOfMotionOnPickup: -1
-  useHandObjectAttachmentPoint: 1
-  attachEaseIn: 0
+  useHandObjectAttachmentPoint: 0
+  attachEaseIn: 1
   snapAttachEaseInCurve:
     serializedVersion: 2
     m_Curve:
@@ -146,7 +147,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ffefbea063cab884ca33e5a449e5c22c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachmentFlags: 81
+  attachmentFlags: 85
   attachmentOffset: {fileID: 0}
   catchingSpeedThreshold: -1
   releaseVelocityStyle: 1
@@ -203,6 +204,33 @@ MonoBehaviour:
   velocityAverageFrames: 5
   angularVelocityAverageFrames: 11
   estimateOnAwake: 0
+--- !u!114 &8663379838050412159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 233227909345578992}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e7418c7dd8f977d4e969202d3fa7e926, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poseEditorExpanded: 1
+  blendEditorExpanded: 1
+  poseNames:
+  - Can_HoldPos (MAIN)
+  overridePreviewLeftHandPrefab: {fileID: 1000013348574242, guid: eb6cba678d43b444bb001f29548e4a9a, type: 3}
+  overridePreviewRightHandPrefab: {fileID: 1000010304998954, guid: 6dba408ff18626a4bbb522ba663c2266, type: 3}
+  skeletonMainPose: {fileID: 11400000, guid: f1c0ad433c3af8d4983e13789fd955e9, type: 2}
+  skeletonAdditionalPoses: []
+  showLeftPreview: 0
+  showRightPreview: 0
+  previewLeftInstance: {fileID: 0}
+  previewRightInstance: {fileID: 0}
+  previewPoseSelection: 0
+  blendingBehaviours: []
+  scale: 1
 --- !u!1 &255860151381507529
 GameObject:
   m_ObjectHideFlags: 0

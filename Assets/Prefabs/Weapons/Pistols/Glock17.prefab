@@ -591,7 +591,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d714c57d84cf4425ae933fe3b51e6c06, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attachmentFlags: 81
+  attachmentFlags: 85
   attachmentOffset: {fileID: 0}
   catchingSpeedThreshold: -1
   releaseVelocityStyle: 1
