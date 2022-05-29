@@ -1,5 +1,3 @@
-### To me
+# Shooting Range VR
 
-Remember, don't enable Git-LFS in repo settings.
-
-![Me](./Images/me.jpeg)
+### Unity VR Project (with SteamVR)
