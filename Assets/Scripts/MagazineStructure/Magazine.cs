@@ -21,6 +21,7 @@ namespace MagazineStructure
 
         private protected MagazineCartridgeContainer MagazineCartridgeContainer;
         private protected MagazineCartridgeExtractor MagazineCartridgeExtractor;
+        private protected MagazineAudio MagazineAudio;
         private protected Attachment MagazineAttachment;
         private protected Popper MagazinePopper;
         private protected Rigidbody Rigidbody;

@@ -52,14 +52,11 @@ namespace WeaponStructure
         private void BackwardSlideDeploy()
         {
             if (_attachedHand == null) _moveBackwardSlide = StartCoroutine(MoveSlideBackward());
-            _weaponAudio.PlayBackwardSlideSound();
-
         }
 
         private void ForwardSlideDeploy()
         {
             if (_attachedHand == null) _moveForwardSlide = StartCoroutine(MoveSlideForward());
-            _weaponAudio.PlayForwardSlideSound();
         }
 
         private void CreateSlidePositions()
@@ -99,6 +96,7 @@ namespace WeaponStructure
                 if (Vector3.Distance(transform.position, _endPos.position) < 0.01f)
                 {
                     OnBackward?.Invoke();
+                    _weaponAudio.PlayBackwardSlideSound();
                 }
 
                 yield return null;
@@ -128,6 +126,7 @@ namespace WeaponStructure
             transform.position = _startPos.position;
             _isInPosition = true;
             OnForward?.Invoke();
+            _weaponAudio.PlayForwardSlideSound();
         }
 
         private IEnumerator MoveSlideBackward()
@@ -154,6 +153,7 @@ namespace WeaponStructure
 
             transform.position = _endPos.position;
             OnBackward?.Invoke();
+            _weaponAudio.PlayBackwardSlideSound();
         }
 
         [UsedImplicitly]

@@ -11,9 +11,12 @@ namespace MagazineStructure
         private Container<Cartridge, CartridgeType> _container;
         private Attachment _attachment;
         private Popper _popper;
+        private MagazineAudio _magazineAudio;
 
-        public void Init(Container<Cartridge, CartridgeType> container, Popper popper, Attachment attachment)
+        public void Init(Container<Cartridge, CartridgeType> container, Popper popper, Attachment attachment,
+            MagazineAudio magazineAudio)
         {
+            _magazineAudio = magazineAudio;
             _attachment = attachment;
             _container = container;
             _popper = popper;
@@ -33,6 +36,8 @@ namespace MagazineStructure
             hand.GetEstimatedPeakVelocities(out var velocity, out var angularVelocity);
             rb.velocity = velocity;
             rb.angularVelocity = angularVelocity;
+
+            _magazineAudio.PlayLoadBulletSound();
 
             cartridge.Activate();
         }

@@ -15,7 +15,8 @@ namespace MagazinesRealization
             {
                 reference.Init(this);
             }
-            
+
+            MagazineAudio = GetComponent<MagazineAudio>();
             MagazineCartridgeContainer = GetComponent<MagazineCartridgeContainer>();
             MagazineCartridgeExtractor = GetComponent<MagazineCartridgeExtractor>();
             MagazinePopper = GetComponent<Popper>();
@@ -25,8 +26,9 @@ namespace MagazinesRealization
             MagazineCartridgeContainer.Init();
             MagazineAttachment.Init();
             MagazinePopper.Init(MagazineAttachment);
-            MagazineCartridgeExtractor.Init(MagazineCartridgeContainer, MagazinePopper, MagazineAttachment);
-            MagazineCartridgeInserter.Init(MagazineCartridgeContainer, MagazineAttachment);
+            MagazineCartridgeExtractor.Init(MagazineCartridgeContainer, MagazinePopper, MagazineAttachment,
+                MagazineAudio);
+            MagazineCartridgeInserter.Init(MagazineCartridgeContainer, MagazineAttachment, MagazineAudio);
             MagazineView.Init(MagazineCartridgeContainer);
         }
 

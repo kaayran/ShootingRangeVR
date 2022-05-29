@@ -37,5 +37,10 @@ namespace StructureComponents
             OnDrop?.Invoke();
             _attachedHand = null;
         }
+
+        private void OnDestroy()
+        {
+            _attachedHand.DetachObject(gameObject);
+        }
     }
 }

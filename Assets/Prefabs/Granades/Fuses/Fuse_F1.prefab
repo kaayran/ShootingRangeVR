@@ -605,8 +605,8 @@ GameObject:
   - component: {fileID: 7409229088927602978}
   - component: {fileID: 8577400516415707231}
   - component: {fileID: 6175293309536888175}
-  - component: {fileID: 2187887996670449715}
   - component: {fileID: 2425571960339441765}
+  - component: {fileID: 2187887996670449715}
   m_Layer: 0
   m_Name: Fuse_F1
   m_TagString: Untagged
@@ -878,6 +878,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bakeKeys: []
   bakeValues: []
+--- !u!114 &2425571960339441765
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7409229088927602990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18d37802cd264508a26e892992a7df28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosion: {fileID: 8300000, guid: 7dd64b132fb51454392ded8e81acdcdb, type: 3}
+  _ring: {fileID: 8300000, guid: ca0a1592338aebc4a97f53562b4404c0, type: 3}
 --- !u!82 &2187887996670449715
 AudioSource:
   m_ObjectHideFlags: 0
@@ -934,7 +948,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -974,19 +988,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &2425571960339441765
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7409229088927602990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18d37802cd264508a26e892992a7df28, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _explosion: {fileID: 8300000, guid: 7dd64b132fb51454392ded8e81acdcdb, type: 3}
 --- !u!1 &8650433353822622831
 GameObject:
   m_ObjectHideFlags: 0

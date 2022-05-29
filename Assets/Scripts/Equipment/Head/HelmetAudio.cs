@@ -2,6 +2,7 @@
 
 namespace Equipment.Head
 {
+    [RequireComponent(typeof(AudioSource))]
     public class HelmetAudio : MonoBehaviour
     {
         [SerializeField] private AudioClip _equip;

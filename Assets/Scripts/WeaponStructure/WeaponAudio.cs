@@ -21,9 +21,10 @@ namespace WeaponStructure
 
         public void PlayShotSound()
         {
+            _audioSource.volume = 0.75f;
             _audioSource.clip = _shot;
-            _audioSource.pitch = Random.Range(0.925f, 1.2f);
             _audioSource.Play();
+            _audioSource.volume = 0.25f;
         }
 
         public void PlayLoadMagazineSound()

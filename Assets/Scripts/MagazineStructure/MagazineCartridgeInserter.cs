@@ -10,9 +10,11 @@ namespace MagazineStructure
         private MagazineCartridgeContainer _container;
         private Attachment _attachment;
         private Cartridge _cartridge;
+        private MagazineAudio _magazineAudio;
 
-        public void Init(MagazineCartridgeContainer container, Attachment attachment)
+        public void Init(MagazineCartridgeContainer container, Attachment attachment, MagazineAudio magazineAudio)
         {
+            _magazineAudio = magazineAudio;
             _container = container;
             _attachment = attachment;
         }
@@ -39,6 +41,8 @@ namespace MagazineStructure
 
             if (!_container.TryPush(_cartridge)) return;
 
+            _magazineAudio.PlayLoadBulletSound();
+            
             var attachment = _cartridge.GetCartridgeAttachment();
             attachment.OnDrop -= OnCartridgeDrop;
             _cartridge.Deactivate();

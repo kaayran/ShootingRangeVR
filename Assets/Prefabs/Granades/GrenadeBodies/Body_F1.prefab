@@ -21,8 +21,8 @@ GameObject:
   - component: {fileID: 1399725495296692244}
   - component: {fileID: 1398784784994020399}
   - component: {fileID: 8591373836269514744}
-  - component: {fileID: 6675520212729702014}
   - component: {fileID: 4633082065580315669}
+  - component: {fileID: 6675520212729702014}
   m_Layer: 0
   m_Name: Body_F1
   m_TagString: Untagged
@@ -334,6 +334,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bakeKeys: []
   bakeValues: []
+--- !u!114 &4633082065580315669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3069994173194904324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab85fa330bc244dc8f83155e56abea23, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _explosion: {fileID: 8300000, guid: 7dd64b132fb51454392ded8e81acdcdb, type: 3}
+  _ring: {fileID: 8300000, guid: ca0a1592338aebc4a97f53562b4404c0, type: 3}
+  _load: {fileID: 8300000, guid: 329970a25e41fa746af63435ff730e50, type: 3}
 --- !u!82 &6675520212729702014
 AudioSource:
   m_ObjectHideFlags: 0
@@ -390,7 +405,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -430,21 +445,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4633082065580315669
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3069994173194904324}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab85fa330bc244dc8f83155e56abea23, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _explosion: {fileID: 8300000, guid: 7dd64b132fb51454392ded8e81acdcdb, type: 3}
-  _ring: {fileID: 8300000, guid: ca0a1592338aebc4a97f53562b4404c0, type: 3}
-  _load: {fileID: 8300000, guid: 329970a25e41fa746af63435ff730e50, type: 3}
 --- !u!1 &7939266069392783098
 GameObject:
   m_ObjectHideFlags: 0

@@ -35,14 +35,14 @@ namespace WeaponStructure
 
             // Take cartridge velocity and deploy it with it speed
             var speed = cartridge.GetBulletSpeed();
+            
+            _weaponAudio.PlayShotSound();
 
             bullet.Deploy(speed);
             _rb.AddTorque(transform.right * -_recoil / 100, ForceMode.Impulse);
 
             var particle = Instantiate(_particle, position, rotation);
             particle.Play();
-
-            _weaponAudio.PlayShotSound();
 
             OnBulletFired?.Invoke();
 

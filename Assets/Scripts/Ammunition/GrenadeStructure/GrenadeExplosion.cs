@@ -53,7 +53,7 @@ namespace Ammunition.GrenadeStructure
 
             OnExplosion?.Invoke();
             
-            _grenadeAudio.PlayLoadSound();
+            _grenadeAudio.PlayExplosionSound();
 
             _container.OnEntered -= Entered;
             _container.OnPopped -= Popped;

@@ -6,7 +6,6 @@ namespace Ammunition.GrenadeStructure
     public class GrenadeAudio : MonoBehaviour
     {
         [SerializeField] private AudioClip _explosion;
-        [SerializeField] private AudioClip _ring;
         [SerializeField] private AudioClip _load;
 
         private AudioSource _grenadeSource;
@@ -19,13 +18,6 @@ namespace Ammunition.GrenadeStructure
         public void PlayExplosionSound()
         {
             _grenadeSource.clip = _explosion;
-            _grenadeSource.pitch = Random.Range(0.925f, 1.2f);
-            _grenadeSource.Play();
-        }
-        
-        public void PlayRingSound()
-        {
-            _grenadeSource.clip = _ring;
             _grenadeSource.pitch = Random.Range(0.925f, 1.2f);
             _grenadeSource.Play();
         }

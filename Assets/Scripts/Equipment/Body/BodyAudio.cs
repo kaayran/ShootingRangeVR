@@ -2,6 +2,7 @@
 
 namespace Equipment.Body
 {
+    [RequireComponent(typeof(AudioSource))]
     public class BodyAudio : MonoBehaviour
     {
         [SerializeField] private AudioClip _equip;

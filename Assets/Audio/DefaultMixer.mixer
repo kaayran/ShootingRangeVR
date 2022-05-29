@@ -20,26 +20,6 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
---- !u!244 &-7380647513164641183
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_EffectID: c1d4201070134a44ba47051788b7374d
-  m_EffectName: ParamEQ
-  m_MixLevel: aaa4e535170ccae40a0a93a310bbf61a
-  m_Parameters:
-  - m_ParameterName: Center freq
-    m_GUID: 8123d58249b4b7a428ccb1cd54a221c4
-  - m_ParameterName: Octave range
-    m_GUID: b5568c7ea168aaf4abee93ea1199eeae
-  - m_ParameterName: Frequency gain
-    m_GUID: ffaa37e436dd8c94393b4669e7b90dc3
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
 --- !u!244 &-4224740706874316313
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -196,8 +176,6 @@ AudioMixerGroupController:
   m_Send: 00000000000000000000000000000000
   m_Effects:
   - {fileID: 24400004}
-  - {fileID: -7380647513164641183}
-  - {fileID: 7653589778244506866}
   m_UserColorIndex: 0
   m_Mute: 0
   m_Solo: 0
@@ -239,7 +217,7 @@ AudioMixerSnapshotController:
     60cd3268ea0371747aec29580af11411: 1
     c937ee09a10c1994d807bbad8b8bc16d: 0.09000014
     97399b4a4c7fb6c49bb5b13f6d8c5ec4: 33
-    5b4138cbf5a74f64cb2a679c7147f408: -20
+    5b4138cbf5a74f64cb2a679c7147f408: -5
     facfab2c2c0b2094d976b4d03a3ee626: 1250
     791505ecc2939a648b517bac8bacd304: 0.05
     efc415fd7805bfd4f8595d1fc17c1d68: 7267.064
@@ -260,24 +238,6 @@ AudioMixerEffectController:
   m_Parameters:
   - m_ParameterName: Level
     m_GUID: 6cf16b43ef4c88249a074c975ca59e6c
-  m_SendTarget: {fileID: 0}
-  m_EnableWetMix: 0
-  m_Bypass: 0
---- !u!244 &7653589778244506866
-AudioMixerEffectController:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_Name: 
-  m_EffectID: edbff6b59660a814e8b4be8419ca0f7f
-  m_EffectName: Lowpass
-  m_MixLevel: 07abc87b31db1684896349db46429658
-  m_Parameters:
-  - m_ParameterName: Cutoff freq
-    m_GUID: facfab2c2c0b2094d976b4d03a3ee626
-  - m_ParameterName: Resonance
-    m_GUID: e50fcb6c093d5744eaf664215ad0b2f4
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0

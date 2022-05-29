@@ -45,7 +45,7 @@ namespace Ammunition.GrenadeStructure
             _collisionIgnoring = GetComponent<CollisionIgnoring>();
             _attachment = GetComponent<Attachment>();
             _rigidbody = GetComponent<Rigidbody>();
-
+            
             _collisionIgnoring.Init();
             _attachment.Init();
 
@@ -54,7 +54,7 @@ namespace Ammunition.GrenadeStructure
             _fuseExploder = GetComponent<GrenadeFuseExploder>();
             _fuseStriker = GetComponent<GrenadeFuseStriker>();
 
-            _fuseRing.Init();
+            _fuseRing.Init(_fuseAudio);
             _fuseLever.Init(_attachment);
             _fuseStriker.Init(_fuseLever, _fuseRing);
             _fuseExploder.Init(_fuseStriker, _fuseAudio);

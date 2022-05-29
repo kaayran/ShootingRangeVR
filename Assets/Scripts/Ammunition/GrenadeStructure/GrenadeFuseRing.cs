@@ -13,9 +13,11 @@ namespace Ammunition.GrenadeStructure
 
         private Attachment _attachment;
         private Joint _joint;
+        private GrenadeFuseAudio _fuseAudio;
 
-        public void Init()
+        public void Init(GrenadeFuseAudio fuseAudio)
         {
+            _fuseAudio = fuseAudio;
             _attachment = GetComponent<Attachment>();
             _joint = GetComponent<Joint>();
             FreezeJoint();
@@ -51,6 +53,8 @@ namespace Ammunition.GrenadeStructure
         private void OnJointBreak(float breakForce)
         {
             OnDrag?.Invoke();
+
+            _fuseAudio.PlayRingSound();
 
             gameObject.transform.parent = null;
         }
