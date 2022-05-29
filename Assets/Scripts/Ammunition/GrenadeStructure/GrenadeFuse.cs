@@ -57,8 +57,8 @@ namespace Ammunition.GrenadeStructure
             _fuseRing.Init(_fuseAudio);
             _fuseLever.Init(_attachment);
             _fuseStriker.Init(_fuseLever, _fuseRing);
-            _fuseExploder.Init(_fuseStriker, _fuseAudio);
-            _fuseExploderView.Init(_fuseExploder);
+            _fuseExploder.Init(_fuseStriker);
+            _fuseExploderView.Init(_fuseExploder, _fuseAudio);
         }
 
         public void Activate()

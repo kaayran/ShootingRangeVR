@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using StructureComponents;
+using UnityEngine;
 using Random = UnityEngine.Random;
 
 namespace Ammunition.GrenadeStructure
@@ -7,26 +8,20 @@ namespace Ammunition.GrenadeStructure
     {
         [SerializeField] private AudioClip _explosion;
         [SerializeField] private AudioClip _load;
-
-        private AudioSource _grenadeSource;
-
-        private void Start()
+        [SerializeField] private AudioOneShot _audioOneShot;
+        
+        public void PlayLoadSound()
         {
-            _grenadeSource = GetComponent<AudioSource>();
+            var audioOneShot = Instantiate(_audioOneShot, transform.position, transform.rotation);
+            audioOneShot.Init(_load, 0.15f, Random.Range(0.925f, 1.2f));
+            audioOneShot.Play();
         }
 
         public void PlayExplosionSound()
         {
-            _grenadeSource.clip = _explosion;
-            _grenadeSource.pitch = Random.Range(0.925f, 1.2f);
-            _grenadeSource.Play();
-        }
-
-        public void PlayLoadSound()
-        {
-            _grenadeSource.clip = _load;
-            _grenadeSource.pitch = Random.Range(0.925f, 1.2f);
-            _grenadeSource.Play();
+            var audioOneShot = Instantiate(_audioOneShot, transform.position, transform.rotation);
+            audioOneShot.Init(_explosion, 1f, Random.Range(0.925f, 1.2f));
+            audioOneShot.Play();
         }
     }
 }

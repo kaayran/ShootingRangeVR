@@ -96,7 +96,6 @@ namespace WeaponStructure
                 if (Vector3.Distance(transform.position, _endPos.position) < 0.01f)
                 {
                     OnBackward?.Invoke();
-                    _weaponAudio.PlayBackwardSlideSound();
                 }
 
                 yield return null;

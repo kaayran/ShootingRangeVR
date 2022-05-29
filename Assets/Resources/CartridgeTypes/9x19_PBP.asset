@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: 9x19_PBP
   m_EditorClassIdentifier: 
   CartridgeName: 9x19_PBP
-  BulletSpeed: 150
+  BulletSpeed: 115
   Caliber: 9mm

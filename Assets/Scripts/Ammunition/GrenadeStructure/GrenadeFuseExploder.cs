@@ -12,11 +12,9 @@ namespace Ammunition.GrenadeStructure
         [SerializeField] private float _force;
 
         private GrenadeFuseStriker _fuseStriker;
-        private GrenadeFuseAudio _fuseAudio;
 
-        public void Init(GrenadeFuseStriker striker, GrenadeFuseAudio fuseAudio)
+        public void Init(GrenadeFuseStriker striker)
         {
-            _fuseAudio = fuseAudio;
             _fuseStriker = striker;
             _fuseStriker.OnStrike += Strike;
         }
@@ -30,8 +28,6 @@ namespace Ammunition.GrenadeStructure
         private IEnumerator ExplosionDelay(float delay)
         {
             yield return new WaitForSeconds(delay);
-            
-            _fuseAudio.PlayExplosionSound();
 
             var hits = Physics.OverlapSphere(transform.position, _radius);
 
@@ -42,7 +38,7 @@ namespace Ammunition.GrenadeStructure
                     rb.AddExplosionForce(_force, transform.position, _radius);
                 }
             }
-
+            
             OnDetonate?.Invoke();
 
             Destroy(gameObject);

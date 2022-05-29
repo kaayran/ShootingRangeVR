@@ -1,4 +1,5 @@
 ﻿using System;
+using StructureComponents;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -6,53 +7,46 @@ namespace WeaponStructure
 {
     public class WeaponAudio : MonoBehaviour
     {
+        [SerializeField] private AudioOneShot _audioOneShot;
         [SerializeField] private AudioClip _shot;
         [SerializeField] private AudioClip _loadMag;
         [SerializeField] private AudioClip _unloadMag;
         [SerializeField] private AudioClip _backSlide;
         [SerializeField] private AudioClip _forwardSlide;
 
-        private AudioSource _audioSource;
-
-        private void Start()
-        {
-            _audioSource = GetComponent<AudioSource>();
-        }
-
         public void PlayShotSound()
         {
-            _audioSource.volume = 0.75f;
-            _audioSource.clip = _shot;
-            _audioSource.Play();
-            _audioSource.volume = 0.25f;
+            var audioOneShot = Instantiate(_audioOneShot, transform);
+            audioOneShot.Init(_shot, 0.75f, Random.Range(0.9f, 1.2f));
+            audioOneShot.Play();
         }
 
         public void PlayLoadMagazineSound()
         {
-            _audioSource.clip = _loadMag;
-            _audioSource.pitch = Random.Range(0.925f, 1.2f);
-            _audioSource.Play();
+            var audioOneShot = Instantiate(_audioOneShot, transform);
+            audioOneShot.Init(_loadMag, 0.25f, Random.Range(0.9f, 1.2f));
+            audioOneShot.Play();
         }
 
         public void PlayUnloadMagazineSound()
         {
-            _audioSource.clip = _unloadMag;
-            _audioSource.pitch = Random.Range(0.925f, 1.2f);
-            _audioSource.Play();
+            var audioOneShot = Instantiate(_audioOneShot, transform);
+            audioOneShot.Init(_unloadMag, 0.25f, Random.Range(0.9f, 1.2f));
+            audioOneShot.Play();
         }
 
         public void PlayBackwardSlideSound()
         {
-            _audioSource.clip = _backSlide;
-            _audioSource.pitch = Random.Range(0.925f, 1.2f);
-            _audioSource.Play();
+            var audioOneShot = Instantiate(_audioOneShot, transform);
+            audioOneShot.Init(_backSlide, 0.25f, Random.Range(0.9f, 1.2f));
+            audioOneShot.Play();
         }
 
         public void PlayForwardSlideSound()
         {
-            _audioSource.clip = _forwardSlide;
-            _audioSource.pitch = Random.Range(0.925f, 1.2f);
-            _audioSource.Play();
+            var audioOneShot = Instantiate(_audioOneShot, transform);
+            audioOneShot.Init(_forwardSlide, 0.25f, Random.Range(0.9f, 1.2f));
+            audioOneShot.Play();
         }
     }
 }

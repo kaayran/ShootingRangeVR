@@ -461,7 +461,7 @@ MonoBehaviour:
   snapAttachEaseInTime: 0.15
   snapAttachEaseInCompleted: 0
   skeletonPoser: {fileID: 0}
-  handFollowTransform: 0
+  handFollowTransform: 1
   highlightOnHover: 0
   hideHighlight: []
   hoverPriority: 0
@@ -584,7 +584,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08abc410ec7454443803a6df5b3af1ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _suppression: -20
+  _suppression: -40
   _name: Altyn
   _visor: {fileID: 9096695147594992183}
 --- !u!114 &5121776370758347994

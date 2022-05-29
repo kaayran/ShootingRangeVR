@@ -453,8 +453,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38dc5d37d4f8455c9e753c9130882bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _forwardPos: {fileID: 0}
-  _backwardPos: {fileID: 0}
+  _particle: {fileID: 5801631012953815447, guid: ec215cbd39b97bb45b6b63e4369823f1, type: 3}
+  _startPos: {fileID: 0}
+  _endPos: {fileID: 0}
   _center: {fileID: 8899682018306121211}
 --- !u!65 &2114172490378460282
 BoxCollider:

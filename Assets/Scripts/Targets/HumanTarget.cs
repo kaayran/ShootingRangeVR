@@ -1,5 +1,6 @@
 ﻿using System;
 using Interfaces;
+using Particle;
 using Resources;
 using UnityEngine;
 
@@ -9,21 +10,22 @@ namespace Targets
     {
         public event Action<int, int> OnHit;
 
+        [SerializeField] private ParticleComponent _particle;
         [SerializeField] private Transform _startPos;
         [SerializeField] private Transform _endPos;
         [SerializeField] private Transform _center;
-
+        
+        private float _radius;
         private Collider _collider;
         private float _offset;
         private float _distance;
-        private float _radius;
         private float _speed;
         private int _count;
 
         public void Init(float speed)
         {
             _collider = GetComponent<Collider>();
-            _radius = _collider.bounds.extents.x;
+            _radius = Math.Abs(transform.InverseTransformVector(_collider.bounds.extents).x);
             _speed = speed;
             _distance = Vector3.Distance(_startPos.position, _endPos.position);
             _offset = _distance / 1000;
@@ -59,10 +61,12 @@ namespace Targets
             var distance = Vector3.Distance(_center.position, hitPosition);
 
             if (distance > _radius) distance = _radius;
-            if (distance < 0) distance = 0;
 
-            var accuracy = (int) ((_radius - distance) / _radius * 100);
+            var accuracy = (int) ((_radius - distance) / _radius * 100f);
             _count++;
+            
+            var particle = Instantiate(_particle, hitPosition, damageData.normalPoint);
+            particle.Play();
             
             OnHit?.Invoke(accuracy, _count);
         }

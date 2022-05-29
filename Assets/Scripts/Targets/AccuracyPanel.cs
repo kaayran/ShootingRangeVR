@@ -8,7 +8,7 @@ namespace Targets
     {
         private TextMeshProUGUI _label;
         private HumanTarget _target;
-        private int _accuracy = 0;
+        private int _sumAccuracy = 0;
         private int _count = 0;
 
         public void Init(HumanTarget target)
@@ -24,9 +24,11 @@ namespace Targets
         {
             _count = count;
 
-            _accuracy = _count == 1 ? accuracy : (_accuracy + accuracy) / 2;
+            _sumAccuracy += accuracy;
 
-            _label.text = $"[{_accuracy}%]\n[{_count}]";
+            var resultAccuracy = _sumAccuracy / _count;
+
+            _label.text = $"[{resultAccuracy}%]\n[{_count}]";
         }
     }
 }

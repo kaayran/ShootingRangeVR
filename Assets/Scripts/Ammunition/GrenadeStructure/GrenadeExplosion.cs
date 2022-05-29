@@ -14,11 +14,9 @@ namespace Ammunition.GrenadeStructure
         private Container<GrenadeFuse, GrenadeFuseType> _container;
         private GrenadeFuseExploder _exploder;
         private GrenadeFuse _fuse;
-        private GrenadeAudio _grenadeAudio;
 
-        public void Init(Container<GrenadeFuse, GrenadeFuseType> container, GrenadeAudio grenadeAudio)
+        public void Init(Container<GrenadeFuse, GrenadeFuseType> container)
         {
-            _grenadeAudio = grenadeAudio;
             _container = container;
 
             _container.OnEntered += Entered;
@@ -50,10 +48,8 @@ namespace Ammunition.GrenadeStructure
                     rb.AddExplosionForce(_force, transform.position, _radius);
                 }
             }
-
-            OnExplosion?.Invoke();
             
-            _grenadeAudio.PlayExplosionSound();
+            OnExplosion?.Invoke();
 
             _container.OnEntered -= Entered;
             _container.OnPopped -= Popped;

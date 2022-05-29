@@ -36,8 +36,8 @@ namespace Ammunition.GrenadesRealization
             Container.Init();
             Loader.Init(Container, Attachment, _collider, GrenadeAudio);
             Extractor.Init(Container, Attachment, Popper, _collider, GrenadeAudio);
-            Explosion.Init(Container, GrenadeAudio);
-            ExplosionView.Init(Explosion);
+            Explosion.Init(Container);
+            ExplosionView.Init(Explosion, GrenadeAudio);
         }
     }
 }
