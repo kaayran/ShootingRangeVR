@@ -97,7 +97,7 @@ You need to allocate two buttons with simple "Button" specialization. For exampl
 
 ![Controllers Bindings #1](./Images/Instructions/scr1.png)
 
-## Link to latest release of game.
+## Link to latest release of game
 
 <img src="./Assets/Textures/Icon/icon.png" width="128" href='https://github.com/kaayran/ShootingRangeVR/releases/download/beta/Beta_ShootingRangeVR.zip'>
 
