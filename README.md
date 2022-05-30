@@ -99,6 +99,8 @@ You need to allocate two buttons with simple "Button" specialization. For exampl
 
 ## Link to latest release of game.
 
+<img src="./Assets/Textures/Icon/icon.png" width="128" href='https://github.com/kaayran/ShootingRangeVR/releases/download/beta/Beta_ShootingRangeVR.zip'>
+
 Shooting Range VR Beta v1.0:
 
 ---
