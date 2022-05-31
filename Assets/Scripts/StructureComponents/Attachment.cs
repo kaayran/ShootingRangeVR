@@ -41,6 +41,7 @@ namespace StructureComponents
         private void OnDestroy()
         {
             _attachedHand.DetachObject(gameObject);
+            _attachedHand.ResetTemporarySkeletonRangeOfMotion();
         }
     }
 }
