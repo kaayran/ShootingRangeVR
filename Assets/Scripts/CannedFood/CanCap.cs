@@ -8,7 +8,6 @@ namespace CannedFood
     [RequireComponent(typeof(Rigidbody))]
     public class CanCap : MonoBehaviour
     {
-        [SerializeField] private float _force;
         [SerializeField] private int _takesToOpen;
         [SerializeField] private AudioClip _open;
         [SerializeField] private AudioOneShot _audioOneShot;
@@ -18,11 +17,12 @@ namespace CannedFood
         private void Start()
         {
             _rigidbody = GetComponent<Rigidbody>();
+            _rigidbody.isKinematic = true;
         }
 
         private void OnTriggerEnter(Collider other)
         {
-            if (!other.TryGetComponent<KnifeRazor>(out var razor)) return;
+            if (!other.TryGetComponent<KnifeRazor>(out _)) return;
 
             var audioOneShot = Instantiate(_audioOneShot, transform.position, transform.rotation);
             audioOneShot.Init(_open, 0.3f, Random.Range(0.9f, 1.1f));
@@ -30,10 +30,20 @@ namespace CannedFood
             
             if (_takesToOpen-- == 1) return;
             
-            _rigidbody.AddForce(-razor.transform.forward * _force, ForceMode.Impulse);
-            _rigidbody.AddTorque(-razor.transform.right * _force / 5, ForceMode.Impulse);
+            _rigidbody.isKinematic = false;
+            _rigidbody.AddForce(transform.up, ForceMode.Impulse);
+            _rigidbody.AddTorque(ForceTorque(), ForceMode.Impulse);
             
-            Destroy(this);
+            Destroy(this, 5f);
+        }
+        
+        private Vector3 ForceTorque()
+        {
+            var xTorque = Random.Range(0f, 30f);
+            var yTorque = Random.Range(0f, 30f);
+            var zTorque = Random.Range(0f, 30f);
+            var torque = new Vector3(xTorque, yTorque, zTorque);
+            return torque;
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using StructureComponents;
 using UnityEngine;
 
 namespace Ammunition.GrenadeStructure
@@ -41,6 +42,8 @@ namespace Ammunition.GrenadeStructure
             
             OnDetonate?.Invoke();
 
+            TryGetComponent<Attachment>(out var attachment);
+            Destroy(attachment);
             Destroy(gameObject);
         }
     }
