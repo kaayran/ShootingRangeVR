@@ -29,7 +29,7 @@ namespace Ammunition.GrenadeStructure
             particle.Play();
 
             var volume = Instantiate(_volume, transformSelf.position, transformSelf.rotation);
-            Destroy(volume, 5f);
+            Destroy(volume.gameObject, 5f);
             
             _grenadeAudio.PlayExplosionSound();
 
