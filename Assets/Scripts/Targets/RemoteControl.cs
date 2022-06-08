@@ -1,6 +1,4 @@
-﻿using StructureComponents;
-using UnityEngine;
-using Valve.VR;
+﻿using UnityEngine;
 
 namespace Targets
 {

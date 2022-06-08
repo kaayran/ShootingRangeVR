@@ -1,5 +1,4 @@
-﻿using System;
-using Ammunition.CartridgeStructure;
+﻿using Ammunition.CartridgeStructure;
 using UnityEngine;
 
 namespace Ammunition.CartridgesRealization

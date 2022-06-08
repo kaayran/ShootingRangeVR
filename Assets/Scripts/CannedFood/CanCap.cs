@@ -1,5 +1,4 @@
-﻿using System;
-using StructureComponents;
+﻿using StructureComponents;
 using UnityEngine;
 using Random = UnityEngine.Random;
 

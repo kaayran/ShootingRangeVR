@@ -1,7 +1,5 @@
-﻿using System;
-using MagazineStructure;
+﻿using MagazineStructure;
 using StructureComponents;
-using UnityEditor;
 using UnityEngine;
 using Utilities;
 

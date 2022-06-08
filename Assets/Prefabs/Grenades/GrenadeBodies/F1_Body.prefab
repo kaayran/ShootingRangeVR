@@ -169,7 +169,7 @@ MonoBehaviour:
   handFollowTransform: 1
   highlightOnHover: 0
   hideHighlight: []
-  hoverPriority: 1
+  hoverPriority: 0
 --- !u!114 &3069994173194904322
 MonoBehaviour:
   m_ObjectHideFlags: 0

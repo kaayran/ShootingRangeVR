@@ -1,5 +1,4 @@
-﻿using System;
-using StructureComponents;
+﻿using StructureComponents;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -17,7 +16,7 @@ namespace WeaponStructure
         public void PlayShotSound()
         {
             var audioOneShot = Instantiate(_audioOneShot, transform);
-            audioOneShot.Init(_shot, 0.75f, Random.Range(0.9f, 1.2f));
+            audioOneShot.Init(_shot, 0.9f, Random.Range(0.9f, 1.2f));
             audioOneShot.Play();
         }
 
@@ -38,14 +37,14 @@ namespace WeaponStructure
         public void PlayBackwardSlideSound()
         {
             var audioOneShot = Instantiate(_audioOneShot, transform);
-            audioOneShot.Init(_backSlide, 0.25f, Random.Range(0.9f, 1.2f));
+            audioOneShot.Init(_backSlide, 0.15f, Random.Range(0.9f, 1.2f));
             audioOneShot.Play();
         }
 
         public void PlayForwardSlideSound()
         {
             var audioOneShot = Instantiate(_audioOneShot, transform);
-            audioOneShot.Init(_forwardSlide, 0.25f, Random.Range(0.9f, 1.2f));
+            audioOneShot.Init(_forwardSlide, 0.15f, Random.Range(0.9f, 1.2f));
             audioOneShot.Play();
         }
     }
