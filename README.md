@@ -105,5 +105,5 @@ Shooting Range VR Beta v1.0:
 
 ---
 
-- Link - [Shooting Range VR](https://github.com/kaayran/ShootingRangeVR/releases/tag/release)
+- Link - [Shooting Range VR](https://github.com/kaayran/ShootingRangeVR/releases/)
 - [Download](https://github.com/kaayran/ShootingRangeVR/releases/download/release/ShootingRangeVR.7z)
